@@ -1,0 +1,236 @@
+"""鲸鱼娘表情包插件.
+
+LLM 在回复末尾可选地附加隐藏标记 ``[表情:标签]``（标签取自 stickers/index.json）。
+本插件：
+  1. on_llm_response: 从回复文本中剥离标记，把标签暂存在 event extra 中；
+  2. on_decorating_result: 再次兜底剥离所有 Plain 中的标记（防泄漏），
+     并按「概率 + 每会话冷却」决定是否附带一张该标签的随机表情图（本地文件）。
+  3. /表情作者 (/credits): 回复署名与许可说明。
+
+环境变量（可选）：
+  WHALE_STICKER_DIR       表情目录，默认 $ASTRBOT_ROOT/stickers
+  WHALE_STICKER_PROB      有标记时实际发图概率，默认 0.35
+  WHALE_STICKER_COOLDOWN  同一会话两次发图之间至少间隔的回复条数，默认 3
+  WHALE_STICKER_COOLDOWN_SEC  同一会话两次发图之间至少间隔秒数，默认 60
+"""
+
+import json
+import os
+import random
+import re
+import time
+
+from astrbot.api import logger, star
+from astrbot.api.event import AstrMessageEvent, filter
+from astrbot.api.message_components import Image, Plain
+from astrbot.api.provider import LLMResponse
+
+MARKER_RE = re.compile(r"\s*[\[【［(（]\s*表情\s*[:：]\s*([^\]】］)）\n]{1,12})\s*[\]】］)）]\s*")
+EXTRA_KEY = "whale_sticker_tag"
+EXCLUDE = {"preview.png"}  # contact sheet, never sent
+
+# 常见近义词 -> 包内已有标签（按顺序尝试，命中第一个存在的）
+ALIASES: dict[str, list[str]] = {
+    "摸摸": ["摸头", "求摸头"], "摸摸头": ["摸头", "求摸头"], "rua": ["摸头", "求摸头"],
+    "抱抱": ["撒娇", "喜欢", "求摸头"], "求抱抱": ["撒娇", "求摸头"], "贴贴": ["喜欢", "撒娇"],
+    "笑": ["开心", "哈哈"], "大笑": ["哈哈", "笑死"], "笑哭": ["笑死", "哈哈"], "嘿嘿": ["偷笑", "坏笑"],
+    "窃笑": ["偷笑"], "奸笑": ["坏笑", "偷笑"], "高兴": ["开心"], "快乐": ["开心"], "耶耶": ["耶"],
+    "哭": ["哭哭", "难过"], "大哭": ["哭哭"], "呜呜": ["哭哭", "委屈"], "伤心": ["难过", "哭哭"],
+    "惊讶": ["震惊"], "吃惊": ["震惊"], "惊": ["震惊"], "啊这": ["无语", "尴尬"], "汗": ["尴尬", "无语"],
+    "翻白眼": ["白眼"], "鄙视": ["白眼", "斜眼"], "嫌弃": ["白眼", "无语"],
+    "愤怒": ["生气"], "气": ["生气"], "不爽": ["不爽", "生气"], "哼哼": ["哼", "傲娇"],
+    "困": ["犯困"], "好困": ["犯困"], "睡": ["睡觉"], "晚安安": ["晚安"], "早": ["早安"], "早上好": ["早安"],
+    "你好": ["打招呼"], "嗨": ["打招呼"], "在吗": ["打招呼"], "拜拜": ["打招呼"], "再见": ["打招呼"],
+    "饿": ["饿了"], "好饿": ["饿了"], "干饭": ["干饭", "吃饭"], "白饭": ["吃饭"], "吃": ["吃饭"],
+    "钱": ["没钱"], "穷": ["没钱"], "投喂": ["求投喂"],
+    "赞": ["点赞"], "牛": ["点赞", "佩服"], "厉害": ["佩服", "崇拜"], "好棒": ["太棒了", "点赞"],
+    "冲": ["冲鸭", "加油"], "加油鸭": ["加油"], "努力": ["加油"],
+    "谢": ["谢谢"], "感谢": ["谢谢"], "多谢": ["谢谢"],
+    "不行": ["拒绝"], "不要": ["拒绝"], "才不": ["拒绝", "傲娇"], "好": ["好的"], "行": ["好的"], "收到": ["好的"],
+    "嘚瑟": ["嘚瑟", "得意"], "骄傲": ["骄傲", "得意"], "炫耀": ["得意", "嘚瑟"],
+    "害臊": ["害羞"], "羞": ["害羞"], "脸红": ["害羞"], "爱": ["喜欢", "比心"], "喜欢你": ["喜欢", "比心"],
+    "疑问": ["疑惑"], "问号": ["疑惑"], "啥": ["疑惑"], "想想": ["思考"],
+    "累": ["累了", "心累"], "心累了": ["心累"], "躺平": ["摆烂"], "摸鱼中": ["摸鱼"],
+    "怕": ["害怕"], "吓": ["吓一跳", "害怕"], "晕了": ["晕"], "懵了": ["懵"],
+    "期待": ["期待"], "兴奋": ["兴奋"], "等": ["等待"], "等你": ["等待"],
+    "求夸": ["求夸奖"], "夸我": ["求夸奖"], "卖萌": ["卖萌"], "可爱": ["卖萌"],
+}
+
+
+def _norm(t: str) -> str:
+    return re.sub(r"[\s~～!！?？。，,、.…·]+", "", t or "").strip()
+
+
+def _default_dir() -> str:
+    root = os.environ.get("ASTRBOT_ROOT") or os.getcwd()
+    return os.environ.get("WHALE_STICKER_DIR") or os.path.join(root, "stickers")
+
+
+def strip_markers(text: str) -> tuple[str, list[str]]:
+    tags = [m.strip() for m in MARKER_RE.findall(text or "")]
+    cleaned = MARKER_RE.sub(" ", text or "").strip() if tags else (text or "")
+    cleaned = re.sub(r"[ \t]{2,}", " ", cleaned)
+    return cleaned, tags
+
+
+class Main(star.Star):
+    def __init__(self, context: star.Context, config: dict | None = None) -> None:
+        super().__init__(context)
+        self.dir = _default_dir()
+        self.prob = float(os.environ.get("WHALE_STICKER_PROB", "0.35"))
+        self.cooldown_n = int(os.environ.get("WHALE_STICKER_COOLDOWN", "3"))
+        self.cooldown_s = float(os.environ.get("WHALE_STICKER_COOLDOWN_SEC", "60"))
+        self.by_tag: dict[str, list[str]] = {}
+        self._resolve_cache: dict[str, str | None] = {}
+        self.credits = ""
+        # session -> [replies since last sticker, last sticker ts]
+        self.state: dict[str, list] = {}
+        self._load()
+
+    def _load(self) -> None:
+        try:
+            with open(os.path.join(self.dir, "index.json"), encoding="utf-8") as f:
+                idx = json.load(f)
+            for s in idx.get("stickers", []):
+                p = os.path.join(self.dir, s["file"])
+                if os.path.basename(p) in EXCLUDE:
+                    continue
+                if os.path.isfile(p):
+                    for t in s.get("tags", []):
+                        self.by_tag.setdefault(t, []).append(p)
+            logger.info(f"[whale_stickers] loaded {sum(len(v) for v in self.by_tag.values())} sticker-tag entries, {len(self.by_tag)} tags from {self.dir}")
+        except Exception as e:
+            logger.error(f"[whale_stickers] failed to load index.json: {e}")
+        self.credits = self._build_credits()
+
+    def resolve_tag(self, tag: str) -> str | None:
+        """Map whatever the model wrote to an existing tag: exact -> alias -> substring -> char overlap."""
+        raw = _norm(tag)
+        if not raw:
+            return None
+        if raw in self._resolve_cache:
+            return self._resolve_cache[raw]
+        tags = self.by_tag
+        hit: str | None = None
+        if raw in tags:
+            hit = raw
+        if hit is None:
+            for a in ALIASES.get(raw, []):
+                if a in tags:
+                    hit = a
+                    break
+        if hit is None:
+            # substring either way, prefer the tag with most stickers then shortest
+            subs = [t for t in tags if t in raw or raw in t]
+            if subs:
+                hit = sorted(subs, key=lambda t: (-len(tags[t]), abs(len(t) - len(raw))))[0]
+        if hit is None:
+            # alias keys contained in the raw text (e.g. "想要抱抱" -> 抱抱)
+            for k, vs in ALIASES.items():
+                if len(k) >= 2 and k in raw:
+                    hit = next((a for a in vs if a in tags), None)
+                    if hit:
+                        break
+        if hit is None:
+            # closest by shared characters (needs at least one shared char)
+            best, score = None, 0.0
+            rs = set(raw)
+            for t in tags:
+                common = len(rs & set(t))
+                if common:
+                    sc = common / max(len(rs | set(t)), 1)
+                    if sc > score:
+                        best, score = t, sc
+            hit = best if score >= 0.34 else None
+        self._resolve_cache[raw] = hit
+        if hit != raw:
+            logger.info(f"[whale_stickers] tag {tag!r} -> {hit!r}")
+        return hit
+
+    def _build_credits(self) -> str:
+        srcs = []
+        try:
+            with open(os.path.join(self.dir, "CREDITS.md"), encoding="utf-8") as f:
+                md = f.read()
+            for m in re.finditer(r"^### (\S+).*?\n(?:.*\n)*?- 作者：(.+)", md, re.M):
+                who, url = m.group(2).strip(), m.group(1).strip()
+                who = re.sub(r"^作者[:：]", "", who)
+                srcs.append(f"· {who}" if url in who else f"· {who}（{url}）")
+        except Exception:
+            pass
+        head = (
+            "鲸鱼娘表情包署名\n"
+            "角色原作：上善无形（OC「溟月」）；DeepSeek 女仆装二设：ZipZipPipe。\n"
+            "整套表情按 CC BY-NC-SA 4.0 使用：须署名、仅限非商业、改编作品相同方式共享。"
+            "非 DeepSeek 官方素材，与深度求索公司无关。\n素材来源：\n"
+        )
+        tail = "\n许可：https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans\n权利人如需移除请联系机器人维护者。"
+        return head + "\n".join(srcs) + tail
+
+    # 1) strip marker from the raw LLM response (keeps stored history clean too)
+    @filter.on_llm_response()
+    async def on_llm_resp(self, event: AstrMessageEvent, resp: LLMResponse) -> None:
+        try:
+            text = resp.completion_text or ""
+            cleaned, tags = strip_markers(text)
+            if tags:
+                resp.completion_text = cleaned
+                event.set_extra(EXTRA_KEY, tags[-1])
+        except Exception as e:
+            logger.error(f"[whale_stickers] on_llm_response: {e}")
+
+    # 2) final safety strip + maybe attach sticker
+    @filter.on_decorating_result()
+    async def on_decorate(self, event: AstrMessageEvent) -> None:
+        result = event.get_result()
+        if result is None or not result.chain:
+            return
+        found: list[str] = []
+        new_chain = []
+        for comp in result.chain:
+            if isinstance(comp, Plain):
+                cleaned, tags = strip_markers(comp.text)
+                found += tags
+                if tags:
+                    if not cleaned.strip():
+                        continue
+                    comp = Plain(cleaned)
+            new_chain.append(comp)
+        result.chain = new_chain
+        tag = event.get_extra(EXTRA_KEY) or (found[-1] if found else None)
+        if not result.is_llm_result():
+            return
+        sid = event.unified_msg_origin
+        st = self.state.setdefault(sid, [999, 0.0, None])
+        st[0] += 1
+        if not tag:
+            return
+        resolved = self.resolve_tag(tag)
+        files = self.by_tag.get(resolved) if resolved else None
+        if not files:
+            logger.info(f"[whale_stickers] unknown tag {tag!r}, ignored")
+            return
+        if any(isinstance(c, Image) for c in result.chain):
+            return
+        if st[0] < self.cooldown_n or time.time() - st[1] < self.cooldown_s:
+            logger.info(f"[whale_stickers] tag={tag} skipped (cooldown)")
+            return
+        if random.random() >= self.prob:
+            logger.info(f"[whale_stickers] tag={tag} skipped (prob)")
+            return
+        tag = resolved
+        last = st[2] if len(st) > 2 else None
+        pool = [f for f in files if f != last] or files
+        path = random.choice(pool)
+        result.chain.append(Image.fromFileSystem(path))
+        st[0], st[1] = 0, time.time()
+        if len(st) > 2:
+            st[2] = path
+        else:
+            st.append(path)
+        logger.info(f"[whale_stickers] tag={tag} attached {os.path.basename(path)}")
+
+    @filter.command("表情作者", alias={"credits", "表情署名"})
+    async def credits_cmd(self, event: AstrMessageEvent):
+        """查看鲸鱼娘表情包的作者署名与许可"""
+        yield event.plain_result(self.credits)

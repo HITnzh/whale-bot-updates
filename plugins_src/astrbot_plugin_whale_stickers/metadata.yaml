@@ -1,0 +1,4 @@
+name: astrbot_plugin_whale_stickers
+desc: 鲸鱼娘表情包：解析 LLM 回复中的 [表情:标签] 标记，去掉标记并按概率+冷却附带一张对应表情图；/表情作者 查看署名。
+author: qq-bot
+version: 0.2.0
