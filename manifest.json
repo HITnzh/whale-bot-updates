@@ -1,7 +1,7 @@
 {
- "version": 1792851213,
- "ref": "ead1a79afbe2faedac2913a8a6ed0243705c665d",
- "generated": "2026-10-24T22:13:33+0800",
+ "version": 1792859019,
+ "ref": "2c56b5070e8ba43a494d55e9337fface48b7beb0",
+ "generated": "2026-10-25T00:23:39+0800",
  "note": "WhaleBot content update. Stickers CC BY-NC-SA 4.0, see stickers/CREDITS.md",
  "files": [
   {
@@ -606,8 +606,8 @@
   },
   {
    "path": "persona/system_prompt.txt",
-   "sha256": "7ed035b53035d8fcf0c3c6242a613ab2ec8bf6eb755ad7df02760ab9422f51d3",
-   "size": 5585
+   "sha256": "a4c56c8fc6c2ddb7585b75f6b3a63d06ffbff4f7f0eea7ca17d2d7209afb7e3b",
+   "size": 5881
   },
   {
    "path": "persona/whale_girl_persona.md",
@@ -2008,6 +2008,31 @@
    "path": "plugins_src/astrbot_plugin_whale_bubble/metadata.yaml",
    "sha256": "f6847c7e82f396d8c4369225da84ab6200002ff6c1d516e524d4359149fdbeb6",
    "size": 278
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_sing/README.md",
+   "sha256": "f796b6da576de42085b2a5b151466d6cc5c8af1b793b62d77b4330bcc26b59d1",
+   "size": 283
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_sing/_conf_schema.json",
+   "sha256": "62bc612c99c6ab02c61c66c42009c226023463dafda60208d52c5f4150b194c3",
+   "size": 2303
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_sing/main.py",
+   "sha256": "eeb79b3acdd0240656205b55698c703f4b8af7f744852a1598e1f659ed8e85dc",
+   "size": 12725
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_sing/metadata.yaml",
+   "sha256": "22d927138d54e6a9fbe6a497642ac3b36e2aea0a71d83f1f62d1139152d6a8e4",
+   "size": 275
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_sing/requirements.txt",
+   "sha256": "bb9348c705fb4bf0f781aad6939f0c24ed86932c71438b8ac68d8ca64a8ebf4d",
+   "size": 15
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_stickers/main.py",
