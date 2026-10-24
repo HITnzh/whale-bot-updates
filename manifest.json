@@ -1,13 +1,13 @@
 {
- "version": 1792765047,
- "ref": "63e60cd81408e00af8638c6d8476372f0a2c129f",
- "generated": "2026-10-23T22:17:27+0800",
+ "version": 1792826675,
+ "ref": "6dfcba0763ae3fffb3d13406d8bf9847f89382e0",
+ "generated": "2026-10-24T15:24:35+0800",
  "note": "WhaleBot content update. Stickers CC BY-NC-SA 4.0, see stickers/CREDITS.md",
  "files": [
   {
    "path": "configure.py",
-   "sha256": "ef395665d34d2ab709bd912ebc1b68bcf95ca4b7becfa307c701becc05d6b20c",
-   "size": 7288
+   "sha256": "09acb0a452ba4b476091a88fa2c0510dfdc01815cec3d55d5391a651fc34b532",
+   "size": 12556
   },
   {
    "path": "stickers/CREDITS.md",
@@ -595,6 +595,11 @@
    "size": 1464
   },
   {
+   "path": "persona/douyin_card_raw.md",
+   "sha256": "c31664bd5a62f4a4031ec3bb0b792e384bda54fc40168666d9db88b92497db80",
+   "size": 26043
+  },
+  {
    "path": "persona/safety_addendum.txt",
    "sha256": "368cbfe52dc279dce2ca2847fb039565b5dc474625e2a4c6589784498ca988bd",
    "size": 496
@@ -608,6 +613,1336 @@
    "path": "persona/whale_girl_persona.md",
    "sha256": "fed0c397f02feee57e1f442327faccad120f4c2240df3b4aa90df5e25aee6f73",
    "size": 6986
+  },
+  {
+   "path": "persona/插件安装说明.md",
+   "sha256": "265256328dd4487d71f0b29a97838e13e1473adfdd2b8408bd4d7f5efb23cf15",
+   "size": 3661
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_identity/README.md",
+   "sha256": "767504e3697766714b3a15e4890c3f20bc2c3c973bf0fd7e047784c9856a09f9",
+   "size": 4583
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_identity/_conf_schema.json",
+   "sha256": "1238a62254e24e82d1d8c15ad30c17b646e5cf586b3d57e2e6d13caf96cef6dd",
+   "size": 850
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_identity/main.py",
+   "sha256": "e0a8a9eec18f13469d9072538c3e8f3ce1b3e5ef14a9f19b4c13f2585b21c0fc",
+   "size": 19921
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_identity/metadata.yaml",
+   "sha256": "802bd753da0b9e34ea09aa4ecfa928f9b74e7f0618347a0913c6252024a54719",
+   "size": 290
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/CHANGELOG.md",
+   "sha256": "a41c4411d08cb29a201c86c55d1f8cad5d684035b8026fd0cc8449cc5ac3d201",
+   "size": 90617
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/LICENSE",
+   "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
+   "size": 34523
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/README.md",
+   "sha256": "96c8c3c5877f94a8b71ca62c90beb319bd2fb8f80ec04459ecf1bc634c08e33c",
+   "size": 4956
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/_conf_schema.json",
+   "sha256": "cce2420d74722e95e59e3a4e85db6375fc25875b3a781671ee00a7dc61301348",
+   "size": 48791
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/logo.png",
+   "sha256": "4aba3d201b2fca4267e971d087b1c5b22243395b6b32dc9952128d79d53ca7b3",
+   "size": 106994
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/main.py",
+   "sha256": "e93436803a3ca510dec2248a24659efca34e166e6c177681356815ccb59e2eb5",
+   "size": 24016
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/metadata.yaml",
+   "sha256": "6f002f35d0e3dc8cbb282cc95256562aeb76677359fcd1362ecd7590ad296939",
+   "size": 352
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/requirements.txt",
+   "sha256": "672f1074e7bf001d61613a8eece50c0cd1fa45f7d5151c557f127fd1ff9e3ea4",
+   "size": 76
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/__init__.py",
+   "sha256": "6fb9e91fbc7f6a48eab94356fc4c5e464d55b4c58e7f44f228866c5b307c2d3d",
+   "size": 1531
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/command_handler.py",
+   "sha256": "93cf841cea9652b1ffb31e3051e1612a1006fa405b9e9df3a8182b4cd8c09c66",
+   "size": 33173
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/event_handler.py",
+   "sha256": "5f9b31413b217b31d0298b580b447897e39d34592a68df18c0b9bdb2c315e42c",
+   "size": 5319
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/faiss_async_persist.py",
+   "sha256": "04ba92e5f367b46b7c38fd84bfdb54f99c2c89c28ac2891cda22259bbd2d3951",
+   "size": 13166
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/i18n_backend.py",
+   "sha256": "882415e9434436cfc0885920ce7b9841b560a2cf324bf8022cab6871bab97d74",
+   "size": 2443
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/memory_scope.py",
+   "sha256": "35720e27f868c1fffaeba5e56b87d6eb29154193246653f9a84d025e812eaece",
+   "size": 6183
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/memory_source.py",
+   "sha256": "c89275e9e17f36722bcebb5e5ff028db371eb86f499d83b6069a8603b9a328a2",
+   "size": 2440
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/memory_transfer.py",
+   "sha256": "9ef99e2a3b3b7fd42fa65049f068887df904678b1c66854f424c9e3995b7547f",
+   "size": 14738
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/page_api.py",
+   "sha256": "97b06fd57d7be0730db03ad3fc91af9564d049b910e47ea916a570e1307d262c",
+   "size": 12421
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/passive_group_capture.py",
+   "sha256": "bb60b8be01be4695ca436ab9f3e1be42ac73bda528fd3247a46caa008715ea22",
+   "size": 5029
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/plugin_initializer.py",
+   "sha256": "78f6722eb8550f01b2d2ceea3dc5d21c50601d7b5e16b572c713854c43818733",
+   "size": 16696
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/plugin_initializer_faiss.py",
+   "sha256": "a1aab6e9a26a8c5bbd4a08853b68883e72ece03b72c49bf063885ceb8c389a2b",
+   "size": 15138
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/plugin_initializer_finalize.py",
+   "sha256": "efcb804084e8c7dee56732de24ef5582e175d08adb069f9d13a9bfa665fa6069",
+   "size": 31591
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/base/__init__.py",
+   "sha256": "219f4d09f3bfc111d222751b05116dbab5f1baba712815affbe74484b0499291",
+   "size": 419
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/base/config_manager.py",
+   "sha256": "c7c98f0ac72c83a7bc1537280176d3ac042b0bfc2ba64c8620f20195ed9a1366",
+   "size": 7746
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/base/config_validator.py",
+   "sha256": "7c20f3708f36653ad62b692729db62a97d172aa3a4e48ebcd051649c8fc61b28",
+   "size": 26871
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/base/constants.py",
+   "sha256": "2a58aa4feee4b7532a06a8a61a8f4d257b6db0e25f79624344b5c434930e1c6e",
+   "size": 731
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/base/exceptions.py",
+   "sha256": "359c8af95d0573942cbf4d30ddb34e842d5c030d87f85e2a3549834719be720b",
+   "size": 843
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/event_handler_modules/__init__.py",
+   "sha256": "954037b053a6c95f4494e7ada5dd96562b3a1ac2eb6cdc1e44232577123cc2c4",
+   "size": 289
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/event_handler_modules/group_capture.py",
+   "sha256": "48934b904d19c92fcfbc373b8d08e39261a4578d6bacefb0955575b43579dbf7",
+   "size": 3555
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/event_handler_modules/memory_recall.py",
+   "sha256": "107afe47fa527411e9d6bcc70b4de90081d255b4fb2900f8cb9195125fb1940a",
+   "size": 26994
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/event_handler_modules/memory_reflection.py",
+   "sha256": "e3590aefc204722e05db22994da0af7696e1c63796575e59083a3435e6ca880d",
+   "size": 41829
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/event_handler_modules/message_utils.py",
+   "sha256": "0a95b5a0b71f06b54f0dfbc13751c3089a0f010159d15a6f828b0c95612ae64c",
+   "size": 10257
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/i18n/en.json",
+   "sha256": "dfb4b58cabb63b7c7b7d794ce306b803f9d6fd6a82202b5fbf0f478ed6bced5c",
+   "size": 12344
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/i18n/ja.json",
+   "sha256": "fb5c5a7bde501cf133e3b775577bfd4efc71d366494403bad305a710cc33bafc",
+   "size": 15984
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/i18n/ru.json",
+   "sha256": "c49b1ac22a604d198a865c5b6b32537a12e931c351cb03ae9d90d71594c3e474",
+   "size": 19054
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/i18n/zh.json",
+   "sha256": "89829f3e13226a119f17509128dd64116a5537a811190f1ab944deec58ae5de1",
+   "size": 11561
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/managers/__init__.py",
+   "sha256": "7609fe92ea40ef16f4223019f918905ae6880c5e880a4b420349247eb24497b2",
+   "size": 376
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/managers/agentic_recall_types.py",
+   "sha256": "c5a160d539792719852781060735d64fd78da64848d8c5750ebc1fbf6bc35028",
+   "size": 3615
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/managers/atom_lifecycle_manager.py",
+   "sha256": "a639d34b8f1ef7dfd891aed8ea68e4f937e2a9e684d98b2d14eb6bde681ea479",
+   "size": 4821
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/managers/backup_manager.py",
+   "sha256": "1b1ed0075d0ee85d0f5c2b955f0a214a6567b03ee04873422564fd9f741afeb0",
+   "size": 5484
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/managers/consolidation_manager.py",
+   "sha256": "9e2b4d5ed486c6e07d0419477f9a3e451bbb9953e840c57ca52826b39cd348c0",
+   "size": 10262
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/managers/conversation_manager.py",
+   "sha256": "9e56db1ac1b4b1559da2fd7299562bbf6641f6e90adafab36dd0e27cfeeb9db2",
+   "size": 45120
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/managers/graph_memory_manager.py",
+   "sha256": "cd51306ebdda7afebe155578eb8e4dec7706b0bd8735248283238c87f22dc88e",
+   "size": 14137
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/managers/memory_engine.py",
+   "sha256": "96b03746f97d7b404015d00211bc4835be86f8fada5ebfc83b479ed10fbd1a67",
+   "size": 17006
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/managers/memory_engine_agentic.py",
+   "sha256": "42b55735734665a6ddcb404644ca4aaf4d36cfc760f30dc631ec15cb7028a40c",
+   "size": 11277
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/managers/memory_engine_batch.py",
+   "sha256": "0826efcdc95b33db1aec22c4e3456aa27a5406b4ebd0d5a551ba64b4ec4930e2",
+   "size": 31016
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/managers/memory_engine_crud.py",
+   "sha256": "fcad3ade046dc70b73b7d2fbd8837ed2eebe6070335e173b846b3c05d324e85e",
+   "size": 61384
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/managers/memory_engine_evidence.py",
+   "sha256": "63ac201de1ddcaed227173e99ba0e669ed7089f52154ae81d9a79895a296a094",
+   "size": 4778
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/managers/memory_engine_participant.py",
+   "sha256": "4e42568ae2d06ed8b619a67e4d32779c830357550a77a5e017fbc2c46374107e",
+   "size": 9897
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/managers/memory_engine_write_ops.py",
+   "sha256": "f1e62ceb4f55e9d17c9ba41ecb391e579f10f0c4ad8aa276494bc807f072fc7a",
+   "size": 11859
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/managers/scope_migrator.py",
+   "sha256": "39ebd001ce013d6e92a891499b8bf3eed4a9f71e9702fea2339f644b7fa528cd",
+   "size": 12573
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/models/__init__.py",
+   "sha256": "fe5358f8e62dae1882463d104bbc8331527bcf932d987b883d626d7d381edbe3",
+   "size": 472
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/models/conversation_models.py",
+   "sha256": "21822eef50498965f03656f62a6a44ecba1a5cf7b4f20054873bef12b63a05d0",
+   "size": 11458
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/models/default_stopwords.py",
+   "sha256": "b843b3f4317bf73037a4f3f837dc21d924f8237cc5e96fa910a227ee2e313a58",
+   "size": 4196
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/models/graph_models.py",
+   "sha256": "3818a3df48dfe5395af08394f57dacc1b3833908ca4ff50c94782203f656917d",
+   "size": 1922
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/models/memory_atom.py",
+   "sha256": "74e1060b8c16a7df7921fb03d29e7761dea6429d063a2c6f5a1ad5fcac67abb8",
+   "size": 4522
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/page_api_modules/__init__.py",
+   "sha256": "ab3e88bf9d368a32ea8540533e793428c2bc5da3db8d6d19a9b4fbecaf9ffb6e",
+   "size": 629
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/page_api_modules/backup_handler.py",
+   "sha256": "fcfca377b4eb16f5b0c20ca2a908f1e830dca714a245d10654e063a2700f2fbb",
+   "size": 932
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/page_api_modules/consolidation_handler.py",
+   "sha256": "d0ec452d058ef25edbaf5a414b10ac55e5e5aa70d9b145a5b06f14dde4d0c36d",
+   "size": 1625
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/page_api_modules/graph_handler.py",
+   "sha256": "1fdeb97eda4d0b53c0f476f6ddf13a9cce3d96f09101034a801ae364baf111b2",
+   "size": 14333
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/page_api_modules/memory_handler.py",
+   "sha256": "bfbcff6dfa7fc1645ca943b3125ef4bafd6eb3b16e82ca97aabd5a4818e36c5d",
+   "size": 10700
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/page_api_modules/memory_handler_io.py",
+   "sha256": "e1e7aeec0aa7f6939889cc12d82c407eaeee74139b5dd3babe1f981fd43931f6",
+   "size": 8664
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/page_api_modules/memory_handler_update.py",
+   "sha256": "9c3aa80a9fec5f3b1fbea9036ecc0c1b3a2b9eddc956bc1875313764a7da62cc",
+   "size": 15419
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/page_api_modules/prompt_handler.py",
+   "sha256": "de8e79658350a5f3fda324ac331dc1232bcd952910bc05935d59e4f69ba576b7",
+   "size": 6316
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/page_api_modules/recall_handler.py",
+   "sha256": "9b0cae7cece287440a5bd23144c85d940a4179061401c99a41d666a7a94e26eb",
+   "size": 3352
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/page_api_modules/settings_handler.py",
+   "sha256": "e3d31b3f3ec1f974b328a487313ca26222a5923481ccaccd2f63d74b36f095f9",
+   "size": 8542
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/page_api_modules/stats_handler.py",
+   "sha256": "78dec9e45f95d35de35134155002a1ef8218623fa0ace56771aee6e37b247c15",
+   "size": 3482
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/page_api_modules/utils.py",
+   "sha256": "661445d65751dfcdfabc8a89917027089f1c23882132ac0b72239fec85b9f0fa",
+   "size": 9654
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/processors/__init__.py",
+   "sha256": "e73a4d79498cdfc432a69a952c234ee0612579eec2f20e81683c55292faeabab",
+   "size": 439
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/processors/atom_classifier.py",
+   "sha256": "8c9e1867b0c4840357529dc2ef866a7d7b89b055aa936e34b2eb78ecd9915090",
+   "size": 6942
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/processors/chatroom_parser.py",
+   "sha256": "2062b1002f049d8c4f4b66dc3313cdb2819996602215cfb467511c59c1153c72",
+   "size": 2587
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/processors/entity_resolver.py",
+   "sha256": "9029a76dab3afb3f1618b7af1c6fd61f95b483e4db058dcfb1af7f732a518e06",
+   "size": 1311
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/processors/graph_extractor.py",
+   "sha256": "27c098ebb5ab738ace74aaf190c7ea45a752bbb49b7c34c6f6b0b223b5cf684a",
+   "size": 19245
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/processors/memory_processor.py",
+   "sha256": "0e51ee3f6a1cb1757fb634fa74be11053efe8b2bc46a6702e98a8d683f4e4eba",
+   "size": 26640
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/processors/memory_processor_build.py",
+   "sha256": "52dcfe07c82296ddbd56ff81212743b8293dada0982f9a0e52fddae1e099aeb6",
+   "size": 7511
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/processors/memory_processor_parse.py",
+   "sha256": "8ce2ffc3d5af5492a9ee364f2603359a9492d6bdbd8d14970517fa7fd683d51f",
+   "size": 14927
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/processors/text_processor.py",
+   "sha256": "913072e75ae76f2def232c85d18574a5358a90492be133823b5955f4b45ddee6",
+   "size": 14748
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/prompts/__init__.py",
+   "sha256": "94a5b921d391c13f7f35355827f293ecaf8f66e401a616f25337db068ec23a33",
+   "size": 373
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/prompts/agent_recall_policy.txt",
+   "sha256": "71ecb2a6c1490b6c3b46c1ddf7d3c7818528f3dabe39cbbc11599a66629e7ee1",
+   "size": 2111
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/prompts/group_chat_prompt.txt",
+   "sha256": "9e24e3161fff8e976edecc4f8fe9b818c3ab2f7cc7cd0cf1e6f941b507146dfa",
+   "size": 6764
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/prompts/memory_injection_footer.txt",
+   "sha256": "a1c1a2144f2fcdfaf2a2aae9910aa5a44f53eaa9ce7ceab3a3a6d2c2ad5f5dd7",
+   "size": 113
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/prompts/memory_injection_header.txt",
+   "sha256": "dac81d87163be39b69dca87223d7ba094e0911708b422fe3473da85df6dfa26d",
+   "size": 602
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/prompts/memory_system_prompt_base.txt",
+   "sha256": "dcdea141eeac14b20d7fc3c87f4eb810e9e849b8cf5f0fa9b4ceeb37c2540761",
+   "size": 420
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/prompts/memory_system_prompt_with_persona.txt",
+   "sha256": "91703b349213ebfeba4e461c1c643cd1f953a37bc44a179d9014a24ab6614956",
+   "size": 983
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/prompts/private_chat_prompt.txt",
+   "sha256": "8eb6c22734c8662f3596a5331f761f4dfaf05be04c0dcc7bee7fd2af58d570fa",
+   "size": 5376
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/prompts/prompt_manager.py",
+   "sha256": "a20bd276bd76c10b6fa3f4211508bd68ab5ea2e7425b3bc5cea1480b1114cd21",
+   "size": 18571
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/retrieval/__init__.py",
+   "sha256": "dea4aa1f402802530d9ee4145cfcb9770c91a62e11fd83a87ec4d3286d8b29ec",
+   "size": 763
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/retrieval/atom_retriever.py",
+   "sha256": "f4971dcaac86fbbd90b66156462bbcbc144b5943a25a98e843e4d4af8bfc6d05",
+   "size": 3339
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/retrieval/bm25_retriever.py",
+   "sha256": "47dfa802e8cf5b4729be2760e0537818b4a350c5230e6e7f77cafb6744ac44f1",
+   "size": 10828
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/retrieval/dual_route_retriever.py",
+   "sha256": "20318dc478b5ad6672cfb643e0294f6a29d37a7d8cf6f61e2ef75d9db69b1b86",
+   "size": 12081
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/retrieval/graph_keyword_retriever.py",
+   "sha256": "86d778d12ae3dfe8329e3f17ec11d5fa4ed64418eae364cd0fdff6772036c1b4",
+   "size": 6006
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/retrieval/graph_retriever.py",
+   "sha256": "cc3671e5d840e31629a28d11f24b51e1c03558a464073645df8ad1505532e634",
+   "size": 7277
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/retrieval/graph_vector_retriever.py",
+   "sha256": "68f3b1e6a708eb5167e198d7c669b84607fef02a8a53f9d3e8cad422d7999914",
+   "size": 8985
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/retrieval/hybrid_retriever.py",
+   "sha256": "cbe5972d32eb4295ec9a92c9ce10163b99a4662ea765ae76828b96c793f0e99b",
+   "size": 21099
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/retrieval/memory_index_writer.py",
+   "sha256": "081d404d79a14632c875a4d1f54747e3dc9dbedd170ec8fb6a353c0a536248e9",
+   "size": 7655
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/retrieval/recall_diagnostics.py",
+   "sha256": "775e65a088d4bdaefbd702c255c8b25020716569790fddf9d7a94de01b4d92ad",
+   "size": 1207
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/retrieval/route_execution.py",
+   "sha256": "1f57c1b7a98c8c416a15ad18af7f92a255652dd6bf52bd87c92fb3256a324b68",
+   "size": 749
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/retrieval/rrf_fusion.py",
+   "sha256": "c95411488d19d9566e7430cf3b769f196e47c476782527bd840301e0ce8b0f9f",
+   "size": 9798
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/retrieval/vector_retriever.py",
+   "sha256": "c10511f2f302f8f31ae2e8f98e54f48d17025543101daf276d26a0f5e315f23c",
+   "size": 16863
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/retrieval/vector_search.py",
+   "sha256": "30993da54cc7e0442171bb315df5d5fd564666a7f825834ca830514431fa7604",
+   "size": 4599
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/schedulers/__init__.py",
+   "sha256": "72c925caeafcb916f1cc4e7726ad0b139ece6407803658a3b2139675d2456b4f",
+   "size": 97
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/schedulers/decay_scheduler.py",
+   "sha256": "31240a2f8351f871b519bbb48590f9043ae48647aca0b569cddc87c019899363",
+   "size": 12932
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/tools/__init__.py",
+   "sha256": "4d42b4258dc674dbf11f5659432b3246a2b4ef54f715b361835fca32316673ac",
+   "size": 429
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/tools/agentic_recall_budget.py",
+   "sha256": "113de839c537042782b2f4b20ec42ebbd6aefd62a849b91077fcd739b06cb0c7",
+   "size": 4447
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/tools/agentic_recall_common.py",
+   "sha256": "7009643e73b06ef72e78cff1b071b895ea09d7e540537e4221ae22c2f56e6da8",
+   "size": 4981
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/tools/memory_agentic_search_tool.py",
+   "sha256": "005ab4ab27f98e94cbeb0969ca18e8b31d526c7a239a6707df7de24db8131aba",
+   "size": 13927
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/tools/memory_evidence_output.py",
+   "sha256": "1ad50a83aa58d4451636566c00cc59a97d56fc03963eab0aac3e31d5971126d5",
+   "size": 4519
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/tools/memory_evidence_reader.py",
+   "sha256": "5e6c5a658beccd6a17b161dedb63dc04332a5dd7b9f53793a41af0c32e173ec0",
+   "size": 3481
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/tools/memory_forget_tool.py",
+   "sha256": "ea6bf3f93dcd630e88e2c16dd9187e7718087ffef530dfedd1c0fe89601aa94b",
+   "size": 9868
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/tools/memory_memorize_tool.py",
+   "sha256": "fefc495fea9374977169ed6d9e5ecf20f5f4a0dfb01d65793801d6fff93c6896",
+   "size": 6826
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/tools/memory_read_tool.py",
+   "sha256": "2ae50d5861039d40bafe749ec461bd75cbc866a77e46e8177cc35c60b88f754c",
+   "size": 6665
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/tools/memory_search_output.py",
+   "sha256": "2f203eb39a225641d432fd14e44c84b7eaec119cfc31f5725d419d20d195f215",
+   "size": 6896
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/tools/memory_search_tool.py",
+   "sha256": "7835eea67a9a9d5f312734a2c088d6d8ddd53060a9689e2c3a686c67732114f0",
+   "size": 7707
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/utils/__init__.py",
+   "sha256": "e20961c76aafafcafaaeee9c3f107220dd820a87cf66c19925ea35c4e6087d00",
+   "size": 4898
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/utils/faiss_path_bridge.py",
+   "sha256": "8b37fad4fd4f2a4d72b39a625991a9033324b158f9dea82beb464344f8ef12ab",
+   "size": 4812
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/utils/formatting.py",
+   "sha256": "3e24e0dcb3c11fa12bff52c3e984f2b63198da42332e06c46c8947e50a91e30b",
+   "size": 12163
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/utils/history_alignment.py",
+   "sha256": "124233ca43a122c6fe43d9623378d6c84980a034ab2c6f3b48f647b37e3e61a7",
+   "size": 6695
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/utils/injection_adapter.py",
+   "sha256": "37d5ad2d1d92b314c77d121d555135cdb936061b6fcec611eb928382bc2d7df1",
+   "size": 2933
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/utils/json_utils.py",
+   "sha256": "a0dc50a0433d4e43755e92e84a122f61cb2ec0460117453b4b2e74f56c4bdcd7",
+   "size": 942
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/utils/number_utils.py",
+   "sha256": "6d097e13c018c20c8337ff2edf944842e932246d815192e761cb8ac13e67c0a9",
+   "size": 777
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/utils/stopwords_manager.py",
+   "sha256": "7e65e75a81f523791de60298bec41c0575b22b5b09afb70314930ee0baa67f0e",
+   "size": 8407
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/validators/__init__.py",
+   "sha256": "829cf7de9469c2cd0045c548bababec7e6ce955cb355cf07cf31a786f8de2acf",
+   "size": 161
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/validators/index_validator.py",
+   "sha256": "1fdb603bed2f731c77085e78fab67a42f58f6130a17675d2b118fcb9ca50ab8c",
+   "size": 13110
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/validators/index_validator_rebuild.py",
+   "sha256": "6b262bbebd50dac56bbd62f6129fb772b135cd40814afa72770d00c125b9f1de",
+   "size": 37298
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/app.js",
+   "sha256": "2d4405d822ec2d3a1bfb321e7be5066bea6dd06af219cb26ac975db2499fa30b",
+   "size": 12654
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/appearance.js",
+   "sha256": "c02313a2cd1654851dcbb6fd73507a23aaa1ff4635a8c3dd19ba9ceea19db51a",
+   "size": 2747
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/art-direction.css",
+   "sha256": "5656409a6de6a75ecf5bf9220bf42fabcd8a80cf3f4219e33bca9da39b2b29bb",
+   "size": 25132
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/graph-2d.js",
+   "sha256": "34355c6df711093a156db0202ed67a075b2e0ec2cbeec86df9ad32bc1b324725",
+   "size": 33492
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/graph-interaction.js",
+   "sha256": "32b2858eefc3ed730eb9f84f213d0473dfcd67db45c4ffabae5ea66600e90e89",
+   "size": 10282
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/graph-layout-core.js",
+   "sha256": "4c3b106527d9349d4347544b0b9041789a0e4a5af865b1c20cab7f009730227d",
+   "size": 16069
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/graph-layout-worker.js",
+   "sha256": "17158cfa758b7268020e86d0bbcee63b0fc866152faf36604e5ed7b4ea98f893",
+   "size": 1635
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/graph-renderer.js",
+   "sha256": "0b663b0dc5c1bd681cb2415542276e81e5c4d0dc231e1f6dbc39d2bb1717e732",
+   "size": 32578
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/graph-shared.js",
+   "sha256": "53b31e55010d7af54438805f528ff64bf1a76808fa61b20983d3cc0ed74bc440",
+   "size": 3782
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/graph-ui.js",
+   "sha256": "502d2cb2036a8e0f2101511355f1e8540dc6fe95577f7f814740d6f6413ef67b",
+   "size": 19930
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/i18n.js",
+   "sha256": "24a82ee98458a5e1c22d32731a58a2fd8e697a3c311ece02bb986b29ccfc8fdd",
+   "size": 66489
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/index.html",
+   "sha256": "2a22b36dd873516a84687038681c35280cfd90b26f1630bc101d443023708334",
+   "size": 30321
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/styles.css",
+   "sha256": "e98321609338974571fad6c90a8af5aaed6107c5c85dfe25dace06686e939f4c",
+   "size": 42193
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/themes.css",
+   "sha256": "a6981120cd55704b34c5c8c6ec17a9b3556beb667384456c1a9629f18164dcb5",
+   "size": 15493
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/workflows.css",
+   "sha256": "970f5cb6715b76883b12f24ba24f4238408101dc658f311f60a9e1ab34febdea",
+   "size": 3981
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/assets/base.min.js",
+   "sha256": "8a719375c7ee4ddc5321b3ff751c1ec1f340ae89cbf16bcc0661dfd5ff4b117d",
+   "size": 69384
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/assets/graph.min.js",
+   "sha256": "15c687ae79d09d4f1aae8bf4187b4b366cfcf31930dcda85f01388b5bfdeb59d",
+   "size": 116436
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/assets/styles.min.css",
+   "sha256": "08796cfc65dbbbb9aa722bd71414f1a7c1960604d2191e7c76fc721239494d57",
+   "size": 71658
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/modules/api-client.js",
+   "sha256": "2b3b3e142346a8ceaa775190b57a02d7e14d9d414c68f6d1402b3f111fdf1a3c",
+   "size": 5099
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/modules/index.js",
+   "sha256": "663a65d7c8734e78aea7db0130a5187b066e22657b652345ad974731ac8a199a",
+   "size": 402
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/modules/memory-page.js",
+   "sha256": "11133f0717e8f37e2b6342df36c4405fdad33a5e5e69f73fb3da2aa199c35645",
+   "size": 29170
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/modules/peek-panel.js",
+   "sha256": "2e3c4aa28904ee70e0dd63df151620dc41274c6022c59ae10b7275c45c4d8297",
+   "size": 36473
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/modules/prompt-page.js",
+   "sha256": "3c29280e20fd142369078b0ea77cdb1f1b868b3236d89aba07bdeccc1f1064dc",
+   "size": 13933
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/modules/recall-page.js",
+   "sha256": "ef5f2dfaf0aed2c97fd630c93a6183e6b6461a678b0a2ab37e87679ca4e95f8b",
+   "size": 9076
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/modules/settings-page.js",
+   "sha256": "7f3c80d78c4bad808f0dbe592a2662dae642b85cf81f292d73ca85c272201f3c",
+   "size": 11329
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/modules/system-page.js",
+   "sha256": "bb71bafd4e94aa8499549c1146f6de705d460630daf5cb92f80ea66a2cdb4468",
+   "size": 11742
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/modules/utils.js",
+   "sha256": "0b9fd5b4b83a1248b39a709c8d63ebd768872e9b9cf633a73ab621095ea0b984",
+   "size": 5882
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/vendor/LUCIDE_LICENSE",
+   "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
+   "size": 3208
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/pages/dashboard/vendor/lucide-subset.js",
+   "sha256": "a9f81d0ef015691ca1a64764db1191eb8906cfcf9501e34ff442f09b897246a2",
+   "size": 5970
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/scripts/benchmark_recall.py",
+   "sha256": "2fa6c8403efbe14f24924f88ea1e943b7501028d46abf71ebcf5943ec9366268",
+   "size": 7077
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/scripts/build_dashboard.mjs",
+   "sha256": "9a1f5da3c209a7bec4d55356cac7a04df4592a7924fc85030c05cf1e8489aac2",
+   "size": 3280
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/scripts/bump_version.py",
+   "sha256": "21fcf957795cfb073075f4ba8f70037df9f99ac05361c3cc2d552f79e48e9b99",
+   "size": 2836
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/scripts/run_smoke.py",
+   "sha256": "5d701de95f82f8dab980ef18defd9fe31da660005ba182861420420bf1ed92de",
+   "size": 868
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/static/stopwords/stopwords_hit.txt",
+   "sha256": "84e526454db0245cab0d167df067f00298d271ad2c86391d45f5e880c422cbae",
+   "size": 5273
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/CHANGELOG.md",
+   "sha256": "ae39f2c6229d2a99d128c8f1890c6d3b36ff2bdda6f17144896f58f84237a225",
+   "size": 40537
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/LICENSE",
+   "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+   "size": 34523
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/README.md",
+   "sha256": "b5cfc615309bb9b8a161e7be18815630119fba03560c0319ebf8ffbc3c8a39f8",
+   "size": 88989
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/__init__.py",
+   "sha256": "dfe137629a42af7596fa9d4db56eee56aa34eb8ab4f842948886e82fe3cd0d14",
+   "size": 129
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/_conf_schema.json",
+   "sha256": "5708df5833696aad91922d9cd84d18223d8df87329b56a830c0d512fa01f6aaa",
+   "size": 35385
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/logo.png",
+   "sha256": "aac5c1fe25bd0b0c2ba46051ebb4d585b799119b05f809309b237ab9bfaf02cb",
+   "size": 69222
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/main.py",
+   "sha256": "563ca01f336faeb1c27cf58150da9ede7914a91109d5d0f5d3038a7927734ba5",
+   "size": 11444
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/metadata.yaml",
+   "sha256": "3a6612016c87a12b141a89f4be39aa32653bea0f561d0d74288e9c7192034bed",
+   "size": 627
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/requirements.txt",
+   "sha256": "2770fc0eef8a4c13b2272a703639b47390e2129b247a8b7613189b7c710603b1",
+   "size": 353
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/index.html",
+   "sha256": "2ef140f7c7507aa4fc52138c5954e376670589e59f12ea62564346831ddb9245",
+   "size": 18814
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/css/style.css",
+   "sha256": "747908a12003796e0c3419a11812a5671ce655632a0af40285a0c5b066dd9683",
+   "size": 88680
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/fonts/outfit-400.ttf",
+   "sha256": "6a8c9be856a6b9e09c66615634904616152c9de5e44db343a3ced240479c586a",
+   "size": 47844
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/fonts/outfit-500.ttf",
+   "sha256": "9a9f465776e653cd6175661d844555e08684d432518f1d2c621bcb3006598f9c",
+   "size": 47800
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/fonts/outfit-600.ttf",
+   "sha256": "8900df5726b5a6f23e723594f11d5ea27e695bd85c884f18d88ed080544fe205",
+   "size": 48456
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/fonts/outfit-700.ttf",
+   "sha256": "49dcdf653a004a2575b3de649f5e4c549d774fecddf317812330edd0ad70685a",
+   "size": 48340
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/fonts/outfit-800.ttf",
+   "sha256": "27147c0353ecafbb8e69fe02da56680f7d12bdc2764c8346012ec031374036d6",
+   "size": 48272
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/fonts/outfit.css",
+   "sha256": "f5b4aac56d1db7d285ecff3b609bf93a7822ff61048aa31fe3f342e039848b2e",
+   "size": 1071
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/js/app.jsx",
+   "sha256": "cc21a9ceda4516b3ab87db1b45d97b4cc84c0f78421d582e774c0583c5080594",
+   "size": 14265
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/js/components/config/ConfigRenderer.jsx",
+   "sha256": "9ced90ebee82bdf6b96502bc3f7a7cec63120788c7841225749224c547ec9433",
+   "size": 58719
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/js/components/layout/Header.jsx",
+   "sha256": "dc7ebac22d56fecd862ffcddf309be453ea8f632cc70fb53cde8cc0afdcba29a",
+   "size": 4182
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/js/components/layout/Sidebar.jsx",
+   "sha256": "b5a60f6e1dde5c58c0d01e86c197b597c069dcd9e04fdfe5372b9b49e0e22f79",
+   "size": 8726
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/js/context/AppContext.jsx",
+   "sha256": "91d8cfa1c97839a10ab9daa1a439e5993bb3c75abebf0fb2eda81390e119e43a",
+   "size": 4655
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/js/hooks/useApi.js",
+   "sha256": "185a910ab1844f148060bd0dea3eac578b038ca54c45938ce2e7440de0e81953",
+   "size": 4611
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/js/hooks/useWebSocket.js",
+   "sha256": "6e27a84c9cee47ef60e8d5b3421a69d6bf6ba8f9645eb5dff32e28fe5099777d",
+   "size": 4964
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/js/utils/auth.js",
+   "sha256": "c4cd7811141c846cdd0498655aaf4e92200423d9972712cc07d678ec7639503b",
+   "size": 1878
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/js/utils/formatters.js",
+   "sha256": "d6e4cccafed39cac8de82e954ec5e986cdd1215d78a0c7732e9c4b5174e0bc43",
+   "size": 8130
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/js/utils/http.js",
+   "sha256": "b0f308e0091eb89d4ba99e53aa02c2ed99fbd7ea44c1d64e08ec1bb8d0e372bb",
+   "size": 1855
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/js/utils/markdown.js",
+   "sha256": "064b0e462a3c79cf437d19f6a141b7ad1501c99ccd9aca620b7621f1bccdb341",
+   "size": 26481
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/js/views/ConfigView.jsx",
+   "sha256": "d223e010d960f848837a1f3b8a3552b897509030606fcb31515fa6caa69a87ef",
+   "size": 1295
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/js/views/MarkdownDocsView.jsx",
+   "sha256": "474e507f74b67839ac8b601cd7bcbefeb43d9169ace5b148d866169fd527a61a",
+   "size": 25158
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/js/views/NotificationsView.jsx",
+   "sha256": "f8ec7f8bc03c9e8f1d40a680bbde43d7e4075eb4959117e6e0ca2f41a4215bb7",
+   "size": 13842
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/js/views/StatusView.jsx",
+   "sha256": "6e90f6101d881b3cf73bbce30a9f4be36573a19f93675c7925f93c60b70fd5d2",
+   "size": 27023
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/admin/js/views/TasksView.jsx",
+   "sha256": "beea7802bdf84a00b61084a6028a04b7c042bdd10ac63245bb1a563e987ad507",
+   "size": 25926
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/assets/PluginRank.svg",
+   "sha256": "d3cdb91675bead584165d25db196325c5d2b5e1025487c5616f478acd493eab1",
+   "size": 5176
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/assets/ShitMountain.svg",
+   "sha256": "a447694111b51ab1c0ef5aa0e0a221dbfc5ce9ba5aaf631059c4ed2e09cad12e",
+   "size": 1140
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/assets/StarRank.svg",
+   "sha256": "1d9e5dc23009e08bcb113945277a9c584d66300817c2c42cdeafb2752acad534",
+   "size": 1411
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/__init__.py",
+   "sha256": "e0fada2ae46bbf7e560897280fab7e4554cc22bdbd1c2b4dd9c6bd8b687da51d",
+   "size": 97
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/adapters/__init__.py",
+   "sha256": "8e56d27469191d83f8849c3da032f1a4fc59472414edad0456cd5ad7fa87f407",
+   "size": 688
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/adapters/astrbot_conversation.py",
+   "sha256": "353e55e688d1877987606a772d7437d8f3e389206bb0c16fca70e3b44a6b84bf",
+   "size": 4052
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/adapters/astrbot_event.py",
+   "sha256": "ceada4804836fc9700e31a5c90c5fe99ac6d1e88fb6919b859aa9ec721f10f7f",
+   "size": 15682
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/adapters/astrbot_platform.py",
+   "sha256": "fc76fac62081c0633da07d2e87f200ac25ef7d586ef53b7d7f8849a0eeca276e",
+   "size": 2627
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/adapters/astrbot_provider.py",
+   "sha256": "b1d3772cb01a390287c66c2420058c4e9f4fef7b782b4da44ebaa64143587c93",
+   "size": 3856
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/adapters/event_handlers.py",
+   "sha256": "0bc3dcdd8777e20ea618f156fe6f0a3d1ab128cf34bdb9d9259d26016b8e19e1",
+   "size": 16829
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/console/__init__.py",
+   "sha256": "016e2758ed63289e394c445eb9fbd53b1b7f256d597a111f2c55f73bc2271be5",
+   "size": 165
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/console/api_routes.py",
+   "sha256": "2a2e12e81b685dc14992ad9b12dabdeaf4c6cb8730abfc0fe565d62560efebbc",
+   "size": 26348
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/console/realtime_channel.py",
+   "sha256": "f18298b4b78d7c9f0f69176a8c254100d192b8dad2c4e50acb960d9b6b7161e2",
+   "size": 1482
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/console/runtime_server.py",
+   "sha256": "ca5ffc80f2ef5a2f298b35224b6e5ab077c5c539b02707e9cccf6793149c0d42",
+   "size": 14612
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/console/state_builder.py",
+   "sha256": "b535d7bafd389d964b435125bb56a1f9ca08a97f624cea96bf7c3d8612cd2de8",
+   "size": 21266
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/console/token_auth.py",
+   "sha256": "61876f24ce22b4c05d00480235d236fdaf84a4877338e5610424d1fa4a9945bf",
+   "size": 3309
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/domain/__init__.py",
+   "sha256": "690d13a6a7c1055c4e438db854465f7f008194fa37d0b0def0c7bdf5b39ea200",
+   "size": 619
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/domain/content_text.py",
+   "sha256": "a41d6947dd0faad2380f5a7aac73d249ea2da14f73ef251d0eccad862680a430",
+   "size": 2575
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/domain/context_block.py",
+   "sha256": "969bc34d7d7ccc69dafd90ed6d83ed09b8b945488351dbba5fd64053396cc14c",
+   "size": 1204
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/domain/delivery_report.py",
+   "sha256": "c765e80fc18174af20eafe0feada21377cdbba68c36c8c8cfeffd1fa3f186d7e",
+   "size": 596
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/domain/domain_enums.py",
+   "sha256": "b83ec4865f85b187d596dbbf9a919756356fb88278c0b34ffa3a09f73cd51a84",
+   "size": 1467
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/domain/llm_outcome.py",
+   "sha256": "eea3b1252961ccb30469caddfad42a015ae914bf84d1fd42a45d89b64209adee",
+   "size": 1163
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/domain/prompt_block.py",
+   "sha256": "edd7dc269a92415459672774f345b05ed54917aabe579f6f056d81f5ad264147",
+   "size": 1094
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/domain/request_context.py",
+   "sha256": "3a7685ffe5bdfeba8a6ef1ad75a3740f750e8d6569e9663ac9c6703f2224bcc2",
+   "size": 2046
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/domain/session_config.py",
+   "sha256": "e9aa517bcb0aa1bf1b4fdbd2b1cc4b808f96de1943165ed128fb365dff5441e5",
+   "size": 2019
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/domain/session_key.py",
+   "sha256": "fc010d815874e93fcf228162e3e10d527c73c24fd5575861fb9fc3e7ab0eb4d0",
+   "size": 4020
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/__init__.py",
+   "sha256": "e569b5f8b402d227ad11a96f3f67c1ecbedca5b127dc2408e54f3373febf781e",
+   "size": 158
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/feature_base.py",
+   "sha256": "6d010c74fd9f462c33ce5f8deae19a67ddc9466c4555b3c02294ad76c8db1909",
+   "size": 698
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/feature_manifest.py",
+   "sha256": "953aadeedcf5db37db90d28cfcbcc839ed3bd4f3b052b62989f009da96b85f94",
+   "size": 1189
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/gating_feature.py",
+   "sha256": "7835da02d7eaf877c2ac8668823c1ba5cabf9a034d5b7222bcacd9776fc6ac8f",
+   "size": 4280
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/review_feature.py",
+   "sha256": "ee7bb51f8de934efdc628875ee8f18fb16c2fc91cd4de4026b7089002ceece83",
+   "size": 2154
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/context/__init__.py",
+   "sha256": "a2db3adb097fb3299f2881480eed06b6e3946a9359399eb457ca827edf5d1f5b",
+   "size": 37
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/context/conversation_source.py",
+   "sha256": "37f93a0a6b3641bc3810b00780e83a7823d1e8a053a2e3748cede42ff2533e68",
+   "size": 2767
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/deliver/__init__.py",
+   "sha256": "23f79af185df505477af3dc11b60268792ca5aee9e24cc634a6a5860245b5da9",
+   "size": 34
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/deliver/split_delivery.py",
+   "sha256": "63797f268285b1323e1823d7c4b2f707aa27e4d2461b52206563836378e46ab7",
+   "size": 1881
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/prompt/__init__.py",
+   "sha256": "cfee93738d5648d4114632498a8ef0e431185ae532e2bf42980bb96312f2094b",
+   "size": 37
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/prompt/single_prompt.py",
+   "sha256": "9568ecc24b86581d5b67ed775879c9a88c37487be6236b512e6b58efa69b3322",
+   "size": 2651
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/record/__init__.py",
+   "sha256": "8ecf73ed3db3e2942a68daa71a436f92f68e5c4cb18b1abc147e0ec4cc68d2c9",
+   "size": 34
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/record/history_writer.py",
+   "sha256": "f59f5845fa9c9f60f860924b096108821338748bc5a7e92cbabe9451fc76f8af",
+   "size": 1463
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/pipeline/__init__.py",
+   "sha256": "be895c0648021eeb96ac1deb7b522361ff93c97499c213841a2add4c360091f2",
+   "size": 483
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/pipeline/feature_registry.py",
+   "sha256": "db213137970127c67ecb3d2146c0597941c06ad3142aaa3e6135774321806ed4",
+   "size": 1986
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/pipeline/flow_context.py",
+   "sha256": "65da4e5813deff3a595db809e5ca4b09690939bffc40f67b3a327348a2e22d3b",
+   "size": 889
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/pipeline/flow_orchestrator.py",
+   "sha256": "9f256e51bd3b8f9f469b89d95e128d9af0c5a2cf45d59193d48e126c4c756968",
+   "size": 12679
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/pipeline/hook_registry.py",
+   "sha256": "aa54f68dff9947267d81b2e68c5e3fcb01b3c7172e5d4600519553eb1afd6c4e",
+   "size": 1443
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/pipeline/pipeline_runner.py",
+   "sha256": "a17ae14a0dddd5acae4e802f88f3c23245174176b5b2bbd013797d4d1d2961f9",
+   "size": 3168
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/pipeline/stage_protocol.py",
+   "sha256": "e787a1a7f4365a15859a752b2f307b5473c997cd52ee6bac78da36c251489b28",
+   "size": 1154
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/remote/__init__.py",
+   "sha256": "7e4c082172d044f7103ec974db032799a3f041b0977e82af84d2027f14b06878",
+   "size": 255
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/remote/notification_center.py",
+   "sha256": "8d8a63b90dd9da83d6c95f00c6c1c97763f1eac5c32a366bea66f321d576bba3",
+   "size": 15345
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/remote/telemetry_manager.py",
+   "sha256": "97a2998382ac7f398185dd611fd2945b2db8872811e31111086c3e51909f56c5",
+   "size": 24105
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/services/__init__.py",
+   "sha256": "b213085945bec6fe377ac44ee550e90e88f1ad9e2a6af50c02da1bd52af9da2a",
+   "size": 753
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/services/config_service.py",
+   "sha256": "e7912954520c57220da3783006b8cf445fcfc7576a6f992e4160e9ea6ef98cbb",
+   "size": 5211
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/services/context_service.py",
+   "sha256": "9cb1a64008547523b688ae3b1d693c94777a19fd471b1ba7057831428a6b1be1",
+   "size": 31883
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/services/lifecycle_service.py",
+   "sha256": "cd961de0a5bc8bcbd1d28567767016a184821ebc9bd858da8a1f9dc37b9f757b",
+   "size": 15177
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/services/llm_service.py",
+   "sha256": "50e093367b8d26a3ae1ca9762248224e237bdc7c6e7b8f43194a29c7900c27e1",
+   "size": 12915
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/services/scheduler_service.py",
+   "sha256": "c416607490c0ffa1d9dc73c90647731a569723ea083139b6762a1bbe990e8851",
+   "size": 34862
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/services/sender_service.py",
+   "sha256": "3e33be4bd19d4747d08cd4b6db66689a51d67b78923f003fb76af7e4c27c64bf",
+   "size": 24120
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/services/session_service.py",
+   "sha256": "3e59c911aecaf181572111efbfd3a3331fa2c96c97f004a3c9062022e9e47540",
+   "size": 6079
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/services/storage_service.py",
+   "sha256": "12162509172ba8def7201ae093243e4842f4ec853195f3a7acfcbcd48b5c94fb",
+   "size": 3602
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/store/__init__.py",
+   "sha256": "57e52fa8856ecd1d2648742f0f57f65a0aec84d2fd8c0a60a076c2ffa44d3184",
+   "size": 201
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/store/override_store.py",
+   "sha256": "78cded4e4e0397a3b96228eb99da2a3dae6be529bafaf5b7900cdb5fc9c115d2",
+   "size": 7078
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/store/session_store.py",
+   "sha256": "f162dc2e81dfedd3240e413e4115c80cbbb34327639fa581b0fe8f87be700677",
+   "size": 4968
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/utils/__init__.py",
+   "sha256": "2fad00435e2dbacc63eca57d62f9577cec38e73b26ee6ec390d4862fca870ea8",
+   "size": 100
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/utils/time_utils.py",
+   "sha256": "ef220e663debed6b9ad993b4ea53f0a09483602c752c0060fa3aae4325886bab",
+   "size": 1550
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/utils/version_utils.py",
+   "sha256": "df6f5b38fd9ed0063b2db297809b2b3055f09768c7a6eabc34c0475cbd0c37b8",
+   "size": 6699
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_weather/CHANGELOG.md",
+   "sha256": "f68a712daa6f7b550b10910412f0fac1fe20f9a5a320f5a8c58c8801292ae43a",
+   "size": 2828
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_weather/LICENSE",
+   "sha256": "8b19411c2e30fadc89252c2ad7ba914b699416b6aae1e942de3a48ece07751cc",
+   "size": 1066
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_weather/README.md",
+   "sha256": "17fe5bc7ccfc5f433127dadf757f543ee978b380d2c15ca410bb1500facf9ba1",
+   "size": 3855
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_weather/_conf_schema.json",
+   "sha256": "9f36eff649abd03b2f2a02c20842aba2413f52b5c779cc0eaa9a9176455169c7",
+   "size": 710
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_weather/main.py",
+   "sha256": "6b485ad91046e026cc7ef8412fc348547ba6bb42154069646464f2db1a38a627",
+   "size": 30082
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_weather/metadata.yaml",
+   "sha256": "b76b5dd60ee078b71c2265427724f04d02cc6625a45743a74f9cfa22e021dcdb",
+   "size": 356
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_weather/requirements.txt",
+   "sha256": "a6403266a67a1335f9d100c0acb396d2754f01a47d2b3bf932c37e1712053f81",
+   "size": 73
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_stickers/main.py",
