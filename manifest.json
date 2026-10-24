@@ -1,7 +1,7 @@
 {
- "version": 1792831957,
- "ref": "12c6e799e815d3d96f822846ccdf602654ad2ad7",
- "generated": "2026-10-24T16:52:37+0800",
+ "version": 1792832041,
+ "ref": "579281521d99c9fa22a8c86bfec624e643e90271",
+ "generated": "2026-10-24T16:54:01+0800",
  "note": "WhaleBot content update. Stickers CC BY-NC-SA 4.0, see stickers/CREDITS.md",
  "files": [
   {
@@ -616,8 +616,8 @@
   },
   {
    "path": "persona/插件安装说明.md",
-   "sha256": "9fb1d08b3f6512ad006e193b339d873dfc058d9792e5a426461c12953fefc7d4",
-   "size": 4345
+   "sha256": "236f86412273cf00a001f9b273afceb52b6b85645a1420d3f9bd1bd0838483df",
+   "size": 5199
   },
   {
    "path": "plugins_src/astrbot_plugin_identity/README.md",
