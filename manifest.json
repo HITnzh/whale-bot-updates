@@ -1,13 +1,13 @@
 {
- "version": 1792848081,
- "ref": "9e5e2fd01eeaa2863a75ef0a12563e93548d2f64",
- "generated": "2026-10-24T21:21:21+0800",
+ "version": 1792849269,
+ "ref": "80c4d237d8f9653120de5f9cc32d74d02d1c32ab",
+ "generated": "2026-10-24T21:41:09+0800",
  "note": "WhaleBot content update. Stickers CC BY-NC-SA 4.0, see stickers/CREDITS.md",
  "files": [
   {
    "path": "configure.py",
-   "sha256": "2f5689d6f02d723a2e9d7356e368e3f8b4638f58fab572938d2e5889b51ad7f5",
-   "size": 13342
+   "sha256": "dc65d669ab44857443a2588e4185e5adbe3e115da64d78d6d723604e0509cc41",
+   "size": 13593
   },
   {
    "path": "stickers/CREDITS.md",
@@ -606,8 +606,8 @@
   },
   {
    "path": "persona/system_prompt.txt",
-   "sha256": "38137a25659e688c5bcbaa75fb94679b866b04e38de27b3091f727d881d16910",
-   "size": 4712
+   "sha256": "3b14d08c33be407ae3d76ad91f0379007b923a04dd53c9c05066257cecf929ba",
+   "size": 4822
   },
   {
    "path": "persona/whale_girl_persona.md",
@@ -2018,6 +2018,21 @@
    "path": "plugins_src/astrbot_plugin_whale_stickers/metadata.yaml",
    "sha256": "2d239f852007ed9ea646c0daae4e6fe78d793c9ebabc2cf79997369d9d40ffd8",
    "size": 233
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_wake/_conf_schema.json",
+   "sha256": "7867b9d9f8c9a32ed17b12ab3bf79b3178b52d3ff066d6a7752183779a3564eb",
+   "size": 874
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_wake/main.py",
+   "sha256": "9ca4099071b439d228d811f366f8c778cc050258c543054eb3f2e73dddb4d8fc",
+   "size": 3789
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_wake/metadata.yaml",
+   "sha256": "0035825fff56d6a3f19d1981718a4d45192641f9f999e35643f8d2ddfa4b4a8e",
+   "size": 157
   }
  ],
  "remove": []
