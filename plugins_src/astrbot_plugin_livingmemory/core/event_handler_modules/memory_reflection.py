@@ -475,6 +475,39 @@ class MemoryReflection:
         history_messages = candidate_messages[:messages_to_summarize]
         logger.info(f"[{session_id}] 获取到 {len(history_messages)} 条消息用于总结")
 
+        # user 作用域：群会话共享时，总结只保留「当前发言人 + Bot」，
+        # 避免把别人的话写进触发者的个人记忆（跨私聊/群聊仍按 openid 隔离）。
+        scope_mode = str(
+            self.config_manager.get("filtering_settings.memory_scope_mode", "legacy")
+        ).casefold()
+        if scope_mode == "user":
+            current_sender = str(event.get_sender_id() or "").strip()
+            bot_ids = {
+                "qq_official",
+                "unknown_selfid",
+                str(event.get_self_id() or "").strip(),
+            }
+            bot_ids.discard("")
+            filtered: list = []
+            for msg in history_messages:
+                role = str(getattr(msg, "role", "") or "").casefold()
+                sid = str(getattr(msg, "sender_id", "") or "").strip()
+                if role == "assistant" or sid in bot_ids:
+                    filtered.append(msg)
+                elif current_sender and sid == current_sender:
+                    filtered.append(msg)
+            if len(filtered) < 2:
+                logger.info(
+                    f"[{session_id}] user-scope 过滤后消息不足 "
+                    f"(sender={current_sender}, kept={len(filtered)})，跳过本次总结"
+                )
+                return None
+            logger.info(
+                f"[{session_id}] user-scope 总结过滤: "
+                f"{len(history_messages)} -> {len(filtered)} (sender={current_sender})"
+            )
+            history_messages = filtered
+
         persona_id = await get_persona_id(self.context, event)
         return _ReflectionPlan(
             session_id=session_id,
