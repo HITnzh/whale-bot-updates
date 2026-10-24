@@ -159,7 +159,7 @@ def configure_embedding(c: dict, chat_pid: str):
             "use_persona_filtering": True,
         },
         "session_manager": {
-            "enable_full_group_capture": False,
+            "enable_full_group_capture": True,
         },
     })
     print(f"[configure] embedding={EMBED_ID} (SiliconFlow BAAI/bge-m3)")
