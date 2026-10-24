@@ -1,7 +1,7 @@
 {
- "version": 1792830938,
- "ref": "61ce70c4eeeb09ca335e2b5653cf1b9e95da0359",
- "generated": "2026-10-24T16:35:38+0800",
+ "version": 1792831957,
+ "ref": "12c6e799e815d3d96f822846ccdf602654ad2ad7",
+ "generated": "2026-10-24T16:52:37+0800",
  "note": "WhaleBot content update. Stickers CC BY-NC-SA 4.0, see stickers/CREDITS.md",
  "files": [
   {
@@ -1993,6 +1993,21 @@
    "path": "plugins_src/astrbot_plugin_weather/requirements.txt",
    "sha256": "a6403266a67a1335f9d100c0acb396d2754f01a47d2b3bf932c37e1712053f81",
    "size": 73
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_bubble/_conf_schema.json",
+   "sha256": "cbb0513eec7c18d07d58509f0823719c728de144f203597d087186f8c1932f1b",
+   "size": 665
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_bubble/main.py",
+   "sha256": "91790f975ec95ea85ee2e025d325b0881acb7e6a612812ec42b026dc7274a803",
+   "size": 5693
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_bubble/metadata.yaml",
+   "sha256": "f6847c7e82f396d8c4369225da84ab6200002ff6c1d516e524d4359149fdbeb6",
+   "size": 278
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_stickers/main.py",
