@@ -1,0 +1,6 @@
+name: astrbot_plugin_whale_sing
+display_name: 鲸鱼娘唱歌（DiffSinger + 可选 RVC）
+author: whale
+version: 1.0.0
+desc: 原创/简谱本地唱歌：DiffSinger(莲华) 合成 WAV，可选经本机 RVC 变声后发 QQ 语音。不下载网易云/QQ 音乐。
+repo: local

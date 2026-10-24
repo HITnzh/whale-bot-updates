@@ -1,0 +1,81 @@
+{
+  "enabled": {
+    "description": "总开关",
+    "type": "bool",
+    "default": true
+  },
+  "sing_python": {
+    "description": "运行 sing.py 的 Python（建议 sing/.venv）",
+    "type": "string",
+    "default": "E:/whale-bot/sing/.venv/Scripts/python.exe",
+    "hint": "Windows 用正斜杠。未建 venv 前可先填 E:/whale-bot/python/python.exe（需已装 onnxruntime/numpy/soundfile/pypinyin）"
+  },
+  "sing_script": {
+    "description": "sing.py 路径",
+    "type": "string",
+    "default": "E:/whale-bot/sing/sing.py"
+  },
+  "songs_dir": {
+    "description": "曲谱目录（放 .txt）",
+    "type": "string",
+    "default": "E:/whale-bot/sing/songs"
+  },
+  "out_dir": {
+    "description": "合成输出目录（WAV）",
+    "type": "string",
+    "default": "E:/whale-bot/data/temp/whale_sing"
+  },
+  "default_bpm": {
+    "description": "默认 BPM",
+    "type": "int",
+    "default": 90
+  },
+  "default_key": {
+    "description": "简谱默认调（如 C4）",
+    "type": "string",
+    "default": "C4"
+  },
+  "default_transpose": {
+    "description": "默认移调（半音，莲华偏少女建议 +3~+7）",
+    "type": "int",
+    "default": 5
+  },
+  "rvc_enabled": {
+    "description": "合成后是否走本机 RVC 变声",
+    "type": "bool",
+    "default": false,
+    "hint": "需先启动 voice-backends/RVC，并放入 .pth 模型；无音色时请保持关闭，直接发莲华原声"
+  },
+  "rvc_base_url": {
+    "description": "本机 RVC infer API",
+    "type": "string",
+    "default": "http://127.0.0.1:8001"
+  },
+  "rvc_model_path": {
+    "description": "RVC 模型 .pth 绝对路径（占位，放入后填写）",
+    "type": "string",
+    "default": "E:/whale-bot/voice-backends/RVC/models/whale.pth",
+    "hint": "没有样本前不要开 rvc_enabled"
+  },
+  "rvc_index_path": {
+    "description": "可选 .index 路径",
+    "type": "string",
+    "default": ""
+  },
+  "rvc_f0_up_key": {
+    "description": "RVC 升降调（半音）",
+    "type": "int",
+    "default": 0
+  },
+  "timeout_sec": {
+    "description": "合成超时（秒）",
+    "type": "int",
+    "default": 180
+  },
+  "admin_only": {
+    "description": "仅管理员可用 /唱 与工具",
+    "type": "bool",
+    "default": false,
+    "hint": "群里给大家玩可关；怕刷屏可开"
+  }
+}
