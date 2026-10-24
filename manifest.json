@@ -1,7 +1,7 @@
 {
- "version": 1792849580,
- "ref": "3fd145d876f5193711a3b977d0b4bca0a0b7f502",
- "generated": "2026-10-24T21:46:20+0800",
+ "version": 1792851213,
+ "ref": "ead1a79afbe2faedac2913a8a6ed0243705c665d",
+ "generated": "2026-10-24T22:13:33+0800",
  "note": "WhaleBot content update. Stickers CC BY-NC-SA 4.0, see stickers/CREDITS.md",
  "files": [
   {
@@ -606,8 +606,8 @@
   },
   {
    "path": "persona/system_prompt.txt",
-   "sha256": "3b14d08c33be407ae3d76ad91f0379007b923a04dd53c9c05066257cecf929ba",
-   "size": 4822
+   "sha256": "7ed035b53035d8fcf0c3c6242a613ab2ec8bf6eb755ad7df02760ab9422f51d3",
+   "size": 5585
   },
   {
    "path": "persona/whale_girl_persona.md",
@@ -631,8 +631,8 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_identity/main.py",
-   "sha256": "e0a8a9eec18f13469d9072538c3e8f3ce1b3e5ef14a9f19b4c13f2585b21c0fc",
-   "size": 19921
+   "sha256": "c1b62c8d307a6c23b756a96f1b8d5fc10a33553fdd4a363117358a9c5e6b113e",
+   "size": 22186
   },
   {
    "path": "plugins_src/astrbot_plugin_identity/metadata.yaml",
