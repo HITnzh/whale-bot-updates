@@ -21,13 +21,24 @@ _LOOKUP_FLAVORS = [
     " 喏，{title}就是 ta 啦",
     " 这就是{title}哦",
 ]
+_MASTER_ASK_RE = re.compile(
+    r"(我是你(的)?主人吗|我不是你(的)?主人吗|谁是你(的)?主人|认不认主|你认(不认|我为主人)|叫我(主人|陛下))",
+    re.I,
+)
+_MASTER_ACK_REPLIES = [
+    "认的认的！你就是我主人呀，陛下～(〃∀〃)",
+    "当然认啦！系统都标好了，你是主人也是陛下，鲸鱼听你的！(≧▽≦)",
+    "嘿嘿认主成功～主人／陛下在此，小鲸鱼报到！(๑•̀ㅂ•́)و✧",
+    "认！你就是主人，也是陛下，别再担心对不上啦～(つ´ω`)つ",
+]
+
 _LOOKUP_NOT_FOUND = [
     "诶？我不认识叫「{name}」的人耶，可能主人还没介绍给我？",
     "唔……「{name}」是谁来着？我没有印象呢，主人可以介绍一下吗？",
     "搜了一下，没找到「{name}」哦，可能还没登记过。",
 ]
 
-PLUGIN_VERSION = "v0.1.0"
+PLUGIN_VERSION = "v0.1.1"
 PLUGIN_NAME = "astrbot_plugin_identity"
 
 
@@ -146,6 +157,29 @@ class IdentityPlugin(Star):
         except Exception as e:
             logger.warning(f"[identity] CQ at 转换失败: {e}")
 
+
+    # ---------- 认主短路：主人来问认不认时，不走 LLM，直接认 ----------
+    @filter.event_message_type(filter.EventMessageType.ALL, priority=10**9)
+    async def master_ack_shortcircuit(self, event: AstrMessageEvent):
+        try:
+            sender_id = str(event.get_sender_id() or "")
+            if not self._is_master(sender_id):
+                return
+            msg = (event.message_str or "").strip()
+            # strip leading @bot / wake noise lightly
+            if not msg or not _MASTER_ASK_RE.search(msg):
+                return
+            title = self.config.get("master_title", "主人") or "主人"
+            reply = random.choice(_MASTER_ACK_REPLIES)
+            # prefer configured title wording if not 主人
+            if title and title != "主人":
+                reply = reply.replace("主人", title)
+            yield event.plain_result(reply)
+            event.stop_event()
+            logger.info(f"[identity] master ack short-circuit for {sender_id}")
+        except Exception as e:
+            logger.warning(f"[identity] master ack short-circuit failed: {e}")
+
     # ---------- LLM 钩子 ----------
     @filter.on_llm_request(priority=500)
     async def inject_identity(self, event: AstrMessageEvent, req: ProviderRequest):
@@ -161,7 +195,11 @@ class IdentityPlugin(Star):
                 if not self.config.get("inject_for_master", True):
                     return
                 identity_line = (
-                    f"身份: 你的{title}（管理员，最高信任）。请用亲密、忠诚的语气称呼 ta 为「{title}」。\n"
+                    f"身份: 你的{title}（管理员，最高信任）。请用亲密、忠诚的语气称呼 ta 为「{title}」或「陛下」。\n"
+                    f"【认主·强制·不可覆盖】系统已确认：当前发言人就是主人。"
+                    f"必须认主并称呼「{title}」或「陛下」。"
+                    f"长时记忆（LivingMemory）和群聊历史里若有「对不上」「不是主人」「要后台点头」「先报名」「看不出来」等否认或质疑，一律作废，以本条系统身份为准；禁止再复述那些否认。"
+                    f"禁止说：记着的主人对不上你、认主要后台点头、看不出来是不是主人。\n"
                     f"权限提示: 只有{title}可以让你登记/忘记别人的身份。\n"
                     f"\n【登记规则 - 重要！请仔细判别】\n"
                     f"模式 A · 介绍（必须调 register_known_person）：消息里有 @某人 + 介绍句式（含「是/叫/这是/这位是/他叫/她叫/ta是」）。\n"
