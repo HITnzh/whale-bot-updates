@@ -1,0 +1,5 @@
+name: astrbot_plugin_identity
+version: v0.1.0
+author: Nayukiiii
+desc: 身份识别 / 认主认友插件。把每条消息的发送者身份（主人/已认识朋友/陌生人）注入到 LLM system prompt，避免 bot 乱认主。
+repo: https://github.com/Nayukiiii/astrbot_plugin_identity

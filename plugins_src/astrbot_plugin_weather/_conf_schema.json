@@ -1,0 +1,20 @@
+{
+  "weather_provider": {
+    "type": "string",
+    "default": "wttr",
+    "description": "天气数据提供商",
+    "hint": "选择天气数据来源：wttr（免费，无需API Key）或 caiyun（彩云天气，更精准，需要API Key）"
+  },
+  "caiyun_api_key": {
+    "type": "string",
+    "default": "",
+    "description": "彩云天气 API Key / Token",
+    "hint": "在 https://dashboard.caiyunapp.com/ 注册并获取。当 weather_provider 设为 caiyun 时必填。"
+  },
+  "caiyun_api_version": {
+    "type": "string",
+    "default": "v2.6",
+    "description": "彩云天气 API 版本",
+    "hint": "推荐使用 v2.6（稳定版），也可选择 v3（最新但部分接口未完善）"
+  }
+}

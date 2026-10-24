@@ -1,0 +1,11 @@
+name: "astrbot_plugin_weather_counhopig"
+author: "counhopig"
+version: "2.0.0"
+desc: "AstrBot 天气查询插件，支持 wttr.in（免费）和彩云天气（更精准）"
+display_name: "天气查询"
+repo: "https://github.com/counhopig/astrbot_plugin_weather"
+dependencies:
+  - "aiohttp>=3.8.0"
+requirements:
+  - aiohttp>=3.8.0
+astrbot_version: ">=4.0.0"
