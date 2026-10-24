@@ -160,6 +160,15 @@ def configure_embedding(c: dict, chat_pid: str):
         },
         "session_manager": {
             "enable_full_group_capture": True,
+            "context_window_size": 24,
+        },
+        "recall_engine": {
+            "top_k": 3,
+            "max_k": 5,
+        },
+        "agent_tools": {
+            "enable_recall_tool": False,
+            "enable_agentic_recall_beta": False,
         },
     })
     print(f"[configure] embedding={EMBED_ID} (SiliconFlow BAAI/bge-m3)")

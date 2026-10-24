@@ -1,0 +1,28 @@
+{
+  "owner_probability": {
+    "description": "主人发言未@时主动接话概率",
+    "type": "float",
+    "hint": "0~1，建议 0.85–1.0",
+    "default": 0.9
+  },
+  "other_mention_always": {
+    "description": "提到名字时必定唤醒",
+    "type": "bool",
+    "default": true
+  },
+  "name_keywords": {
+    "description": "唤醒关键词（逗号分隔，命中任一即视为叫你）",
+    "type": "string",
+    "default": "鲸鱼娘,小鲸鱼,大肥鱼,蓝色大肥鱼,DeepSeek,deepseek"
+  },
+  "poke_text_keywords": {
+    "description": "文本戳一戳兜底词（官机无 poke 事件）",
+    "type": "string",
+    "default": "戳戳,戳一下,戳了戳,拍了拍"
+  },
+  "extra_owner_ids": {
+    "description": "额外主人 openid（每行一个；默认还读 admins_id）",
+    "type": "text",
+    "default": "3C00CF866EE656C4F2C64546705969B1"
+  }
+}
