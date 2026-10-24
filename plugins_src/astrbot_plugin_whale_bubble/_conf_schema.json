@@ -1,0 +1,13 @@
+{
+  "groups": {
+    "description": "群别名 → 完整群 UMO（每行：别名=平台:GroupMessage:群openid）",
+    "type": "text",
+    "hint": "在目标群里 @机器人 发 /sid，把「The group's ID」那行拼成 default_xxx:GroupMessage:OPENID。别名可用群名或数字号方便口述。例：\nRe0-Season=default_1905913599:GroupMessage:AE1F591DBC354D3C4CACB5670473261C\n754769928=default_1905913599:GroupMessage:AE1F591DBC354D3C4CACB5670473261C",
+    "default": ""
+  },
+  "default_text": {
+    "description": "没指定内容时的默认冒泡文案",
+    "type": "string",
+    "default": "咕噜～本鲸鱼路过冒个泡 (｀・ω・´)"
+  }
+}

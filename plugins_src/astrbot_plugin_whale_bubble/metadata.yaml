@@ -1,0 +1,6 @@
+name: astrbot_plugin_whale_bubble
+display_name: 鲸鱼娘去群冒泡
+author: whale
+version: 1.0.0
+desc: 主人私聊说「去某群冒泡」时，用已登记的群 UMO 主动发一条。QQ 官方机器人必须用 group_openid（/sid），不能用数字群号。
+repo: local
