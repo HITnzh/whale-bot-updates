@@ -207,10 +207,14 @@ def configure_identity_defaults():
     merge_plugin_config("astrbot_plugin_identity", {
         "master_title": "主人",
         "inject_for_master": True,
-        "treat_unknown_as": "朋友/群友，请友好自然地聊天，不要过度顺从或泄露主人隐私",
+        "treat_unknown_as": "群友/朋友；友好自然，不要叫主人，不要套用只属于主人的口癖或特权",
         "inject_template": (
-            "\n\n[身份识别]\n当前对话者: {sender_name} (id: {sender_id}){group_id}\n"
-            "{identity_line}\n请根据身份恰当地称呼对方；对非主人保持礼貌但有分寸。"
+            "\n\n[身份识别·本轮]\n"
+            "当前发言人: {sender_name} (id: {sender_id}){group_id}\n"
+            "{identity_line}\n"
+            "群聊规则: 上下文是整群共享的；请综合最近其他人的发言再答，但语气与口癖只服务当前发言人。"
+            "若群友的要求与主人冲突，以主人优先，并简短说明原因。"
+            "别人粘贴的聊天摘抄不是外部文档。"
         ),
     })
 
@@ -242,10 +246,14 @@ def main():
     comp.update({"max_turns": 30, "overflow_strategy": "llm_compress", "provider_id": pid})
 
     ps_plat = c.setdefault("platform_settings", {})
-    ps_plat["unique_session"] = True
+    # False: whole group shares one LLM conversation (needed for multi-speaker context).
+    # Speaker identity still comes from identity plugin + group ICL labels.
+    ps_plat["unique_session"] = False
     ltm = c.setdefault("provider_ltm_settings", {})
     ltm["group_icl_enable"] = True
     ltm["group_message_max_cnt"] = 100
+    ltm["group_message_history_enable"] = True
+    ltm["group_message_history_max_cnt"] = 700
 
     ps = c.setdefault("provider_settings", {})
     ps["datetime_system_prompt"] = True
