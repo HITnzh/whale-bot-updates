@@ -1,7 +1,7 @@
 {
- "version": 1792826675,
- "ref": "6dfcba0763ae3fffb3d13406d8bf9847f89382e0",
- "generated": "2026-10-24T15:24:35+0800",
+ "version": 1792828631,
+ "ref": "e12202bcf5b611dc04b83cde5f2d04ad4c104a3c",
+ "generated": "2026-10-24T15:57:11+0800",
  "note": "WhaleBot content update. Stickers CC BY-NC-SA 4.0, see stickers/CREDITS.md",
  "files": [
   {
@@ -1423,6 +1423,56 @@
    "path": "plugins_src/astrbot_plugin_livingmemory/static/stopwords/stopwords_hit.txt",
    "sha256": "84e526454db0245cab0d167df067f00298d271ad2c86391d45f5e880c422cbae",
    "size": 5273
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/storage/__init__.py",
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "size": 0
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/storage/atom_store.py",
+   "sha256": "2999d3f087ff884948dd436586691a33ce656e3173fad993f6787fe382ee47be",
+   "size": 23793
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/storage/conversation_store.py",
+   "sha256": "b9bb6c5a403e3bcfb0857ea7fc60bbedba28a083753b0c2dfc6953a01b0c6a1e",
+   "size": 11323
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/storage/conversation_store_messages.py",
+   "sha256": "845ac8e93b0c48d97686e02dbae7cb7ebe353d9a7f16fdc6f2e6e4d8f2a63e12",
+   "size": 33516
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/storage/db_migration.py",
+   "sha256": "84f5416edfe8cc4799f705908b6615578d8898759dd848929099ac0d0655e84f",
+   "size": 32116
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/storage/graph_store.py",
+   "sha256": "764903adc7a3153fe13206b94f02fb29872df641bd9a5e5961c2c6c520d3cb05",
+   "size": 2771
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/storage/graph_store_read.py",
+   "sha256": "04040324477c60aba1f5e0258339177daebb1d1f0630e3625dfa5be9bb31e414",
+   "size": 13145
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/storage/graph_store_snapshot.py",
+   "sha256": "4aefd7fb258dcf97fd8f83e988a2d138ca1fdd04e56c470d08249211682a8fbf",
+   "size": 21400
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/storage/graph_store_write.py",
+   "sha256": "82866046947fa6444f407927672cd06e35145f0065e5af38d5921d2b19726079",
+   "size": 26520
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/storage/schema.py",
+   "sha256": "edf6bb8b1b7a96f8d1f1c699a0fe80d78cd6cf806055f83877547b273acc6b0a",
+   "size": 6534
   },
   {
    "path": "plugins_src/astrbot_plugin_proactive_chat/CHANGELOG.md",
