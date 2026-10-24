@@ -1,13 +1,13 @@
 {
- "version": 1792832041,
- "ref": "579281521d99c9fa22a8c86bfec624e643e90271",
- "generated": "2026-10-24T16:54:01+0800",
+ "version": 1792847457,
+ "ref": "f6da6e073d5bf509e56fed3bd7f6678de1ed6f23",
+ "generated": "2026-10-24T21:10:57+0800",
  "note": "WhaleBot content update. Stickers CC BY-NC-SA 4.0, see stickers/CREDITS.md",
  "files": [
   {
    "path": "configure.py",
-   "sha256": "6b02d32915c8dc13c458e3465464ba3ca37b09119b2206fc15b1469677c3dd08",
-   "size": 12824
+   "sha256": "99e1f2673c26639807f01a4e0f02ec51d881c4a0f5aa69e99f31ee76d1df4f76",
+   "size": 13343
   },
   {
    "path": "stickers/CREDITS.md",
@@ -606,8 +606,8 @@
   },
   {
    "path": "persona/system_prompt.txt",
-   "sha256": "db4d4ae162039633321bdd51a5ad5893ae31735d70a2132e92fe754ab0d28020",
-   "size": 3796
+   "sha256": "38137a25659e688c5bcbaa75fb94679b866b04e38de27b3091f727d881d16910",
+   "size": 4712
   },
   {
    "path": "persona/whale_girl_persona.md",
