@@ -74,8 +74,8 @@ def _write_json(path, obj):
 
 
 def merge_plugin_config(name: str, patch: dict):
-    """Merge keys into data/config/<name>.json without wiping user edits."""
-    path = os.path.join(PLUGIN_CFG, f"{name}.json")
+    """Merge keys into data/config/<name>_config.json (AstrBot's real plugin config)."""
+    path = os.path.join(PLUGIN_CFG, f"{name}_config.json")
     cur = {}
     if os.path.exists(path):
         try:
@@ -153,6 +153,14 @@ def configure_embedding(c: dict, chat_pid: str):
             "llm_provider_id": chat_pid,
             "llm_stream_mode": "auto",
         },
+        "filtering_settings": {
+            "memory_scope_mode": "user",
+            "use_session_filtering": False,
+            "use_persona_filtering": True,
+        },
+        "session_manager": {
+            "enable_full_group_capture": False,
+        },
     })
     print(f"[configure] embedding={EMBED_ID} (SiliconFlow BAAI/bge-m3)")
     return True
@@ -188,7 +196,7 @@ def configure_proactive_defaults():
 
 
 def configure_weather_defaults():
-    merge_plugin_config("astrbot_plugin_weather_counhopig", {
+    merge_plugin_config("astrbot_plugin_weather", {
         "weather_provider": "wttr",
         "caiyun_api_key": "",
         "caiyun_api_version": "v2.6",
