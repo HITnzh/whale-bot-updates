@@ -1,7 +1,7 @@
 {
- "version": 1792912547,
- "ref": "b1b7bf6ab2de4c9c1fbb1b86779866b390a41b92",
- "generated": "2026-10-25T15:15:47+0800",
+ "version": 1792914888,
+ "ref": "72435c834b5d4aa8f0e1ca898c5d2818f2cd8710",
+ "generated": "2026-10-25T15:54:48+0800",
  "note": "WhaleBot content update. Stickers CC BY-NC-SA 4.0, see stickers/CREDITS.md",
  "files": [
   {
@@ -618,6 +618,101 @@
    "path": "persona/插件安装说明.md",
    "sha256": "d24d1c6765b59d98e4b970b336797e7c3d8efd6fddceee9e794f8c11b55e901e",
    "size": 6742
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/CHANGELOG.md",
+   "sha256": "6c7ed560fca98630ca6622232069a78fdacf5abf5a584da57a19ccde9a88bf08",
+   "size": 1432
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/LICENSE",
+   "sha256": "602f1e220a8ae15bb5479b56727ead19f9cfd15f88d105e447a54af8cfb2cfab",
+   "size": 35192
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/README.md",
+   "sha256": "26f4a6926c8ffbfc7db9b112b7bbe368d8c264cfaa72cd530513e36d9a6c5501",
+   "size": 9017
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/_conf_schema.json",
+   "sha256": "209a8a824ef1fee71ca45be707fe36feff790009e7d864b5e5464b9fc9ffbaa6",
+   "size": 15900
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/builtin_entry.yaml",
+   "sha256": "4d089ae9deb59d0de083304e37c87c8ff203f22b084723fae018e397576613b6",
+   "size": 1883
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/main.py",
+   "sha256": "68669f217dd9f981d3e1f1ba25b7a2cb61eebb7c72b0a08dc8df1969c4b1969d",
+   "size": 7616
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/metadata.yaml",
+   "sha256": "10619d7b2a27e426813507d5f9504103606f3406c120d263beec7d150f228503",
+   "size": 280
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/__init__.py",
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "size": 0
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/client.py",
+   "sha256": "22035b69801432fac90c0770a4741b8182f93f71846cbc2a8b196a249ada473a",
+   "size": 3306
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/config.py",
+   "sha256": "10aa06604c4a9a437a856679f24526c1d0a21fb82185f05e98f715c9d8f1db48",
+   "size": 5705
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/emotion.py",
+   "sha256": "4bc4f22e0b32e9e8e6797a6b0ada709c971bfc74126bb98d6bc8ee5f0c3fb44c",
+   "size": 4077
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/entry.py",
+   "sha256": "2e50df12c7b4bad2284bf0cc7e5bef1061f994e496f98d4c92bacf22fe5f7118",
+   "size": 2701
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/local_data.py",
+   "sha256": "f633b115c86d63f59551fb63c2e1e41be4634ee5d58e6d55956b3d775aa273a4",
+   "size": 3289
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/service.py",
+   "sha256": "126642b0a2e1ea76b8abc5afc75e52aef92ad0759422752f9d902ad8baeede29",
+   "size": 2682
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/tone_hint.py",
+   "sha256": "78461b783877deee9e009a0cefd0a720328475d63dbd2aad0a18b505699ea0a6",
+   "size": 4299
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/default_audio/不要害怕，也不要哭了.wav",
+   "sha256": "ceb26c4e11de974238b20977a5536e62503475211da13927e36a77a9e69ae8b4",
+   "size": 452814
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/default_audio/你还会选择现在的位置吗？到那时，你觉得自己又会是什么呢.wav",
+   "sha256": "ab5dabf3fae00e0d575b0dcdccc335644bf6ece523d66d734031e852bfd66c3c",
+   "size": 543404
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/default_audio/它好像在等另一只蕈兽_心情很好的样子.wav",
+   "sha256": "ab09bf6bfaee1b05d050e3e08e136b4fd0d0788a3b12cfea0bd9bc6df996aef8",
+   "size": 351532
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/default_audio/就算是这样，也不至于直接碎掉啊，除非.wav",
+   "sha256": "544817777d98d2c37a19aa32b0c29557b4b647941ad0a72ce381ccc9ec8fb59d",
+   "size": 475436
   },
   {
    "path": "plugins_src/astrbot_plugin_identity/README.md",
