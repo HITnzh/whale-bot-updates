@@ -304,3 +304,63 @@ def register_followup_store(name: str, store: FollowupStore) -> None:
 
 def get_followup_store(name: str = "default") -> FollowupStore | None:
     return _REGISTRY.get(name)
+
+
+import re
+
+_LIFE_EVENT_RE = re.compile(r"(面试|考试|比赛|出行|旅行|答辩|体检)")
+
+
+def maybe_create_followup_from_atom(atom: Any, store: FollowupStore | None = None) -> str | None:
+    """If atom looks like a private life event with clear end time, create one followup.
+
+    Only for private visibility + known subject + non-fuzzy time. Returns followup_id or None.
+    """
+    store = store or get_followup_store("default")
+    if store is None or atom is None:
+        return None
+    meta = getattr(atom, "metadata", None) or {}
+    if not isinstance(meta, dict):
+        return None
+    if meta.get("followup_disabled"):
+        return None
+    if str(meta.get("visibility") or "") != "private":
+        return None
+    if str(meta.get("time_precision") or "") == "fuzzy":
+        return None
+    content = str(getattr(atom, "content", "") or meta.get("content") or "")
+    if not _LIFE_EVENT_RE.search(content):
+        return None
+    subject = str(meta.get("subject_id") or "")
+    session = str(meta.get("source_session") or getattr(atom, "session_id", "") or "")
+    if not subject or not session:
+        return None
+    # Only DM-like sessions
+    if "group" in session.lower() and "Friend" not in session:
+        # allow explicit private visibility in non-group session ids
+        pass
+    event_end = meta.get("event_end") or getattr(atom, "event_time", None)
+    if event_end is None:
+        return None
+    try:
+        event_end = float(event_end)
+    except (TypeError, ValueError):
+        return None
+    due_after = event_end + 3600  # 1h after event window
+    expires_at = event_end + 86400 * 2
+    ver = int(meta.get("event_version") or 1)
+    atom_id = int(getattr(atom, "atom_id", 0) or 0)
+    if atom_id <= 0:
+        return None
+    # Cancel older versions for same atom family by subject+session predicate
+    store.cancel_for_atom(atom_id, newer_version=ver + 1)  # no-op if none
+    rec = store.create_followup(
+        atom_id=atom_id,
+        subject_id=subject,
+        target_session=session,
+        due_after=due_after,
+        expires_at=expires_at,
+        event_version=ver,
+        reason=f"event_end={event_end};{content[:40]}",
+    )
+    return rec.followup_id

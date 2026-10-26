@@ -129,6 +129,16 @@ class AtomStore:
                 )
             await db.commit()
 
+
+    @staticmethod
+    def _maybe_schedule_followup(atom: MemoryAtom) -> None:
+        try:
+            from ..core.followup_store import maybe_create_followup_from_atom
+
+            maybe_create_followup_from_atom(atom)
+        except Exception:
+            pass
+
     async def insert(self, atom: MemoryAtom) -> int:
         """Insert a new atom and return its id. Updates atom.atom_id in place."""
         self._prepare_atom_for_insert(atom)
@@ -136,6 +146,8 @@ class AtomStore:
         async with self._connect() as db:
             atom_id = await self._insert_atom(db, atom)
             await db.commit()
+        atom.atom_id = atom_id
+        self._maybe_schedule_followup(atom)
         return atom_id
 
     async def insert_many(self, atoms: list[MemoryAtom]) -> list[int]:
@@ -161,6 +173,9 @@ class AtomStore:
                         atom.atom_id = 0
                     raise
                 atom_ids.extend(batch_atom_ids)
+                for atom, aid in zip(batch, batch_atom_ids):
+                    atom.atom_id = aid
+                    self._maybe_schedule_followup(atom)
         return atom_ids
 
     def _prepare_atom_for_insert(self, atom: MemoryAtom) -> None:
