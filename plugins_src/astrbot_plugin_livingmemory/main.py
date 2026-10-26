@@ -4,6 +4,7 @@ main.py - LivingMemory 插件主文件
 """
 
 import asyncio
+from pathlib import Path
 import re
 from collections.abc import AsyncGenerator
 from importlib import metadata as importlib_metadata
@@ -128,6 +129,18 @@ class LivingMemoryPlugin(Star):
         set_active_plugin(self)
 
         self._register_official_page_api_if_available()
+
+        # Event followup narrow API for proactive_chat INTENT (no parallel memory DB)
+        try:
+            from .core.followup_store import FollowupStore, register_followup_store
+
+            self.followup_store = FollowupStore(
+                str(Path(data_dir) / "event_followups.db")
+            )
+            register_followup_store("default", self.followup_store)
+        except Exception as _fu_err:
+            self.followup_store = None
+            logger.warning(f"[livingmemory] followup store init skipped: {_fu_err}")
 
         # 启动非阻塞的初始化任务
         self._create_tracked_task(self._initialize_plugin())

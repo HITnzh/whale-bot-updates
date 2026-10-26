@@ -29,7 +29,13 @@ class MemoryProcessorBuildMixin:
             (content, metadata) 元组
         """
         summary = str(structured_data.get("summary", "")).strip()
-        key_facts = structured_data.get("key_facts", [])
+        from ..fact_metadata import merge_structured_into_key_facts
+        raw_facts = structured_data.get("key_facts", [])
+        key_facts, structured_fact_rows = merge_structured_into_key_facts(
+            raw_facts, structured_data.get("structured_facts")
+        )
+        structured_data["key_facts"] = key_facts
+        structured_data["structured_facts"] = structured_fact_rows
 
         # 检索内容恒为 summary + key_facts 的富文本：content 是 BM25/FAISS 的
         # 索引语料，也是 Agent 主动召回工具直接返回给 LLM 的内容，必须保证信息
@@ -54,6 +60,7 @@ class MemoryProcessorBuildMixin:
         metadata = {
             "topics": structured_data.get("topics", []),
             "key_facts": key_facts,
+            "structured_facts": structured_data.get("structured_facts") or structured_fact_rows,
             "sentiment": structured_data.get("sentiment", "neutral"),
             "interaction_type": "group_chat" if is_group_chat else "private_chat",
             # 双通道：canonical_summary 供图抽取等中性文本消费方使用，
@@ -88,6 +95,8 @@ class MemoryProcessorBuildMixin:
             return []
         topics = metadata.get("topics", [])
         participants = metadata.get("participants", [])
+        interaction = str(metadata.get("interaction_type") or "")
+        default_vis = "private" if interaction == "private_chat" else "group"
         atoms = classify_atoms(
             key_facts=key_facts,
             topics=topics,
@@ -95,6 +104,9 @@ class MemoryProcessorBuildMixin:
             parent_importance=parent_importance,
             session_id=session_id,
             persona_id=persona_id,
+            structured_facts=metadata.get("structured_facts"),
+            default_visibility=default_vis,
+            source_time=metadata.get("source_time") or metadata.get("create_time"),
         )
         metadata["atom_types"] = sorted({atom.atom_type.value for atom in atoms})
         return atoms

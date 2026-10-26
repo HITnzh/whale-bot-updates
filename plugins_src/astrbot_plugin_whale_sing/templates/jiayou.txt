@@ -1,0 +1,11 @@
+# theme:加油 id:jiayou mood:happy bpm:100 transpose:5
+# syllables_per_line: 6 6 6 6
+# 《冲鸭小鲸》原创短歌模板
+bpm: 100
+transpose: 5
+chords: C F G C
+lyrics: 深呼吸抬起头，困难都被吓跑，小鲸鱼给你鼓，加油你最棒哦
+notes: C4:0.5 E4:0.5 G4:1 A4:1 G4:1 R:0.5
+notes: F4:0.5 A4:0.5 G4:1 E4:1 C4:1 R:0.5
+notes: G4:0.5 A4:0.5 C5:1 A4:1 G4:1 R:0.5
+notes: E4:0.5 G4:0.5 A4:1 G4:0.5 E4:0.5 C4:2

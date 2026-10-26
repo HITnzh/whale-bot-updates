@@ -16,6 +16,9 @@ LLM 在回复末尾可选地附加隐藏标记 ``[表情:标签]``（标签取�
 """
 
 import json
+from pathlib import Path
+from .reply_plan import EXTRA_KEY as PLAN_KEY, build_reply_plan, detect_persistent_pref, detect_turn_override
+from .expression_prefs import ExpressionPrefStore
 import os
 import random
 import re
@@ -65,6 +68,8 @@ ALIASES: dict[str, list[str]] = {
     "嗯嗯": ["好的", "乖巧"], "同意": ["好的", "点赞"], "气鼓鼓": ["生气", "哼"], "吃醋": ["哼", "不爽"],
     "想你": ["喜欢", "等待"], "思念": ["等待", "喜欢"], "喵": ["卖萌", "撒娇"], "大肥鱼": ["摸鱼"], "鲸鱼": ["摸鱼"],
     "白米饭": ["吃饭", "干饭"], "米饭": ["吃饭", "干饭"],
+    "开黑": ["游戏", "开黑"], "野餐": ["野餐", "出门"], "画画": ["画画", "创作"],
+    "等一下": ["等待"], "雨天": ["下雨", "雨天"], "修bug": ["调试", "修bug"], "debug": ["调试", "修bug"],
 }
 
 
@@ -98,6 +103,10 @@ class Main(star.Star):
         self.credits = ""
         # session -> [replies since last sticker, last sticker ts]
         self.state: dict[str, list] = {}
+        _pref = os.environ.get("WHALE_EXPR_PREF") or os.path.join(
+            os.environ.get("ASTRBOT_ROOT") or os.getcwd(), "data", "expression_prefs.json"
+        )
+        self.expr_prefs = ExpressionPrefStore(Path(_pref))
         self._load()
 
     def _load(self) -> None:
@@ -204,6 +213,24 @@ class Main(star.Star):
             if tags:
                 resp.completion_text = cleaned
                 event.set_extra(EXTRA_KEY, tags[-1])
+            # Build shared reply_plan once (stickers + TTS consume it)
+            try:
+                user_text = event.get_message_str() or event.message_str or ""
+                sid = f"{event.get_platform_name()}:{event.get_sender_id()}"
+                pref = self.expr_prefs.get_mode(sid) if getattr(self, "expr_prefs", None) else None
+                pers = detect_persistent_pref(user_text)
+                if pers and self.expr_prefs:
+                    self.expr_prefs.set_mode(sid, pers)
+                    pref = pers
+                plan = build_reply_plan(
+                    reply_text=resp.completion_text or cleaned or text,
+                    user_text=user_text,
+                    preference_mode=pref,
+                    sticker_tag=(tags[-1] if tags else event.get_extra(EXTRA_KEY)),
+                )
+                event.set_extra(PLAN_KEY, plan.to_dict())
+            except Exception as _pe:
+                logger.debug(f"[whale_stickers] reply_plan: {_pe}")
         except Exception as e:
             logger.error(f"[whale_stickers] on_llm_response: {e}")
 
@@ -226,6 +253,15 @@ class Main(star.Star):
             new_chain.append(comp)
         result.chain = new_chain
         tag = event.get_extra(EXTRA_KEY) or (found[-1] if found else None)
+        plan = event.get_extra(PLAN_KEY) or {}
+        if plan.get("sticker_tag"):
+            tag = plan.get("sticker_tag")
+        if plan.get("mode") in ("text", "voice", "text_voice") and plan.get("mode") != "text_sticker":
+            # Plan says no sticker this turn
+            if plan.get("mode") != "text_sticker":
+                tag = None if plan.get("mode") in ("text", "voice", "text_voice") and not plan.get("sticker_tag") else tag
+        if plan.get("mode") == "text" and plan.get("source") in ("preference", "turn_override"):
+            tag = None
         if not result.is_llm_result():
             return
         sid = event.unified_msg_origin

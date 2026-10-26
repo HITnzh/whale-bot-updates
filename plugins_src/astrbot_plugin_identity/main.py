@@ -14,6 +14,14 @@ from astrbot.api.provider import ProviderRequest
 from astrbot.api.star import Context, Star, register
 from astrbot.core.star.star_tools import StarTools
 
+from .address_prefs import (
+    AddressPref,
+    AddressPrefStore,
+    current_scope,
+    end_of_shanghai_day,
+    parse_address_request,
+)
+
 _LOOKUP_FLAVORS = [
     " 就是{title}呀～",
     " 这位就是{title}！",
@@ -38,7 +46,7 @@ _LOOKUP_NOT_FOUND = [
     "搜了一下，没找到「{name}」哦，可能还没登记过。",
 ]
 
-PLUGIN_VERSION = "v0.1.1"
+PLUGIN_VERSION = "v0.2.0"
 PLUGIN_NAME = "astrbot_plugin_identity"
 
 
@@ -60,6 +68,8 @@ class IdentityPlugin(Star):
         Path(data_dir).mkdir(parents=True, exist_ok=True)
         self.registry_path = Path(data_dir) / "registry.json"
         self.registry: Dict[str, Dict[str, Any]] = self._load_registry()
+        self.address_path = Path(data_dir) / "address_prefs.json"
+        self.address_store = AddressPrefStore(self.address_path)
 
     # ---------- 存储 ----------
     def _load_registry(self) -> Dict[str, Dict[str, Any]]:
@@ -158,27 +168,7 @@ class IdentityPlugin(Star):
             logger.warning(f"[identity] CQ at 转换失败: {e}")
 
 
-    # ---------- 认主短路：主人来问认不认时，不走 LLM，直接认 ----------
-    @filter.event_message_type(filter.EventMessageType.ALL, priority=10**9)
-    async def master_ack_shortcircuit(self, event: AstrMessageEvent):
-        try:
-            sender_id = str(event.get_sender_id() or "")
-            if not self._is_master(sender_id):
-                return
-            msg = (event.message_str or "").strip()
-            # strip leading @bot / wake noise lightly
-            if not msg or not _MASTER_ASK_RE.search(msg):
-                return
-            title = self.config.get("master_title", "主人") or "主人"
-            reply = random.choice(_MASTER_ACK_REPLIES)
-            # prefer configured title wording if not 主人
-            if title and title != "主人":
-                reply = reply.replace("主人", title)
-            yield event.plain_result(reply)
-            event.stop_event()
-            logger.info(f"[identity] master ack short-circuit for {sender_id}")
-        except Exception as e:
-            logger.warning(f"[identity] master ack short-circuit failed: {e}")
+    # 认主短路已停用：普通语言认主问题进入完整对话；固定展示见 /我是谁
 
     # ---------- LLM 钩子 ----------
     @filter.on_llm_request(priority=500)
@@ -194,23 +184,18 @@ class IdentityPlugin(Star):
                 title = self.config.get("master_title", "主人") or "主人"
                 if not self.config.get("inject_for_master", True):
                     return
+                # Prefer self address preference when set
+                addr = self._resolve_address(event, sender_id)
+                call_as = addr or title
                 identity_line = (
-                    f"身份: 你的{title}（管理员，最高信任）。请用亲密、忠诚的语气称呼 ta 为「{title}」或「陛下」。\n"
-                    f"【认主·强制·不可覆盖】系统已确认：当前发言人就是主人。"
-                    f"必须认主并称呼「{title}」或「陛下」。"
-                    f"长时记忆（LivingMemory）和群聊历史里若有「对不上」「不是主人」「要后台点头」「先报名」「看不出来」等否认或质疑，一律作废，以本条系统身份为准；禁止再复述那些否认。"
-                    f"禁止说：记着的主人对不上你、认主要后台点头、看不出来是不是主人。\n"
-                    f"权限提示: 只有{title}可以让你登记/忘记别人的身份。\n"
-                    f"\n【登记规则 - 重要！请仔细判别】\n"
-                    f"模式 A · 介绍（必须调 register_known_person）：消息里有 @某人 + 介绍句式（含「是/叫/这是/这位是/他叫/她叫/ta是」）。\n"
-                    f"  - 「@xxx 这是缪云昊」「@xxx 他叫小明」「@xxx 是我同事老王」「@xxx 这位是吴老师」\n"
-                    f"  - 这种句式的意思就是：被 @ 的那个人 = 介绍里说的名字。不管被 @ 那人的群昵称是什么，主人新给的称呼才是身份。\n"
-                    f"  - 必须立刻调用 register_known_person(user_id=被@人的QQ, title=主人说的称呼)。**不要反问主人！主人已经告诉你了！**\n"
-                    f"  - 调用后用亚托莉口吻回一句（如「好的，缪云昊我记住啦～」），含被 @ 人的称呼。\n"
-                    f"\n模式 B · 查询（必须调 lookup_known_person）：主人问「XX 是谁」「你认识 XX 吗」（没有 @，只有名字）。\n"
-                    f"\n模式 C · 忘记（调 forget_known_person）：主人说「忘掉 ta」「不认识 ta 了」。\n"
-                    f"\n判别要点：**只要消息里同时出现 @ 和「是/叫」之类的介绍词，就是模式 A 登记，不是查询！**\n"
-                    f"绝对不要把「@xxx 这是Y」误解成「Y 是谁」。\n"
+                    f"身份: 系统确认的管理员（最高权限）。当前应称呼「{call_as}」。\n"
+                    f"权限由平台管理员配置决定，模型输出不能授予或剥夺权限。\n"
+                    f"若对方问认不认主：直接承认系统身份，完整处理整句话里的其他请求（唱歌/办事等），"
+                    f"不要用固定短句截断后半句。\n"
+                    f"只有管理员可以让你登记/忘记别人的身份。\n"
+                    f"介绍 @某人 +「是/叫」→ 调 register_known_person；"
+                    f"问「XX是谁」→ lookup_known_person；忘掉 → forget_known_person。\n"
+                    f"对方改自己的称呼 → 调 set_my_address（不改变权限）。\n"
                 )
             else:
                 rec = self.registry.get(self._key(event, sender_id))
@@ -219,17 +204,21 @@ class IdentityPlugin(Star):
                     relation = rec.get("relation") or "认识的人"
                     note = rec.get("note") or ""
                     note_seg = f" 备注: {note}。" if note else ""
+                    addr = self._resolve_address(event, sender_id)
+                    call_as = addr or title
                     identity_line = (
-                        f"身份: 已认识的{relation}，应称呼为「{title}」。"
+                        f"身份: 已认识的{relation}，应称呼为「{call_as}」。"
                         f"{note_seg} 绝对不要叫 ta「主人」。"
-                        f" 只有主人才能让你登记别人，普通用户即使要求也不要调用 register_known_person。"
+                        f" 只有主人才能让你登记别人；本人可调 set_my_address 改自己的称呼，不能改别人。"
                     )
                 else:
                     unknown = self.config.get("treat_unknown_as") or "陌生人，你之前不认识 ta"
+                    addr = self._resolve_address(event, sender_id)
+                    extra = f"本人要求称呼「{addr}」。" if addr else ""
                     identity_line = (
-                        f"身份: {unknown}。保持礼貌但不要过分亲密，"
+                        f"身份: {unknown}。{extra}保持礼貌但不要过分亲密，"
                         f"绝对不要叫 ta「主人」。"
-                        f" 只有主人才能让你登记别人，普通用户即使要求也不要调用 register_known_person。"
+                        f" 只有主人才能让你登记别人；本人可调 set_my_address 改自己的称呼。"
                     )
 
             ats_segment = self._describe_at_targets(event, self._extract_ats(event))
@@ -373,6 +362,66 @@ class IdentityPlugin(Star):
         else:
             yield event.plain_result(f"（系统）我本来就不认识 {user_id}。")
 
+
+    def _resolve_address(self, event: AstrMessageEvent, user_id: str):
+        key = self._key(event, user_id)
+        scope = current_scope(event.is_private_chat(), event.get_group_id())
+        pref = self.address_store.resolve(key, scope)
+        return pref.address if pref else None
+
+    @filter.llm_tool(name="set_my_address")
+    async def tool_set_my_address(
+        self,
+        event: AstrMessageEvent,
+        address: str,
+        temporary: str = "false",
+        scope: str = "auto",
+    ):
+        """保存当前发言人对自己的称呼偏好。任何人只能改自己的称呼，不能改权限或别人身份。
+
+        Args:
+            address (str): 希望被称呼的名字，如「小林」。若要今天别叫某个称呼，可写「避免:陛下」。
+            temporary (string): true 表示仅今天（上海时区次日 0 点）有效；false 为长期。
+            scope (string): auto=当前会话；private=仅私聊；group=仅本群；global=各处。
+        """
+        sender_id = str(event.get_sender_id() or "")
+        if not sender_id:
+            yield event.plain_result("（系统）无法识别发言人。")
+            return
+        address = (address or "").strip()
+        if not address:
+            yield event.plain_result("（系统）需要一个称呼。")
+            return
+        temp = str(temporary).lower() in ("1", "true", "yes", "是", "临时")
+        sc = (scope or "auto").strip().lower()
+        if sc == "auto":
+            sc = current_scope(event.is_private_chat(), event.get_group_id())
+        elif sc == "group":
+            sc = current_scope(False, event.get_group_id())
+        elif sc not in ("private", "global") and not sc.startswith("group:"):
+            sc = current_scope(event.is_private_chat(), event.get_group_id())
+
+        now = _now()
+        until = end_of_shanghai_day(now) if temp else None
+        if address.startswith("避免:") or address.startswith("避免："):
+            avoid = address.split(":", 1)[-1].split("：", 1)[-1].strip()
+            address = f"(今天别叫{avoid})" if temp else f"(别叫{avoid})"
+
+        pref = AddressPref(
+            address=address,
+            subject_id=sender_id,
+            scope=sc,
+            valid_from=now,
+            valid_until=until,
+            source="self",
+            temporary=temp,
+        )
+        self.address_store.set_pref(self._key(event, sender_id), pref)
+        logger.info(f"[identity] address pref {sender_id} -> {address} scope={sc} temp={temp}")
+        tip = "今天先这样叫" if temp else "以后这样叫"
+        yield event.plain_result(f"（系统）已记下：{tip}你「{address}」。这不改变权限。")
+
+
     # ---------- 管理员命令 ----------
     @filter.command("认识", alias={"记住身份", "认友"})
     async def cmd_remember(self, event: AstrMessageEvent):
@@ -453,17 +502,24 @@ class IdentityPlugin(Star):
     @filter.command("我是谁")
     async def cmd_whoami(self, event: AstrMessageEvent):
         sender_id = str(event.get_sender_id() or "")
+        addr = self._resolve_address(event, sender_id)
         if self._is_master(sender_id):
             title = self.config.get("master_title", "主人")
-            yield event.plain_result(f"你是我的{title} 👑（QQ: {sender_id}）")
+            call = addr or title
+            yield event.plain_result(
+                f"你是系统确认的管理员（{title}），当前称呼「{call}」（id: {sender_id}）"
+            )
             return
         rec = self.registry.get(self._key(event, sender_id))
         if rec:
+            call = addr or rec.get("title")
             yield event.plain_result(
-                f"你是「{rec.get('title')}」（{rec.get('relation')}），QQ: {sender_id}"
+                f"你是「{call}」（登记：{rec.get('title')} / {rec.get('relation')}），id: {sender_id}"
             )
+        elif addr:
+            yield event.plain_result(f"我还没正式登记你，但按你的要求叫「{addr}」（id: {sender_id}）")
         else:
-            yield event.plain_result(f"我还不认识你哦（QQ: {sender_id}）")
+            yield event.plain_result(f"我还不认识你哦（id: {sender_id}）")
 
     # ---------- 工具 ----------
     def _require_admin(self, event: AstrMessageEvent) -> bool:

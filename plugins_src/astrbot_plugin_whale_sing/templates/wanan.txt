@@ -1,0 +1,11 @@
+# theme:晚安 id:wanan mood:comforting bpm:78 transpose:5
+# syllables_per_line: 7 7 7 7
+# 《月光小鲸》原创短歌模板（鲸鱼娘）
+bpm: 78
+transpose: 5
+chords: C G Am F
+lyrics: 月光轻轻拍浪花，小鲸鱼眨着眼眶，愿你今晚好梦长，醒来还有白米饭
+notes: E4:0.5 G4:0.5 A4:1 G4:0.5 E4:0.5 D4:1 C4:2 R:1
+notes: D4:0.5 E4:0.5 G4:1 E4:0.5 D4:0.5 C4:1 D4:2 R:1
+notes: A4:0.5 G4:0.5 E4:1 G4:0.5 A4:0.5 G4:1 E4:2 R:1
+notes: D4:0.5 E4:0.5 G4:0.5 E4:0.5 D4:1 C4:1 C4:2 R:1

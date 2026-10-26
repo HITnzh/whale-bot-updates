@@ -134,38 +134,83 @@ def classify_atoms(
     parent_importance: float = 0.5,
     session_id: str | None = None,
     persona_id: str | None = None,
+    structured_facts: list[dict] | None = None,
+    default_visibility: str = "group",
+    source_time: float | None = None,
 ) -> list[MemoryAtom]:
-    """Classify a list of key_fact strings into MemoryAtom instances.
+    """Classify key_fact strings into MemoryAtom instances.
 
-    Args:
-        key_facts: Raw fact strings from LLM extraction.
-        topics: Topic labels for entity linking.
-        participants: Participant names for entity linking.
-        parent_importance: Importance inherited from the parent memory.
-        session_id: Session identifier.
-        persona_id: Persona identifier.
-
-    Returns:
-        A list of MemoryAtom instances, one per fact, with computed TTL and decay.
+    structured_facts (optional) attach subject/visibility/time metadata per fact.
+    Legacy callers that only pass key_facts: list[str] keep working; subject stays unknown.
     """
+    from ..fact_metadata import (
+        normalize_fact_item,
+        parse_relative_range,
+        VIS_PRIVATE,
+    )
+
     entities: list[str] = []
     if topics:
         entities.extend(topics)
     if participants:
         entities.extend(participants)
 
+    # Build parallel structured list aligned to key_facts when possible
+    struct_by_content: dict[str, dict] = {}
+    for item in structured_facts or []:
+        sf = normalize_fact_item(
+            item,
+            default_visibility=default_visibility,
+            source_session=session_id,
+            source_time=source_time,
+        )
+        if sf:
+            struct_by_content[sf.content] = sf.to_metadata()
+
     atoms: list[MemoryAtom] = []
     for fact in key_facts:
-        fact = fact.strip()
+        fact = fact.strip() if isinstance(fact, str) else str(fact or "").strip()
         if not fact:
             continue
 
         atom_type, confidence, event_time = _classify_single(fact)
+        meta = dict(struct_by_content.get(fact) or {})
+        if not meta:
+            sf = normalize_fact_item(
+                fact,
+                default_visibility=default_visibility,
+                source_session=session_id,
+                source_time=source_time,
+            )
+            meta = sf.to_metadata() if sf else {}
+
+        # Fill event range from relative language using source_time (not "now")
+        src_t = meta.get("source_time") or source_time or time.time()
+        if meta.get("event_start") is None:
+            es, ee, prec = parse_relative_range(fact, source_time=float(src_t))
+            if prec == "fuzzy":
+                meta["time_precision"] = "fuzzy"
+            elif es is not None:
+                meta["event_start"] = es
+                meta["event_end"] = ee
+                meta["time_precision"] = prec
+                if event_time is None:
+                    event_time = es
+                from ..models.memory_atom import AtomType as _AT
+                if atom_type in (_AT.UNKNOWN, _AT.EPISODIC) and es:
+                    atom_type, confidence = _AT.PLANNED, max(confidence, 0.8)
+                    meta["event_state"] = meta.get("event_state") or "pending"
+
+        if meta.get("visibility") is None:
+            meta["visibility"] = default_visibility
+        if session_id and not meta.get("source_session"):
+            meta["source_session"] = session_id
+
         ttl, decay = compute_ttl(atom_type, parent_importance, 0, event_time)
         now = time.time()
 
         atom = MemoryAtom(
-            parent_memory_id=0,  # set by caller after insertion
+            parent_memory_id=0,
             atom_type=atom_type,
             content=fact,
             entities=list(entities),
@@ -177,6 +222,7 @@ def classify_atoms(
             expires_at=now + ttl * 86400.0,
             session_id=session_id,
             persona_id=persona_id,
+            metadata=meta,
         )
         atoms.append(atom)
 

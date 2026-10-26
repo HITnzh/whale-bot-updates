@@ -14,6 +14,7 @@ from .gating_feature import GatingFeature
 from .prompt.single_prompt import SinglePromptFeature
 from .record.history_writer import HistoryWriterFeature
 from .review_feature import ReviewFeature
+from .intent.event_followup import EventFollowupFeature
 
 
 def build_default_features(orchestrator: Any) -> list:
@@ -27,6 +28,7 @@ def build_default_features(orchestrator: Any) -> list:
     """
     return [
         GatingFeature(orchestrator),
+        EventFollowupFeature(orchestrator),
         ConversationSourceFeature(orchestrator),
         SinglePromptFeature(orchestrator),
         ReviewFeature(orchestrator),

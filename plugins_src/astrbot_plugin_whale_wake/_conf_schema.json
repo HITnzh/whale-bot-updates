@@ -1,17 +1,11 @@
 {
-  "owner_probability": {
-    "description": "主人发言未@时主动接话概率",
-    "type": "float",
-    "hint": "0~1，建议 0.85–1.0",
-    "default": 0.9
-  },
   "other_mention_always": {
-    "description": "提到名字时必定唤醒",
+    "description": "名字明确呼叫时唤醒（转述/讨论「小鲸刚才…」不唤醒）",
     "type": "bool",
     "default": true
   },
   "name_keywords": {
-    "description": "唤醒关键词（逗号分隔，命中任一即视为叫你）",
+    "description": "唤醒关键词（逗号分隔）",
     "type": "string",
     "default": "鲸鱼娘,小鲸鱼,大肥鱼,蓝色大肥鱼,DeepSeek,deepseek"
   },
@@ -21,8 +15,18 @@
     "default": "戳戳,戳一下,戳了戳,拍了拍"
   },
   "extra_owner_ids": {
-    "description": "额外主人 openid（每行一个；默认还读 admins_id）",
+    "description": "额外主人 openid（每行一个；默认还读 admins_id；不再用于随机插话）",
     "type": "text",
-    "default": "3C00CF866EE656C4F2C64546705969B1"
+    "default": ""
+  },
+  "continuity_window_sec": {
+    "description": "连续对话窗口秒数",
+    "type": "float",
+    "default": 90
+  },
+  "continuity_max_turns": {
+    "description": "连续对话最多跟进轮数",
+    "type": "int",
+    "default": 3
   }
 }

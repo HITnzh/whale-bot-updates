@@ -56,6 +56,17 @@ class ContextStage(BaseStage):
             "unanswered_count": ctx.unanswered_count,
             "timestamp": time.time(),
         }
+        # Event followup intent hint (from INTENT stage)
+        topic = (ctx.extra or {}).get("intent_topic")
+        if topic:
+            sp = ctx.extra.get("system_prompt") or ""
+            ctx.extra["system_prompt"] = sp + f"\n\n【本轮主动关心】{topic}"
+            fu = ctx.extra.get("event_followup") or {}
+            if fu:
+                ctx.extra["platform_context"] = (
+                    (ctx.extra.get("platform_context") or "")
+                    + f"\n事件跟进证据: atom={fu.get('atom_id')} ver={fu.get('event_version')} reason={fu.get('reason')}"
+                )
         logger.debug("[主动消息] 上下文准备完成喵。")
         return StageResult.CONTINUE
 

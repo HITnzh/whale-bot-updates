@@ -1,0 +1,11 @@
+# theme:庆祝 id:qingzhu mood:happy bpm:110 transpose:5
+# syllables_per_line: 6 6 7 6
+# 《花开庆祝》原创短歌模板
+bpm: 110
+transpose: 5
+chords: C G Am G
+lyrics: 锣鼓敲得响亮，星星都在鼓掌，今天值得开饭庆祝，鲸鱼跳圈表扬
+notes: G4:0.5 A4:0.5 C5:1 A4:1 G4:1 R:0.5
+notes: E4:0.5 G4:0.5 A4:1 G4:1 E4:1 R:0.5
+notes: C5:0.5 A4:0.5 G4:0.5 E4:0.5 G4:1 A4:1 G4:1
+notes: E4:0.5 G4:0.5 A4:1 G4:0.5 E4:0.5 C4:2

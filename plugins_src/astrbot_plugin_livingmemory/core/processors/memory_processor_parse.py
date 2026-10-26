@@ -94,6 +94,10 @@ class MemoryProcessorParseMixin:
             )
 
             data["key_facts"] = self._ensure_list(data.get("key_facts", []))[:5]
+            # Optional structured facts (subject/visibility/time); keep key_facts strings compatible
+            sf = data.get("structured_facts")
+            if sf is not None:
+                data["structured_facts"] = self._ensure_list(sf)[:10]
             logger.debug(
                 f"[MemoryProcessor] 提取 key_facts ({len(data['key_facts'])} 个): {data['key_facts']}"
             )

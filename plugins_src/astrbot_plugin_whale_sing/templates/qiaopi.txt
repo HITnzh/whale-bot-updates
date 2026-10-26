@@ -1,0 +1,11 @@
+# theme:俏皮 id:qiaopi mood:playful bpm:96 transpose:5
+# syllables_per_line: 6 6 6 6
+# 《摸鱼小调》原创短歌模板
+bpm: 96
+transpose: 5
+chords: Am F C G
+lyrics: 哼哼藏起尾巴，假装没有偷懒，白米饭叫我去，摸鱼也要可爱
+notes: A4:0.5 C5:0.5 A4:1 G4:1 E4:1 R:0.5
+notes: F4:0.5 A4:0.5 G4:1 E4:1 D4:1 R:0.5
+notes: E4:0.5 G4:0.5 A4:1 G4:1 E4:1 R:0.5
+notes: D4:0.5 E4:0.5 G4:1 E4:0.5 D4:0.5 C4:2

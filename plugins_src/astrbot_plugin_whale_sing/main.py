@@ -17,6 +17,15 @@ from astrbot.api.event import AstrMessageEvent, filter
 from astrbot.api.message_components import Record
 from astrbot.api.star import Context, Star, register
 
+from .song_session import SongSession, SongSessionStore
+from .theme_songs import (
+    fit_lyrics,
+    load_templates,
+    parse_theme_request,
+    select_template,
+    template_to_pipeline_kwargs,
+)
+
 
 def _norm(p: str) -> str:
     return (p or "").replace("\\", "/").strip()
@@ -26,12 +35,14 @@ def _norm(p: str) -> str:
     "whale_sing",
     "whale",
     "DiffSinger 本地唱歌，可选本机 RVC 变声（不下载商业曲库）",
-    "1.0.0",
+    "1.1.0",
 )
 class WhaleSing(Star):
     def __init__(self, context: Context, config: AstrBotConfig | None = None):
         super().__init__(context)
         self.config = config or {}
+        self._song_sessions = SongSessionStore()
+        self._templates = load_templates(Path(__file__).resolve().parent / "templates")
 
     def _cfg(self, key: str, default=None):
         v = self.config.get(key)
@@ -196,6 +207,81 @@ class WhaleSing(Star):
         wav = await self._maybe_rvc(wav)
         return self._to_pcm_wav_if_needed(wav)
 
+
+    def _session_key_parts(self, event: AstrMessageEvent) -> tuple[str, str]:
+        sid = str(getattr(event, "unified_msg_origin", None) or event.get_group_id() or event.get_sender_id() or "")
+        uid = str(event.get_sender_id() or "")
+        return sid, uid
+
+    def _build_theme_kwargs(self, event: AstrMessageEvent, req: dict) -> dict:
+        """Build synth kwargs from theme request / revision; updates song_session."""
+        sid, uid = self._session_key_parts(event)
+        prev = self._song_sessions.get(sid, uid)
+        revision = req.get("revision_of")
+        theme = req.get("theme") or (prev.theme if prev else "")
+        recipient = req.get("recipient") or (prev.recipient if prev else "")
+        mood = req.get("mood") or (prev.mood if prev else None)
+
+        if revision and not prev:
+            raise ValueError("我还不记得上一首诶，先说主题再改～比如：唱个晚安曲")
+
+        bpm = None
+        tpl = None
+        lyrics = None
+
+        if revision == "tempo" and prev:
+            tpl = self._templates.get(prev.template_id) or select_template(self._templates, prev.theme, prev.mood)
+            lyrics = prev.lyrics
+            # Faster within template range
+            base = tpl.bpm if tpl else prev.bpm
+            bpm = min(base + 20, int(base * 1.25) + 5)
+            recipient = prev.recipient
+            theme = prev.theme
+        elif revision == "add_name" and prev:
+            tpl = self._templates.get(prev.template_id) or select_template(self._templates, prev.theme)
+            recipient = recipient or "你"
+            lyrics, _ = fit_lyrics(tpl, prev.theme, recipient)
+            bpm = prev.bpm
+            theme = prev.theme
+        elif revision == "change_mood" and prev:
+            # Pick mood from raw text
+            raw = req.get("raw") or ""
+            if "开心" in raw or "庆祝" in raw:
+                mood = "happy"
+                theme = "庆祝"
+            elif "俏皮" in raw or "调皮" in raw:
+                mood = "playful"
+                theme = "俏皮"
+            elif "晚安" in raw or "温柔" in raw:
+                mood = "comforting"
+                theme = "晚安"
+            elif "加油" in raw:
+                mood = "happy"
+                theme = "加油"
+            tpl = select_template(self._templates, theme, mood)
+            lyrics, _ = fit_lyrics(tpl, theme, prev.recipient or recipient)
+            recipient = prev.recipient or recipient
+        else:
+            tpl = select_template(self._templates, theme, mood)
+            if not tpl:
+                raise FileNotFoundError("没有可用的主题短歌模板")
+            lyrics, _ = fit_lyrics(tpl, theme, recipient)
+
+        assert tpl is not None and lyrics is not None
+        kwargs = template_to_pipeline_kwargs(tpl, lyrics, bpm=bpm)
+        # Persist session for this user only
+        ss = SongSession(
+            template_id=tpl.template_id,
+            theme=theme or tpl.theme,
+            recipient=recipient or "",
+            lyrics=lyrics,
+            bpm=int(kwargs.get("bpm") or tpl.bpm),
+            version=(prev.version + 1) if prev else 1,
+            mood=mood or tpl.mood,
+        )
+        self._song_sessions.put(sid, uid, ss)
+        return kwargs
+
     def _parse_song_arg(self, raw: str) -> dict:
         """Parse `/唱 ...` body into kwargs.
 
@@ -247,12 +333,17 @@ class WhaleSing(Star):
             yield event.plain_result("这个只能管理员用哦～")
             return
         try:
-            kwargs = self._parse_song_arg(event.message_str or "")
+            raw_msg = event.message_str or ""
+            theme_req = parse_theme_request(raw_msg)
+            if theme_req:
+                kwargs = self._build_theme_kwargs(event, theme_req)
+            else:
+                kwargs = self._parse_song_arg(raw_msg)
             if not kwargs:
                 songs_dir = Path(_norm(str(self._cfg("songs_dir", "E:/whale-bot/sing/songs"))))
                 names = ", ".join(x.stem for x in songs_dir.glob("*.txt")) or "（还没有曲谱）"
                 yield event.plain_result(
-                    "用法：/唱 demo  或  /唱 歌词 | 简谱\n"
+                    "用法：/唱 demo  或  /唱 歌词 | 简谱  或  /唱 给小林唱个晚安曲\n"
                     f"曲谱：{names}\n"
                     "只唱原创/自写简谱；不下载网易云商业歌。"
                 )
@@ -274,16 +365,24 @@ class WhaleSing(Star):
         bpm: int = 0,
         key: str = "",
         transpose: int = 999,
+        theme: str = "",
+        recipient: str = "",
+        mood: str = "",
+        revision: str = "",
     ):
-        """主人或用户请你唱一段原创/自写简谱时调用。用本地 DiffSinger 合成并发送语音。禁止点播受版权保护的商业歌曲名去下载翻唱。
+        """唱原创短歌。优先 theme 主题短歌（晚安/加油/庆祝/俏皮）；也可 lyrics+jianpu 或 song_name。禁止下载商业歌。
 
         Args:
-            lyrics(string): 中文歌词（与简谱音数对应；休止和连音不吃字）
-            jianpu(string): 简谱，如 "3_ 5_ 6 5 ~3 1--"；与 song_name 二选一
-            song_name(string): songs 目录里已有曲谱名（如 demo），有则优先
-            bpm(int): 速度，0 表示用默认
-            key(string): 简谱调，如 C4；空则默认
-            transpose(int): 移调半音；999 表示用默认
+            theme(string): 主题，如 晚安/加油/庆祝/俏皮；只说主题时用这个
+            recipient(string): 送给谁（名字），可空
+            mood(string): comforting/happy/playful，可空
+            revision(string): tempo|add_name|change_mood，改自己上一首
+            lyrics(string): 中文歌词（与简谱音数对应）
+            jianpu(string): 简谱；与 song_name/theme 二选一
+            song_name(string): songs 目录曲谱名（如 demo）
+            bpm(int): 速度，0 默认
+            key(string): 简谱调
+            transpose(int): 移调；999 默认
         """
         if not bool(self._cfg("enabled", True)):
             return "唱歌插件未启用"
@@ -291,7 +390,16 @@ class WhaleSing(Star):
             return "无权限"
         try:
             kwargs: dict = {}
-            if song_name:
+            if theme or revision:
+                req = {
+                    "theme": theme,
+                    "recipient": recipient,
+                    "mood": mood or None,
+                    "revision_of": revision or None,
+                    "raw": f"{theme} {mood} {revision}",
+                }
+                kwargs = self._build_theme_kwargs(event, req)
+            elif song_name:
                 songs_dir = Path(_norm(str(self._cfg("songs_dir", "E:/whale-bot/sing/songs"))))
                 p = songs_dir / (song_name if song_name.endswith(".txt") else f"{song_name}.txt")
                 if not p.exists():
@@ -299,7 +407,7 @@ class WhaleSing(Star):
                 kwargs["song_file"] = str(p)
             else:
                 if not lyrics or not jianpu:
-                    return "需要 lyrics+jianpu，或 song_name"
+                    return "需要 theme，或 lyrics+jianpu，或 song_name"
                 kwargs["lyrics"] = lyrics
                 kwargs["jianpu"] = jianpu
                 if key:

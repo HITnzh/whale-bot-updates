@@ -1397,6 +1397,90 @@
    "author": "作者：YunYueSama；仓库：https://github.com/YunYueSama/codex-deepseek-pet（AI 生成，依据社区角色参考）",
    "license": "大肥鱼项目署名许可 1.0（允许修改/分发，须署名作者+仓库并保留许可）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
    "modified": "由 dense-sneak.png 的 32 帧合成 GIF（白底，200px）"
+  },
+  {
+   "file": "sutera_daily-gaming.png",
+   "tags": [
+    "游戏",
+    "开黑",
+    "玩"
+   ],
+   "desc": "打游戏开黑",
+   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-daily-gaming.webp",
+   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
+   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
+   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
+   "modified": "webp→png，裁透明边"
+  },
+  {
+   "file": "sutera_daily-picnic.png",
+   "tags": [
+    "野餐",
+    "出门",
+    "郊游"
+   ],
+   "desc": "户外野餐",
+   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-daily-picnic.webp",
+   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
+   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
+   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
+   "modified": "webp→png，裁透明边"
+  },
+  {
+   "file": "sutera_daily-painting.png",
+   "tags": [
+    "画画",
+    "创作",
+    "艺术"
+   ],
+   "desc": "画画创作",
+   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-daily-painting.webp",
+   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
+   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
+   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
+   "modified": "webp→png，裁透明边"
+  },
+  {
+   "file": "sutera_waiting.png",
+   "tags": [
+    "等待",
+    "等一下",
+    "发呆"
+   ],
+   "desc": "等待发呆",
+   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-waiting.webp",
+   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
+   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
+   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
+   "modified": "webp→png，裁透明边"
+  },
+  {
+   "file": "sutera_weather-rain-happy.png",
+   "tags": [
+    "下雨",
+    "雨天",
+    "开心"
+   ],
+   "desc": "雨天开心玩水",
+   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-weather-rain-happy.webp",
+   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
+   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
+   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
+   "modified": "webp→png，裁透明边"
+  },
+  {
+   "file": "sutera_work-debug.png",
+   "tags": [
+    "调试",
+    "bug",
+    "修bug"
+   ],
+   "desc": "盯着屏幕修 bug",
+   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-work-debug.webp",
+   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
+   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
+   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
+   "modified": "webp→png，裁透明边"
   }
  ]
 }

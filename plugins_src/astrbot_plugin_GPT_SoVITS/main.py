@@ -15,6 +15,7 @@ from .core.entry import EntryManager
 from .core.local_data import LocalDataManager
 from .core.service import GPTSoVITSService
 from .core.tone_hint import extract_tone_hint, match_tone_to_entry
+from .core.reply_plan import EXTRA_KEY as PLAN_KEY, ReplyPlan, strip_for_speech
 
 
 class GPTSoVITSPlugin(Star):
@@ -110,7 +111,7 @@ class GPTSoVITSPlugin(Star):
 
     @filter.on_decorating_result(priority=14)
     async def on_decorating_result(self, event: AstrMessageEvent):
-        """消息入口"""
+        """Auto TTS — honors shared whale_reply_plan; never blocks /说."""
         if not self.cfg.enabled:
             return
         cfg = self.cfg.auto
@@ -123,32 +124,55 @@ class GPTSoVITSPlugin(Star):
             return
         if cfg.only_llm_result and not result.is_llm_result():
             return
-        if random.random() > cfg.tts_prob:
-            return
 
-        # 收集所有Plain文本片段
+        plan_raw = event.get_extra(PLAN_KEY) or {}
+        plan = ReplyPlan.from_dict(plan_raw) if plan_raw else None
+
+        # Preference / plan says text only → skip auto voice
+        if plan and plan.mode in ("text", "text_sticker"):
+            return
+        want_voice = bool(plan and plan.mode in ("voice", "text_voice"))
+        if not want_voice:
+            if random.random() > cfg.tts_prob:
+                return
+
         plain_texts = []
         for seg in chain:
             if isinstance(seg, Plain):
                 plain_texts.append(seg.text)
-
-        # 仅允许只含有Plain的消息链通过
-        if len(plain_texts) != len(chain):
+        if not plain_texts:
             return
-
-        # 合并所有Plain文本
+        # Allow Image+Plain (sticker); only synthesize from plains
         combined_text = "\n".join(plain_texts)
-
-        # 仅允许一定长度以下的文本通过
         if len(combined_text) > cfg.max_msg_len:
             return
 
-        params = await self._get_emotion_params(event, combined_text)
-        res = await self.service.inference(combined_text, extra_params=params)
-        if not bool(res):
+        speak = (plan.spoken_text if plan and plan.spoken_text else strip_for_speech(combined_text))
+        if not speak.strip():
             return
-        chain.clear()
-        chain.append(self._to_record(res))
+
+        # Map plan emotion → entry keywords when possible (no second LLM guess)
+        tone = None
+        if plan:
+            tone = {"calm": "温柔", "happy": "开心", "playful": "开心", "comforting": "温柔"}.get(plan.emotion)
+        params = await self._get_emotion_params(event, speak, tone_hint=tone)
+        res = await self.service.inference(speak, extra_params=params)
+        if not bool(res):
+            # Keep original text on failure
+            return
+        keep = True if (plan is None or plan.keep_transcript or plan.mode == "text_voice") else False
+        if plan and plan.mode == "voice":
+            keep = False
+        record = self._to_record(res)
+        if keep:
+            # append voice after text (and stickers if any)
+            chain.append(record)
+        else:
+            # replace plains with voice; keep non-plain (images)
+            new_chain = [seg for seg in chain if not isinstance(seg, Plain)]
+            new_chain.insert(0, record)
+            chain.clear()
+            chain.extend(new_chain)
 
     @filter.command("说", alias={"gsv", "GSV"})
     async def on_command(self, event: AstrMessageEvent):

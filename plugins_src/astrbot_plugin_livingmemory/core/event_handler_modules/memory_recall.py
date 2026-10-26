@@ -268,6 +268,48 @@ class MemoryRecall:
                 )
 
                 if recalled_memories:
+                    try:
+                        from ..fact_metadata import is_atom_visible
+                        filtered = []
+                        is_priv = "FriendMessage" in str(session_id) or ":private:" in str(session_id).lower() or str(session_id).endswith(":private")
+                        # AstrBot session ids vary; also treat missing group as private
+                        if not is_priv:
+                            is_priv = "GroupMessage" not in str(session_id) and "group" not in str(session_id).lower()
+                        for mem in recalled_memories:
+                            md = mem.get("metadata") if isinstance(mem, dict) else getattr(mem, "metadata", {})
+                            if isinstance(md, str):
+                                import json as _json
+                                try:
+                                    md = _json.loads(md)
+                                except Exception:
+                                    md = {}
+                            if not isinstance(md, dict):
+                                md = {}
+                            # Parent summaries without structured visibility: keep (compat)
+                            if "visibility" not in md and "structured_facts" not in md:
+                                filtered.append(mem)
+                                continue
+                            # Filter structured_facts inside metadata for injection safety
+                            sfs = md.get("structured_facts")
+                            if isinstance(sfs, list) and sfs:
+                                kept_sf = [sf for sf in sfs if isinstance(sf, dict) and is_atom_visible(
+                                    sf, recall_session_id=recall_session_id, is_private_recall=is_priv
+                                )]
+                                md = {**md, "structured_facts": kept_sf}
+                                # If all facts invisible and visibility is private, drop whole memory in group
+                                if not kept_sf and any(str(sf.get("visibility")) == "private" for sf in sfs if isinstance(sf, dict)):
+                                    continue
+                            if not is_atom_visible(md, recall_session_id=recall_session_id, is_private_recall=is_priv):
+                                # legacy group-visible without explicit private → allow if same session
+                                if md.get("visibility") == "private":
+                                    continue
+                            if isinstance(mem, dict):
+                                mem = {**mem, "metadata": md}
+                            filtered.append(mem)
+                        recalled_memories = filtered
+                    except Exception as _vis_err:
+                        from astrbot.api import logger as _lg
+                        _lg.debug(f"[livingmemory] visibility filter skipped: {_vis_err}")
                     logger.info(
                         f"[{session_id}] 检索到 {len(recalled_memories)} 条记忆"
                     )
