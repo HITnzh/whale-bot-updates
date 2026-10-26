@@ -1,7 +1,7 @@
 {
- "version": 1793011817,
- "ref": "0e41394b6a847550dada5a7edc88f5ea53f2f339",
- "generated": "2026-10-26T18:50:17+0800",
+ "version": 1793011868,
+ "ref": "7e1086f398519e4a427d98b6d7ed28a69d7d55fb",
+ "generated": "2026-10-26T18:51:08+0800",
  "note": "WhaleBot content update. Stickers CC BY-NC-SA 4.0, see stickers/CREDITS.md",
  "files": [
   {
@@ -841,8 +841,8 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_livingmemory/core/followup_store.py",
-   "sha256": "c74658d3d978e4806d697c883e8493ab2cc110b94e0c0b6af0469b8ee61c675b",
-   "size": 10275
+   "sha256": "cb8490250787461fa6581800f1657c68c2d96dc6f5928f764c742f828aacd720",
+   "size": 12496
   },
   {
    "path": "plugins_src/astrbot_plugin_livingmemory/core/i18n_backend.py",
@@ -1576,8 +1576,8 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_livingmemory/storage/atom_store.py",
-   "sha256": "2999d3f087ff884948dd436586691a33ce656e3173fad993f6787fe382ee47be",
-   "size": 23793
+   "sha256": "72756e5c36d6a0546306d1ea0403c95a4e9e30f7d54b47efa961361b95fe58d7",
+   "size": 24289
   },
   {
    "path": "plugins_src/astrbot_plugin_livingmemory/storage/conversation_store.py",
