@@ -1,7 +1,7 @@
 {
- "version": 1792914888,
- "ref": "72435c834b5d4aa8f0e1ca898c5d2818f2cd8710",
- "generated": "2026-10-25T15:54:48+0800",
+ "version": 1793011817,
+ "ref": "0e41394b6a847550dada5a7edc88f5ea53f2f339",
+ "generated": "2026-10-26T18:50:17+0800",
  "note": "WhaleBot content update. Stickers CC BY-NC-SA 4.0, see stickers/CREDITS.md",
  "files": [
   {
@@ -11,8 +11,8 @@
   },
   {
    "path": "stickers/CREDITS.md",
-   "sha256": "55120aec58dd4d7e98c9a5d0bda898e47800e9347069834a2ad9503d7f381417",
-   "size": 7118
+   "sha256": "06578a045b138d246d3179866bd4f2e79881d4723c3b56e262f3a293374e2c3b",
+   "size": 7434
   },
   {
    "path": "stickers/edmok_dazhaohu.jpg",
@@ -41,8 +41,8 @@
   },
   {
    "path": "stickers/index.json",
-   "sha256": "f9ecfcf30e09be0a3e096fea4af351399a365815c85a14a04c616967e6e561c1",
-   "size": 62550
+   "sha256": "e28a16375b461d485f3ce1c0f44a784941fc0038358be63fb5dd5a0461bb56a1",
+   "size": 66249
   },
   {
    "path": "stickers/maid_delighted.png",
@@ -210,14 +210,29 @@
    "size": 284826
   },
   {
+   "path": "stickers/sutera_daily-gaming.png",
+   "sha256": "b8e034d882c4eb6e4235d6236d71ea97a8d38da2c243020c5c03020dec3c62f2",
+   "size": 271845
+  },
+  {
    "path": "stickers/sutera_daily-melt.png",
    "sha256": "786fe190de09fc8b9152ce63750a4b25780a46b494039a6c78cd3e7de42a6a7c",
    "size": 247108
   },
   {
+   "path": "stickers/sutera_daily-painting.png",
+   "sha256": "1203c07ffc7adb38e13e5f097ade8988b407f2773769a3db19430a3215f02c4e",
+   "size": 324388
+  },
+  {
    "path": "stickers/sutera_daily-pajama.png",
    "sha256": "84d2da56fc8676a9bbd3e8a942356dd9bb292568ebae4382c2aafae541993ca7",
    "size": 257934
+  },
+  {
+   "path": "stickers/sutera_daily-picnic.png",
+   "sha256": "020076e3a41d9baaecdab51505500c03123763858ef719980d2acb538475a282",
+   "size": 297952
   },
   {
    "path": "stickers/sutera_daily-stretch.png",
@@ -440,9 +455,19 @@
    "size": 249906
   },
   {
+   "path": "stickers/sutera_waiting.png",
+   "sha256": "8db20cc1633243aa00ad111be4c164dd29d237de4103d070d8b6320cf13f7519",
+   "size": 272380
+  },
+  {
    "path": "stickers/sutera_weather-cold.png",
    "sha256": "8627ad4fa4ad030974c2d5c04827d856457eb8423dd4c2182058c009306d4340",
    "size": 251303
+  },
+  {
+   "path": "stickers/sutera_weather-rain-happy.png",
+   "sha256": "93baadd1fbf4763a0d53a1579f517d891171f990cc06554a712f0a88f9e8caca",
+   "size": 290885
   },
   {
    "path": "stickers/sutera_weather-snow.png",
@@ -478,6 +503,11 @@
    "path": "stickers/sutera_work-deadline.png",
    "sha256": "418d7365d926dc972e774d072fcf1fe8fbdfb1eb653c366b7770548ed5882637",
    "size": 336561
+  },
+  {
+   "path": "stickers/sutera_work-debug.png",
+   "sha256": "97867052cfb07fce76430db7959ff398fc8210067e18bd893de4a729ebbf43b2",
+   "size": 322983
   },
   {
    "path": "stickers/sutera_work-idea.png",
@@ -606,8 +636,8 @@
   },
   {
    "path": "persona/system_prompt.txt",
-   "sha256": "a4c56c8fc6c2ddb7585b75f6b3a63d06ffbff4f7f0eea7ca17d2d7209afb7e3b",
-   "size": 5881
+   "sha256": "d944d8feb8d4e298cf61be6df81f597388ca5f228784c2d9d986021c0bfb9804",
+   "size": 5840
   },
   {
    "path": "persona/whale_girl_persona.md",
@@ -646,8 +676,8 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/main.py",
-   "sha256": "68669f217dd9f981d3e1f1ba25b7a2cb61eebb7c72b0a08dc8df1969c4b1969d",
-   "size": 7616
+   "sha256": "7cd9489f1778df2a07a382b943ed037d82e285e7f46c1e3190838289b591c6fe",
+   "size": 8930
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/metadata.yaml",
@@ -683,6 +713,11 @@
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/local_data.py",
    "sha256": "f633b115c86d63f59551fb63c2e1e41be4634ee5d58e6d55956b3d775aa273a4",
    "size": 3289
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/reply_plan.py",
+   "sha256": "dd43e657ce944122ce5e13f7ff294dd9e2f0d16cc7bd2697ea4d12e79a670eb7",
+   "size": 5440
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/service.py",
@@ -725,9 +760,14 @@
    "size": 850
   },
   {
+   "path": "plugins_src/astrbot_plugin_identity/address_prefs.py",
+   "sha256": "40cd666f8fdb449b5fcdbb7ec0ddc0af6cdb265b494ced00da6a27b93428a877",
+   "size": 7699
+  },
+  {
    "path": "plugins_src/astrbot_plugin_identity/main.py",
-   "sha256": "c1b62c8d307a6c23b756a96f1b8d5fc10a33553fdd4a363117358a9c5e6b113e",
-   "size": 22186
+   "sha256": "9f9a7fb1a0ae8798a2023fe2e5cc5f2be7619f2b5ec9f5c5aa3aafd2efc38de9",
+   "size": 23502
   },
   {
    "path": "plugins_src/astrbot_plugin_identity/metadata.yaml",
@@ -761,8 +801,8 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_livingmemory/main.py",
-   "sha256": "e93436803a3ca510dec2248a24659efca34e166e6c177681356815ccb59e2eb5",
-   "size": 24016
+   "sha256": "d06c30d939f07bd1177f1c1071632072d27efc47ab8e37a910f21cea7a879212",
+   "size": 24577
   },
   {
    "path": "plugins_src/astrbot_plugin_livingmemory/metadata.yaml",
@@ -790,9 +830,19 @@
    "size": 5319
   },
   {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/fact_metadata.py",
+   "sha256": "960ce620211331c0f634056f4fb1a182c6bf8f7cfdace0daae4e32c903ccc13c",
+   "size": 12282
+  },
+  {
    "path": "plugins_src/astrbot_plugin_livingmemory/core/faiss_async_persist.py",
    "sha256": "04ba92e5f367b46b7c38fd84bfdb54f99c2c89c28ac2891cda22259bbd2d3951",
    "size": 13166
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_livingmemory/core/followup_store.py",
+   "sha256": "c74658d3d978e4806d697c883e8493ab2cc110b94e0c0b6af0469b8ee61c675b",
+   "size": 10275
   },
   {
    "path": "plugins_src/astrbot_plugin_livingmemory/core/i18n_backend.py",
@@ -876,8 +926,8 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_livingmemory/core/event_handler_modules/memory_recall.py",
-   "sha256": "107afe47fa527411e9d6bcc70b4de90081d255b4fb2900f8cb9195125fb1940a",
-   "size": 26994
+   "sha256": "903421c7703de0d9ec7f73d359176cac1c4cf7faeb008917b30e746360f7a27b",
+   "size": 29935
   },
   {
    "path": "plugins_src/astrbot_plugin_livingmemory/core/event_handler_modules/memory_reflection.py",
@@ -1076,8 +1126,8 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_livingmemory/core/processors/atom_classifier.py",
-   "sha256": "8c9e1867b0c4840357529dc2ef866a7d7b89b055aa936e34b2eb78ecd9915090",
-   "size": 6942
+   "sha256": "2c3ec060c79839eeb260751af85dd77bf7b4ce2b6c1754fadf33cb6dd61744a2",
+   "size": 8819
   },
   {
    "path": "plugins_src/astrbot_plugin_livingmemory/core/processors/chatroom_parser.py",
@@ -1101,13 +1151,13 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_livingmemory/core/processors/memory_processor_build.py",
-   "sha256": "52dcfe07c82296ddbd56ff81212743b8293dada0982f9a0e52fddae1e099aeb6",
-   "size": 7511
+   "sha256": "61ac72b76d949a4f2e6da9844c8b9cc6651bce032f96ff316023a5f7f9d80c8e",
+   "size": 8275
   },
   {
    "path": "plugins_src/astrbot_plugin_livingmemory/core/processors/memory_processor_parse.py",
-   "sha256": "8ce2ffc3d5af5492a9ee364f2603359a9492d6bdbd8d14970517fa7fd683d51f",
-   "size": 14927
+   "sha256": "3c272b4178e66c513d749107067e873d23845ec6580a40d5338e4b845f312994",
+   "size": 15175
   },
   {
    "path": "plugins_src/astrbot_plugin_livingmemory/core/processors/text_processor.py",
@@ -1850,6 +1900,11 @@
    "size": 1094
   },
   {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/domain/reply_plan.py",
+   "sha256": "dd43e657ce944122ce5e13f7ff294dd9e2f0d16cc7bd2697ea4d12e79a670eb7",
+   "size": 5440
+  },
+  {
    "path": "plugins_src/astrbot_plugin_proactive_chat/core/domain/request_context.py",
    "sha256": "3a7685ffe5bdfeba8a6ef1ad75a3740f750e8d6569e9663ac9c6703f2224bcc2",
    "size": 2046
@@ -1876,8 +1931,8 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/feature_manifest.py",
-   "sha256": "953aadeedcf5db37db90d28cfcbcc839ed3bd4f3b052b62989f009da96b85f94",
-   "size": 1189
+   "sha256": "47a95efec1d10ccc83c62925e57a9bcecdde7cfe165acc61ba3a6917921ba497",
+   "size": 1289
   },
   {
    "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/gating_feature.py",
@@ -1896,8 +1951,8 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/context/conversation_source.py",
-   "sha256": "37f93a0a6b3641bc3810b00780e83a7823d1e8a053a2e3748cede42ff2533e68",
-   "size": 2767
+   "sha256": "8a8a728348bca8fd5fa7475e79a6d3186321a45585922723e190140cf0b32f46",
+   "size": 3367
   },
   {
    "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/deliver/__init__.py",
@@ -1908,6 +1963,16 @@
    "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/deliver/split_delivery.py",
    "sha256": "63797f268285b1323e1823d7c4b2f707aa27e4d2461b52206563836378e46ab7",
    "size": 1881
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/intent/__init__.py",
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "size": 0
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/intent/event_followup.py",
+   "sha256": "e9e611d23ae93c127126250d711f0810cf8fe5a43222b9ae61e001d79e99b415",
+   "size": 5419
   },
   {
    "path": "plugins_src/astrbot_plugin_proactive_chat/core/features/prompt/__init__.py",
@@ -2116,8 +2181,8 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_sing/main.py",
-   "sha256": "209e4a809b8450a98fd4c0c63e18b76f0dc8716d8e10f0a27ce413e00ac40ad3",
-   "size": 12709
+   "sha256": "52fba2bebe1bd903f4370ec9945ddc9ebbbde03aa9afc8c8110d2bc586b626f9",
+   "size": 17191
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_sing/metadata.yaml",
@@ -2130,9 +2195,44 @@
    "size": 15
   },
   {
+   "path": "plugins_src/astrbot_plugin_whale_sing/song_session.py",
+   "sha256": "73d1b02bc1d3fa44d7fb0bdb0e355bf21630d91dfe819def9d074824d17dca82",
+   "size": 2013
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_sing/theme_songs.py",
+   "sha256": "a23963888d2ef0b16ba9be978d486e3efe6fa74a22c07945cf9462c4a7a8cc83",
+   "size": 10588
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_sing/templates/jiayou.txt",
+   "sha256": "73371ef17b8871b118765c7351743729efcb8262eda7b4bbd00e1728573bb3ae",
+   "size": 424
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_sing/templates/qiaopi.txt",
+   "sha256": "d5a62b49b7a4bd8e7da3619e86d693ef804046093e2773ae56335a3131d323cd",
+   "size": 425
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_sing/templates/qingzhu.txt",
+   "sha256": "71e78a79f245c9e04a568a04287dc41b21713d03a740ae927ddddb0058d9ca3f",
+   "size": 440
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_sing/templates/wanan.txt",
+   "sha256": "5b89adf22750d8719d5069fdb410f6c8de1319e116a0eeaff92badce0bffeb27",
+   "size": 499
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_stickers/expression_prefs.py",
+   "sha256": "43185da79fd8e3798f265ae5298be54f2fbe962ceb3805742fdaba353d2c845d",
+   "size": 1423
+  },
+  {
    "path": "plugins_src/astrbot_plugin_whale_stickers/main.py",
-   "sha256": "bd5f6f051a3ec124d6e979e830ad7be3fd1b132e2b95181eaa2b73113fe680d7",
-   "size": 13567
+   "sha256": "24b66c07e8aac603bd58ec7d6712a6f7aeb1759db26d2c2d3c973e3150ed6000",
+   "size": 15765
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_stickers/metadata.yaml",
@@ -2140,14 +2240,24 @@
    "size": 233
   },
   {
+   "path": "plugins_src/astrbot_plugin_whale_stickers/reply_plan.py",
+   "sha256": "dd43e657ce944122ce5e13f7ff294dd9e2f0d16cc7bd2697ea4d12e79a670eb7",
+   "size": 5440
+  },
+  {
    "path": "plugins_src/astrbot_plugin_whale_wake/_conf_schema.json",
-   "sha256": "7867b9d9f8c9a32ed17b12ab3bf79b3178b52d3ff066d6a7752183779a3564eb",
-   "size": 874
+   "sha256": "49a3fd1fff3665c7d912a98e7b7ca872c80afdc520432e710e688352d4192628",
+   "size": 961
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_wake/conversation_gate.py",
+   "sha256": "483dd6b8c65c771e26861c594e230773fa1f8748152e22224829c4d56e311bd6",
+   "size": 7422
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_wake/main.py",
-   "sha256": "9ca4099071b439d228d811f366f8c778cc050258c543054eb3f2e73dddb4d8fc",
-   "size": 3789
+   "sha256": "6fb23ad95796494288c7ced12251f510fe06b43fd056f58ad16ee1c85f43d162",
+   "size": 7777
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_wake/metadata.yaml",
