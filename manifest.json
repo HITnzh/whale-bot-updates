@@ -1,7 +1,7 @@
 {
- "version": 1793179048,
- "ref": "b94341aeb2f8e7a06b8d8db1276d1e6d6ec0af15",
- "generated": "2026-10-28T17:17:28+0800",
+ "version": 1793179350,
+ "ref": "51631b4a4d97a269e16d70a59a3be2a7c683aa0a",
+ "generated": "2026-10-28T17:22:30+0800",
  "note": "WhaleBot content update. Stickers CC BY-NC-SA 4.0, see stickers/CREDITS.md",
  "files": [
   {
@@ -11,8 +11,8 @@
   },
   {
    "path": "stickers/CREDITS.md",
-   "sha256": "659846a1f9ebc54bdb6d14e84503f2a8202b29afa081a87f391bdfbb8b661981",
-   "size": 8324
+   "sha256": "845a63cea7803696e24c8c9679fa67b1a80b777a39ce30115d12a83f8d377cff",
+   "size": 8882
   },
   {
    "path": "stickers/edmok_dazhaohu.jpg",
@@ -81,8 +81,8 @@
   },
   {
    "path": "stickers/index.json",
-   "sha256": "da89130294df2a94fdd107d097196a5f23c51ab662a3369a075dc796192ae91a",
-   "size": 77077
+   "sha256": "64bf160e36f0abab1e80dc45830c552665a8a19ab5e75641b2f42571998eabe9",
+   "size": 84522
   },
   {
    "path": "stickers/maid_delighted.png",
@@ -140,6 +140,11 @@
    "size": 2271510
   },
   {
+   "path": "stickers/shenshen_active-work.gif",
+   "sha256": "ac9e28dfa81d5ffd0076dd5ba322a565ac3fb35e158af2468e97aa1e38db50a4",
+   "size": 78512
+  },
+  {
    "path": "stickers/shenshen_failed.gif",
    "sha256": "9fd14fae9e00643c3f8105de68f0676bc36ff215c00a9ad97c53825b36249fdf",
    "size": 107638
@@ -158,6 +163,11 @@
    "path": "stickers/shenshen_review.gif",
    "sha256": "c2326a579de2f471acefd0698803875c95adfbff04e930faf66b359e0cff9736",
    "size": 92624
+  },
+  {
+   "path": "stickers/shenshen_running-left.gif",
+   "sha256": "379021e195d37f3aaa602eeb6d0f36158a1f9666da741a65b5e43fcd35ef4ff3",
+   "size": 104112
   },
   {
    "path": "stickers/shenshen_running-right.gif",
@@ -630,6 +640,31 @@
    "size": 430728
   },
   {
+   "path": "stickers/yunyue_expr-chin.png",
+   "sha256": "429617cb9637de6cee394eaa1324603eba94bf46716c731694497b7aaa533ff4",
+   "size": 117954
+  },
+  {
+   "path": "stickers/yunyue_expr-faint.png",
+   "sha256": "9e8e4013fd38ce042bbd50e84ad4a58733532593f30929c8661790fd2f0b2fd0",
+   "size": 114271
+  },
+  {
+   "path": "stickers/yunyue_expr-music.png",
+   "sha256": "cc30871ca734d0d0ba2a4713f0f8229833cd56dfab747501f991830f17111fd3",
+   "size": 127032
+  },
+  {
+   "path": "stickers/yunyue_expr-shock.png",
+   "sha256": "67d06b28e842687bc9f903e8659d59b8d5cf0f38673a1748398aa76517b5021f",
+   "size": 118482
+  },
+  {
+   "path": "stickers/yunyue_expr-yawn.png",
+   "sha256": "2ade54a4cb91297094bd9bec63af1dc174cd6ef1ebf5ae766edac59a10ae5412",
+   "size": 148877
+  },
+  {
    "path": "stickers/yunyue_happy.png",
    "sha256": "cbd36fa5a90c51958a8115e2761f64e83f1b1df06a2cc2dc07a186663832958e",
    "size": 200044
@@ -663,6 +698,26 @@
    "path": "stickers/yunyue_sneak.gif",
    "sha256": "c8614aa785785a02e96fea431af9ef370dff9476f7eac0f55a6bd7e005274492",
    "size": 442267
+  },
+  {
+   "path": "stickers/yunyue_story-hum.gif",
+   "sha256": "451eb622c10302d75dee31cf90cb387640e1d0be9f40a8f9ce3ec5da59681aec",
+   "size": 484487
+  },
+  {
+   "path": "stickers/yunyue_story-meal.gif",
+   "sha256": "cb85aece916f3f03f70b21cac18ec12557eb587560b8476d4324374f19236ccf",
+   "size": 493225
+  },
+  {
+   "path": "stickers/yunyue_story-tail.gif",
+   "sha256": "36a4218c64d3a349751875aabc50607f9887c6a41f7976afc6d74ef69341fc9c",
+   "size": 522657
+  },
+  {
+   "path": "stickers/yunyue_story-token.gif",
+   "sha256": "d9b91e6b609f0c41e220861edd23c0bdcc1089e6388d3cfd923156f8e5a16ae1",
+   "size": 503750
   },
   {
    "path": "stickers/yunyue_surprised.png",
