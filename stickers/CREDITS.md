@@ -8,10 +8,12 @@
 
 更新记录：2026-10-28 恢复备份 112 张 → 再补 Sutera 缺图 11 张 + 原创 8 张（抖音评论区情绪灵感，未盗用平台素材）。
 
+更新记录：2026-10-28（二）再补 11 张开源梗图/动图：YunYueSama 故事帧合成 GIF 4 张（偷藏Token、干饭、哼歌、甩尾）+ 表情表裁图 5 张（托腮、震惊、蹦迪、哈欠、躺平），深深动图 2 张（干活、跑路）。未下载抖音等平台素材。
+
 更新记录：2026-10-23 新增 45 张（Sutera-Diffusus 41 张、深深动图 2 张、YunYueSama 动图 2 张；来源均为上次已核实许可的仓库，Sutera 取自 commit 94aec85），并为全部表情补充多标签。
 更新记录：2026-10-26 新增 6 张 Sutera-Diffusus 缺失表情（daily-gaming / daily-picnic / daily-painting / waiting / weather-rain-happy / work-debug）。
 
-## 来源（共 131 张）
+## 来源（共 142 张）
 
 ### https://github.com/Sutera-Diffusus/dsh-whale-musume  （89 张）
 
@@ -19,11 +21,11 @@
 - 许可：MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业
 - 文件：sutera_angry.png, sutera_blush.png, sutera_celebrate.png, sutera_cool-shades.png, sutera_curious.png, sutera_daily-eat.png, sutera_daily-melt.png, sutera_daily-fishing.png, sutera_daily-pajama.png, sutera_failure.png, sutera_greet.png, sutera_meme-broke.png, sutera_meme-cry.png, sutera_meme-doubt.png, sutera_meme-heart.png, sutera_meme-no.png, sutera_meme-yes.png, sutera_meme-omg.png, sutera_meme-smug.png, sutera_meme-worship.png, sutera_meme-wakuwaku.png, sutera_meme-smile-pain.png, sutera_react-head.png, sutera_sleep.png, sutera_teasing.png, sutera_thinking.png, sutera_wink.png, sutera_work-slack-phone.png, sutera_work-sleep.png, sutera_work-deadline.png, sutera_success.png, sutera_react-belly.png, sutera_react-tail.png, sutera_meme-shock.png, sutera_meme-kyun.png, sutera_meme-ojisan.png, sutera_meme-doge.png, sutera_meme-sike.png, sutera_daily-done.png, sutera_meme-peace.png, sutera_meme-music.png, sutera_game-cheat.png, sutera_game-lose.png, sutera_game-win.png, sutera_game-happy.png, sutera_game-think.png, sutera_valentine.png, sutera_weather-cold.png, sutera_weather-thunder.png, sutera_weather-umbrella.png, sutera_weather-snow.png, sutera_night.png, sutera_daily-coffee.png, sutera_daily-stretch.png, sutera_afk.png, sutera_balance-low.png, sutera_eat.png, sutera_daily-cooking.png, sutera_levelup.png, sutera_achievement.png, sutera_work-celebrate.png, sutera_work-idea.png, sutera_abstract.png, sutera_star.png, sutera_idle-cute.png, sutera_bold.png, sutera_work-boss.png, sutera_tail-swing.png, sutera_festival-spring.png, sutera_festival-mid-autumn.png, sutera_festival-halloween.png, sutera_festival-christmas.png, sutera_daily-gaming.png, sutera_daily-picnic.png, sutera_daily-painting.png, sutera_waiting.png, sutera_weather-rain-happy.png, sutera_work-debug.png, sutera_daily-shower.png, sutera_pick-up.png, sutera_running.png, sutera_sweep.png, sutera_tool.png, sutera_work-deploy.png, sutera_work-meeting.png, sutera_work-pat.png, sutera_work-ram.png, sutera_work-review.png, sutera_work-slack.png
 
-### https://github.com/schrieeeffer/shenshen-codex-pet  （7 张）
+### https://github.com/schrieeeffer/shenshen-codex-pet  （9 张）
 
 - 作者：Shenshen Pet contributors (schrieeeffer)；基于上善无形鲸鱼娘形象及 dsh-pet 谱系改编
 - 许可：CC BY-NC-SA 4.0（ASSET_LICENSE.md）
-- 文件：shenshen_waving.gif, shenshen_failed.gif, shenshen_jumping.gif, shenshen_waiting.gif, shenshen_review.gif, shenshen_idle.gif, shenshen_running-right.gif
+- 文件：shenshen_waving.gif, shenshen_failed.gif, shenshen_jumping.gif, shenshen_waiting.gif, shenshen_review.gif, shenshen_idle.gif, shenshen_running-right.gif, shenshen_active-work.gif, shenshen_running-left.gif
 
 ### https://github.com/pokerface-1224/deepseek-whale-girl-pet  （7 张）
 
@@ -43,11 +45,11 @@
 - 许可：CC BY-NC-SA 4.0（站点 about 页「版权与协议」声明；自作条目见 stickers/self-made.json）
 - 文件：edmok_piezui.jpg, edmok_liezui.jpg, edmok_yaya.jpg, edmok_tushe.jpg, edmok_dazhaohu.jpg
 
-### https://github.com/YunYueSama/codex-deepseek-pet  （12 张）
+### https://github.com/YunYueSama/codex-deepseek-pet  （21 张）
 
 - 作者：作者：YunYueSama；仓库：https://github.com/YunYueSama/codex-deepseek-pet（AI 生成，依据社区角色参考）
 - 许可：大肥鱼项目署名许可 1.0（允许修改/分发，须署名作者+仓库并保留许可）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业
-- 文件：yunyue_surprised.png, yunyue_pout.png, yunyue_happy.png, yunyue_rubeyes.png, yunyue_yummy.png, yunyue_hello.png, yunyue_eat.gif, yunyue_sleep.gif, yunyue_wave.gif, yunyue_dance.gif, yunyue_jump.gif, yunyue_sneak.gif
+- 文件：yunyue_surprised.png, yunyue_pout.png, yunyue_happy.png, yunyue_rubeyes.png, yunyue_yummy.png, yunyue_hello.png, yunyue_eat.gif, yunyue_sleep.gif, yunyue_wave.gif, yunyue_dance.gif, yunyue_jump.gif, yunyue_sneak.gif, yunyue_story-token.gif, yunyue_story-meal.gif, yunyue_story-hum.gif, yunyue_story-tail.gif, yunyue_expr-chin.png, yunyue_expr-shock.png, yunyue_expr-music.png, yunyue_expr-yawn.png, yunyue_expr-faint.png
 
 
 ### Grok Bot 原创生成（8 张）

@@ -1740,6 +1740,173 @@
    "author": "Grok Bot 原创生成（角色形象仍归属上善无形 OC / ZipZipPipe 女仆二设）",
    "license": "CC BY-NC-SA 4.0（与整包一致；角色底层设计同 CREDITS）",
    "modified": "jpg→png，近白底透明化，裁边缩至≤512"
+  },
+  {
+   "file": "yunyue_story-token.gif",
+   "tags": [
+    "偷藏Token",
+    "偷懒",
+    "藏东西",
+    "心虚",
+    "token"
+   ],
+   "desc": "偷偷藏 Token（动图）",
+   "source": "https://github.com/YunYueSama/codex-deepseek-pet/blob/main/assets/whale/story-token.png",
+   "repo": "https://github.com/YunYueSama/codex-deepseek-pet",
+   "author": "作者：YunYueSama；仓库：https://github.com/YunYueSama/codex-deepseek-pet（AI 生成，依据社区角色参考）",
+   "license": "大肥鱼项目署名许可 1.0（允许修改/分发，须署名作者+仓库并保留许可）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
+   "modified": "由 story-token.png 的 32 帧合成 GIF（白底，200px）"
+  },
+  {
+   "file": "yunyue_story-meal.gif",
+   "tags": [
+    "干饭",
+    "吃饭",
+    "饿了",
+    "白米饭"
+   ],
+   "desc": "干饭中（动图）",
+   "source": "https://github.com/YunYueSama/codex-deepseek-pet/blob/main/assets/whale/story-meal.png",
+   "repo": "https://github.com/YunYueSama/codex-deepseek-pet",
+   "author": "作者：YunYueSama；仓库：https://github.com/YunYueSama/codex-deepseek-pet（AI 生成，依据社区角色参考）",
+   "license": "大肥鱼项目署名许可 1.0（允许修改/分发，须署名作者+仓库并保留许可）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
+   "modified": "由 story-meal.png 的 32 帧合成 GIF（白底，200px）"
+  },
+  {
+   "file": "yunyue_story-hum.gif",
+   "tags": [
+    "哼歌",
+    "开心",
+    "摸鱼",
+    "唱歌"
+   ],
+   "desc": "哼小曲（动图）",
+   "source": "https://github.com/YunYueSama/codex-deepseek-pet/blob/main/assets/whale/story-hum.png",
+   "repo": "https://github.com/YunYueSama/codex-deepseek-pet",
+   "author": "作者：YunYueSama；仓库：https://github.com/YunYueSama/codex-deepseek-pet（AI 生成，依据社区角色参考）",
+   "license": "大肥鱼项目署名许可 1.0（允许修改/分发，须署名作者+仓库并保留许可）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
+   "modified": "由 story-hum.png 的 32 帧合成 GIF（白底，200px）"
+  },
+  {
+   "file": "yunyue_story-tail.gif",
+   "tags": [
+    "甩尾巴",
+    "得意",
+    "嘚瑟",
+    "尾巴"
+   ],
+   "desc": "甩尾巴（动图）",
+   "source": "https://github.com/YunYueSama/codex-deepseek-pet/blob/main/assets/whale/story-tail.png",
+   "repo": "https://github.com/YunYueSama/codex-deepseek-pet",
+   "author": "作者：YunYueSama；仓库：https://github.com/YunYueSama/codex-deepseek-pet（AI 生成，依据社区角色参考）",
+   "license": "大肥鱼项目署名许可 1.0（允许修改/分发，须署名作者+仓库并保留许可）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
+   "modified": "由 story-tail.png 的 32 帧合成 GIF（白底，200px）"
+  },
+  {
+   "file": "yunyue_expr-chin.png",
+   "tags": [
+    "思考",
+    "若有所思",
+    "让我想想",
+    "摸下巴"
+   ],
+   "desc": "托腮思考",
+   "source": "https://github.com/YunYueSama/codex-deepseek-pet/blob/main/assets/whale/expressions.png",
+   "repo": "https://github.com/YunYueSama/codex-deepseek-pet",
+   "author": "作者：YunYueSama；仓库：https://github.com/YunYueSama/codex-deepseek-pet（AI 生成，依据社区角色参考）",
+   "license": "大肥鱼项目署名许可 1.0（允许修改/分发，须署名作者+仓库并保留许可）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
+   "modified": "从 expressions.png 第2行第1列裁出，缩至300px"
+  },
+  {
+   "file": "yunyue_expr-shock.png",
+   "tags": [
+    "震惊",
+    "啊？",
+    "惊了",
+    "什么"
+   ],
+   "desc": "震惊张嘴",
+   "source": "https://github.com/YunYueSama/codex-deepseek-pet/blob/main/assets/whale/expressions.png",
+   "repo": "https://github.com/YunYueSama/codex-deepseek-pet",
+   "author": "作者：YunYueSama；仓库：https://github.com/YunYueSama/codex-deepseek-pet（AI 生成，依据社区角色参考）",
+   "license": "大肥鱼项目署名许可 1.0（允许修改/分发，须署名作者+仓库并保留许可）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
+   "modified": "从 expressions.png 第3行第2列裁出，缩至300px"
+  },
+  {
+   "file": "yunyue_expr-music.png",
+   "tags": [
+    "哼歌",
+    "嗨起来",
+    "蹦迪",
+    "快乐"
+   ],
+   "desc": "跟着音乐摇",
+   "source": "https://github.com/YunYueSama/codex-deepseek-pet/blob/main/assets/whale/expressions.png",
+   "repo": "https://github.com/YunYueSama/codex-deepseek-pet",
+   "author": "作者：YunYueSama；仓库：https://github.com/YunYueSama/codex-deepseek-pet（AI 生成，依据社区角色参考）",
+   "license": "大肥鱼项目署名许可 1.0（允许修改/分发，须署名作者+仓库并保留许可）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
+   "modified": "从 expressions.png 第4行第1列裁出，缩至300px"
+  },
+  {
+   "file": "yunyue_expr-yawn.png",
+   "tags": [
+    "困",
+    "打哈欠",
+    "揉眼睛",
+    "没睡醒"
+   ],
+   "desc": "坐地上揉眼打哈欠",
+   "source": "https://github.com/YunYueSama/codex-deepseek-pet/blob/main/assets/whale/expressions.png",
+   "repo": "https://github.com/YunYueSama/codex-deepseek-pet",
+   "author": "作者：YunYueSama；仓库：https://github.com/YunYueSama/codex-deepseek-pet（AI 生成，依据社区角色参考）",
+   "license": "大肥鱼项目署名许可 1.0（允许修改/分发，须署名作者+仓库并保留许可）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
+   "modified": "从 expressions.png 第4行第3列裁出，缩至300px"
+  },
+  {
+   "file": "yunyue_expr-faint.png",
+   "tags": [
+    "躺平",
+    "累瘫",
+    "倒了",
+    "摆烂",
+    "寄"
+   ],
+   "desc": "累瘫躺平",
+   "source": "https://github.com/YunYueSama/codex-deepseek-pet/blob/main/assets/whale/expressions.png",
+   "repo": "https://github.com/YunYueSama/codex-deepseek-pet",
+   "author": "作者：YunYueSama；仓库：https://github.com/YunYueSama/codex-deepseek-pet（AI 生成，依据社区角色参考）",
+   "license": "大肥鱼项目署名许可 1.0（允许修改/分发，须署名作者+仓库并保留许可）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
+   "modified": "从 expressions.png 第4行第4列裁出，缩至300px"
+  },
+  {
+   "file": "shenshen_active-work.gif",
+   "tags": [
+    "干活",
+    "打工",
+    "忙碌",
+    "努力"
+   ],
+   "desc": "埋头干活（动图）",
+   "source": "https://github.com/schrieeeffer/shenshen-codex-pet/blob/main/previews/states/active-work.gif",
+   "repo": "https://github.com/schrieeeffer/shenshen-codex-pet",
+   "author": "Shenshen Pet contributors (schrieeeffer)；基于上善无形鲸鱼娘形象及 dsh-pet 谱系改编",
+   "license": "CC BY-NC-SA 4.0（ASSET_LICENSE.md）",
+   "modified": "原样复制"
+  },
+  {
+   "file": "shenshen_running-left.gif",
+   "tags": [
+    "溜了",
+    "跑路",
+    "快跑",
+    "冲"
+   ],
+   "desc": "跑路（动图）",
+   "source": "https://github.com/schrieeeffer/shenshen-codex-pet/blob/main/previews/states/running-left.gif",
+   "repo": "https://github.com/schrieeeffer/shenshen-codex-pet",
+   "author": "Shenshen Pet contributors (schrieeeffer)；基于上善无形鲸鱼娘形象及 dsh-pet 谱系改编",
+   "license": "CC BY-NC-SA 4.0（ASSET_LICENSE.md）",
+   "modified": "原样复制"
   }
  ]
 }
