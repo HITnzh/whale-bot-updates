@@ -5,8 +5,7 @@
   {
    "file": "sutera_angry.png",
    "tags": [
-    "生气",
-    "哼"
+    "生气"
    ],
    "desc": "鼓脸生气",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-angry.webp",
@@ -18,8 +17,7 @@
   {
    "file": "sutera_blush.png",
    "tags": [
-    "害羞",
-    "脸红"
+    "害羞"
    ],
    "desc": "脸红害羞",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-blush.webp",
@@ -31,8 +29,7 @@
   {
    "file": "sutera_celebrate.png",
    "tags": [
-    "开心",
-    "庆祝"
+    "开心"
    ],
    "desc": "撒花庆祝",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-celebrate.webp",
@@ -44,8 +41,7 @@
   {
    "file": "sutera_cool-shades.png",
    "tags": [
-    "得意",
-    "耍酷"
+    "得意"
    ],
    "desc": "戴墨镜耍酷",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-cool-shades.webp",
@@ -57,8 +53,7 @@
   {
    "file": "sutera_curious.png",
    "tags": [
-    "疑惑",
-    "好奇"
+    "疑惑"
    ],
    "desc": "好奇歪头",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-curious.webp",
@@ -70,9 +65,7 @@
   {
    "file": "sutera_daily-eat.png",
    "tags": [
-    "吃饭",
-    "干饭",
-    "饿了"
+    "吃饭"
    ],
    "desc": "捧碗干饭",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-daily-eat.webp",
@@ -84,9 +77,7 @@
   {
    "file": "sutera_daily-melt.png",
    "tags": [
-    "摆烂",
-    "累了",
-    "心累"
+    "摆烂"
    ],
    "desc": "化成一滩",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-daily-melt.webp",
@@ -110,8 +101,7 @@
   {
    "file": "sutera_daily-pajama.png",
    "tags": [
-    "晚安",
-    "睡觉"
+    "晚安"
    ],
    "desc": "穿睡衣准备睡",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-daily-pajama.webp",
@@ -123,9 +113,7 @@
   {
    "file": "sutera_failure.png",
    "tags": [
-    "委屈",
-    "失败",
-    "难过"
+    "委屈"
    ],
    "desc": "翻车沮丧",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-failure.webp",
@@ -137,9 +125,7 @@
   {
    "file": "sutera_greet.png",
    "tags": [
-    "打招呼",
-    "早安",
-    "你好"
+    "打招呼"
    ],
    "desc": "挥手打招呼",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-greet.webp",
@@ -151,8 +137,7 @@
   {
    "file": "sutera_meme-broke.png",
    "tags": [
-    "没钱",
-    "穷"
+    "没钱"
    ],
    "desc": "余额清零",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-broke.webp",
@@ -164,9 +149,7 @@
   {
    "file": "sutera_meme-cry.png",
    "tags": [
-    "哭哭",
-    "难过",
-    "委屈"
+    "哭哭"
    ],
    "desc": "嚎啕大哭",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-cry.webp",
@@ -178,8 +161,7 @@
   {
    "file": "sutera_meme-doubt.png",
    "tags": [
-    "疑惑",
-    "怀疑"
+    "疑惑"
    ],
    "desc": "怀疑人生",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-doubt.webp",
@@ -191,9 +173,7 @@
   {
    "file": "sutera_meme-heart.png",
    "tags": [
-    "喜欢",
-    "比心",
-    "爱你"
+    "喜欢"
    ],
    "desc": "比心爱你",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-heart.webp",
@@ -205,8 +185,7 @@
   {
    "file": "sutera_meme-no.png",
    "tags": [
-    "拒绝",
-    "不要"
+    "拒绝"
    ],
    "desc": "不行",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-no.webp",
@@ -218,9 +197,7 @@
   {
    "file": "sutera_meme-yes.png",
    "tags": [
-    "好的",
-    "点赞",
-    "OK"
+    "好的"
    ],
    "desc": "好的OK",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-yes.webp",
@@ -232,8 +209,7 @@
   {
    "file": "sutera_meme-omg.png",
    "tags": [
-    "震惊",
-    "崩溃"
+    "震惊"
    ],
    "desc": "捂脸OMG",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-omg.webp",
@@ -245,8 +221,7 @@
   {
    "file": "sutera_meme-smug.png",
    "tags": [
-    "傲娇",
-    "得意"
+    "傲娇"
    ],
    "desc": "得意傲娇",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-smug.webp",
@@ -258,10 +233,7 @@
   {
    "file": "sutera_meme-worship.png",
    "tags": [
-    "求夸奖",
-    "膜拜",
-    "谢谢",
-    "佩服"
+    "求夸奖"
    ],
    "desc": "膜拜大佬",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-worship.webp",
@@ -273,8 +245,7 @@
   {
    "file": "sutera_meme-wakuwaku.png",
    "tags": [
-    "期待",
-    "兴奋"
+    "期待"
    ],
    "desc": "期待搓手",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-wakuwaku.webp",
@@ -286,9 +257,7 @@
   {
    "file": "sutera_meme-smile-pain.png",
    "tags": [
-    "心累",
-    "无语",
-    "苦笑"
+    "心累"
    ],
    "desc": "黑化苦笑",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-smile-pain.webp",
@@ -300,9 +269,7 @@
   {
    "file": "sutera_react-head.png",
    "tags": [
-    "求摸头",
-    "摸头",
-    "害羞"
+    "求摸头"
    ],
    "desc": "被摸头",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-react-head.webp",
@@ -314,8 +281,7 @@
   {
    "file": "sutera_sleep.png",
    "tags": [
-    "睡觉",
-    "晚安"
+    "睡觉"
    ],
    "desc": "呼呼大睡",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-sleep.webp",
@@ -327,9 +293,7 @@
   {
    "file": "sutera_teasing.png",
    "tags": [
-    "坏笑",
-    "偷笑",
-    "调皮"
+    "坏笑"
    ],
    "desc": "调侃坏笑",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-teasing.webp",
@@ -353,8 +317,7 @@
   {
    "file": "sutera_wink.png",
    "tags": [
-    "卖萌",
-    "调皮"
+    "卖萌"
    ],
    "desc": "眨眼",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-wink.webp",
@@ -378,8 +341,7 @@
   {
    "file": "sutera_work-sleep.png",
    "tags": [
-    "睡觉",
-    "犯困"
+    "睡觉"
    ],
    "desc": "上班打瞌睡",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-work-sleep.webp",
@@ -391,9 +353,7 @@
   {
    "file": "sutera_work-deadline.png",
    "tags": [
-    "崩溃",
-    "忙",
-    "加班"
+    "崩溃"
    ],
    "desc": "赶DDL",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-work-deadline.webp",
@@ -405,9 +365,7 @@
   {
    "file": "sutera_success.png",
    "tags": [
-    "求夸奖",
-    "得意",
-    "完成"
+    "求夸奖"
    ],
    "desc": "完成任务求夸",
    "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-success.webp",
@@ -431,8 +389,7 @@
   {
    "file": "shenshen_failed.gif",
    "tags": [
-    "委屈",
-    "失败"
+    "委屈"
    ],
    "desc": "Q版失败沮丧（动图）",
    "source": "https://github.com/schrieeeffer/shenshen-codex-pet/blob/main/previews/states/failed.gif",
@@ -444,8 +401,7 @@
   {
    "file": "shenshen_jumping.gif",
    "tags": [
-    "开心",
-    "兴奋"
+    "开心"
    ],
    "desc": "Q版开心跳（动图）",
    "source": "https://github.com/schrieeeffer/shenshen-codex-pet/blob/main/previews/states/jumping.gif",
@@ -481,8 +437,7 @@
   {
    "file": "pokerface_eating.png",
    "tags": [
-    "吃饭",
-    "干饭"
+    "吃饭"
    ],
    "desc": "抱碗吃饭",
    "source": "https://github.com/pokerface-1224/deepseek-whale-girl-pet/blob/main/desktop-pet/art/eating.png",
@@ -506,8 +461,7 @@
   {
    "file": "pokerface_slacking.png",
    "tags": [
-    "摸鱼",
-    "淡定"
+    "摸鱼"
    ],
    "desc": "喝茶摸鱼",
    "source": "https://github.com/pokerface-1224/deepseek-whale-girl-pet/blob/main/desktop-pet/art/slacking.png",
@@ -531,8 +485,7 @@
   {
    "file": "pokerface_daydreaming.png",
    "tags": [
-    "发呆",
-    "无聊"
+    "发呆"
    ],
    "desc": "抱膝发呆",
    "source": "https://github.com/pokerface-1224/deepseek-whale-girl-pet/blob/main/desktop-pet/art/daydreaming.png",
@@ -568,8 +521,7 @@
   {
    "file": "maid_delighted.png",
    "tags": [
-    "开心",
-    "期待"
+    "开心"
    ],
    "desc": "托腮开心",
    "source": "https://github.com/Small-tailqwq/dsh-deep-whale/blob/main/maid-atelier/assets/icons/delighted-cutout.png",
@@ -581,8 +533,7 @@
   {
    "file": "maid_determined.png",
    "tags": [
-    "生气",
-    "不爽"
+    "生气"
    ],
    "desc": "不爽瞪眼",
    "source": "https://github.com/Small-tailqwq/dsh-deep-whale/blob/main/maid-atelier/assets/icons/determined-cutout.png",
@@ -594,8 +545,7 @@
   {
    "file": "maid_sleepy.png",
    "tags": [
-    "睡觉",
-    "犯困"
+    "睡觉"
    ],
    "desc": "困到流口水",
    "source": "https://github.com/Small-tailqwq/dsh-deep-whale/blob/main/maid-atelier/assets/icons/sleepy-cutout.png",
@@ -607,8 +557,7 @@
   {
    "file": "edmok_piezui.jpg",
    "tags": [
-    "无语",
-    "已读不回"
+    "无语"
    ],
    "desc": "抿嘴盯人·已读不回",
    "source": "https://github.com/EDMOK/blue-fish-archive/blob/main/media/deepseek-piezui.png",
@@ -620,8 +569,7 @@
   {
    "file": "edmok_liezui.jpg",
    "tags": [
-    "开心",
-    "哈哈"
+    "开心"
    ],
    "desc": "咧嘴笑",
    "source": "https://github.com/EDMOK/blue-fish-archive/blob/main/media/deepseek-liezui-xiao.png",
@@ -633,8 +581,7 @@
   {
    "file": "edmok_yaya.jpg",
    "tags": [
-    "生气",
-    "咬牙"
+    "生气"
    ],
    "desc": "攥拳咬牙",
    "source": "https://github.com/EDMOK/blue-fish-archive/blob/main/media/deepseek-woquan-ya-ya.png",
@@ -646,8 +593,7 @@
   {
    "file": "edmok_tushe.jpg",
    "tags": [
-    "摸鱼",
-    "调皮"
+    "摸鱼"
    ],
    "desc": "对着电脑吐舌傻乐",
    "source": "https://github.com/EDMOK/blue-fish-archive/blob/main/media/deepseek-dui-zhe-diannao-tu-she.png",
@@ -683,9 +629,7 @@
   {
    "file": "yunyue_pout.png",
    "tags": [
-    "委屈",
-    "撒娇",
-    "不开心"
+    "委屈"
    ],
    "desc": "嘟嘴",
    "source": "https://github.com/YunYueSama/codex-deepseek-pet/blob/main/assets/whale/expressions.png",
@@ -697,8 +641,7 @@
   {
    "file": "yunyue_happy.png",
    "tags": [
-    "开心",
-    "害羞"
+    "开心"
    ],
    "desc": "捧脸笑",
    "source": "https://github.com/YunYueSama/codex-deepseek-pet/blob/main/assets/whale/expressions.png",
@@ -710,8 +653,7 @@
   {
    "file": "yunyue_rubeyes.png",
    "tags": [
-    "犯困",
-    "早安"
+    "犯困"
    ],
    "desc": "揉眼睛犯困",
    "source": "https://github.com/YunYueSama/codex-deepseek-pet/blob/main/assets/whale/expressions.png",
@@ -723,9 +665,7 @@
   {
    "file": "yunyue_yummy.png",
    "tags": [
-    "吃饭",
-    "饿了",
-    "馋"
+    "吃饭"
    ],
    "desc": "馋了舔嘴",
    "source": "https://github.com/YunYueSama/codex-deepseek-pet/blob/main/assets/whale/actions.png",
@@ -761,8 +701,7 @@
   {
    "file": "yunyue_sleep.gif",
    "tags": [
-    "睡觉",
-    "晚安"
+    "睡觉"
    ],
    "desc": "睡觉（动图）",
    "source": "https://github.com/YunYueSama/codex-deepseek-pet/blob/main/assets/whale/dense-sleep.png",
@@ -786,8 +725,7 @@
   {
    "file": "yunyue_dance.gif",
    "tags": [
-    "开心",
-    "庆祝"
+    "开心"
    ],
    "desc": "跳舞（动图）",
    "source": "https://github.com/YunYueSama/codex-deepseek-pet/blob/main/assets/whale/dense-dance.png",
@@ -795,692 +733,6 @@
    "author": "作者：YunYueSama；仓库：https://github.com/YunYueSama/codex-deepseek-pet（AI 生成，依据社区角色参考）",
    "license": "大肥鱼项目署名许可 1.0（允许修改/分发，须署名作者+仓库并保留许可）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
    "modified": "由 dense-dance.png 的 32 帧合成 GIF（白底，200px）"
-  },
-  {
-   "file": "sutera_react-belly.png",
-   "tags": [
-    "哈哈",
-    "笑死",
-    "开心"
-   ],
-   "desc": "捧腹大笑",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-react-belly.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_react-tail.png",
-   "tags": [
-    "吓一跳",
-    "震惊",
-    "害怕"
-   ],
-   "desc": "尾巴被碰吓一跳",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-react-tail.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_meme-shock.png",
-   "tags": [
-    "震惊",
-    "傻眼"
-   ],
-   "desc": "石化震惊",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-shock.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_meme-kyun.png",
-   "tags": [
-    "心动",
-    "喜欢",
-    "星星眼"
-   ],
-   "desc": "爱心眼心动",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-kyun.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_meme-ojisan.png",
-   "tags": [
-    "无语",
-    "白眼",
-    "抱臂"
-   ],
-   "desc": "抱臂死鱼眼",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-ojisan.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_meme-doge.png",
-   "tags": [
-    "斜眼",
-    "偷笑",
-    "白眼"
-   ],
-   "desc": "斜眼坏笑",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-doge.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_meme-sike.png",
-   "tags": [
-    "点赞",
-    "得意"
-   ],
-   "desc": "得意竖拇指",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-sike.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_daily-done.png",
-   "tags": [
-    "点赞",
-    "加油",
-    "好的"
-   ],
-   "desc": "眨眼竖拇指",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-daily-done.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_meme-peace.png",
-   "tags": [
-    "淡定",
-    "佛系"
-   ],
-   "desc": "打坐淡定",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-peace.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_meme-music.png",
-   "tags": [
-    "听歌",
-    "开心"
-   ],
-   "desc": "戴耳机听歌",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-meme-music.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_game-cheat.png",
-   "tags": [
-    "撒娇",
-    "求求了",
-    "委屈"
-   ],
-   "desc": "抱腿求求你",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-game-cheat.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_game-lose.png",
-   "tags": [
-    "难过",
-    "委屈",
-    "失败"
-   ],
-   "desc": "头顶小乌云",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-game-lose.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_game-win.png",
-   "tags": [
-    "胜利",
-    "得意",
-    "庆祝"
-   ],
-   "desc": "举起奖杯",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-game-win.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_game-happy.png",
-   "tags": [
-    "开心",
-    "耶"
-   ],
-   "desc": "双手比耶转圈",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-game-happy.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_game-think.png",
-   "tags": [
-    "纠结",
-    "不开心"
-   ],
-   "desc": "托腮嘟嘴",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-game-think.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_valentine.png",
-   "tags": [
-    "害羞",
-    "喜欢",
-    "送礼"
-   ],
-   "desc": "背手藏爱心礼盒",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-valentine.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_weather-cold.png",
-   "tags": [
-    "好冷"
-   ],
-   "desc": "裹围巾发抖",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-weather-cold.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_weather-thunder.png",
-   "tags": [
-    "害怕",
-    "吓哭"
-   ],
-   "desc": "捂耳朵害怕打雷",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-weather-thunder.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_weather-umbrella.png",
-   "tags": [
-    "下雨"
-   ],
-   "desc": "撑伞接雨",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-weather-umbrella.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_weather-snow.png",
-   "tags": [
-    "下雪",
-    "开心"
-   ],
-   "desc": "伸手接雪花",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-weather-snow.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_night.png",
-   "tags": [
-    "晚安",
-    "犯困",
-    "熬夜"
-   ],
-   "desc": "月下打哈欠",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-night.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_daily-coffee.png",
-   "tags": [
-    "早安",
-    "喝咖啡"
-   ],
-   "desc": "捧杯咖啡",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-daily-coffee.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_daily-stretch.png",
-   "tags": [
-    "早安",
-    "伸懒腰"
-   ],
-   "desc": "伸懒腰",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-daily-stretch.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_afk.png",
-   "tags": [
-    "犯困",
-    "睡觉",
-    "累了"
-   ],
-   "desc": "趴桌流口水睡",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-afk.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_balance-low.png",
-   "tags": [
-    "求投喂",
-    "没钱",
-    "撒娇",
-    "饿了"
-   ],
-   "desc": "抱着空钱包跪求",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-balance-low.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_eat.png",
-   "tags": [
-    "饿了",
-    "吃饭",
-    "零食"
-   ],
-   "desc": "啃饼干",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-eat.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_daily-cooking.png",
-   "tags": [
-    "做饭"
-   ],
-   "desc": "颠锅煎饼",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-daily-cooking.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_levelup.png",
-   "tags": [
-    "庆祝",
-    "太棒了",
-    "开心"
-   ],
-   "desc": "彩带升级",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-levelup.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_achievement.png",
-   "tags": [
-    "骄傲",
-    "求夸奖"
-   ],
-   "desc": "捧着奖牌",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-achievement.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_work-celebrate.png",
-   "tags": [
-    "庆祝",
-    "完成"
-   ],
-   "desc": "拉礼炮",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-work-celebrate.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_work-idea.png",
-   "tags": [
-    "灵感",
-    "有了"
-   ],
-   "desc": "灵光一闪",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-work-idea.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_abstract.png",
-   "tags": [
-    "晕",
-    "懵",
-    "崩溃"
-   ],
-   "desc": "蚊香眼晕乎乎",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-abstract.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_star.png",
-   "tags": [
-    "星星眼",
-    "期待",
-    "崇拜"
-   ],
-   "desc": "星星眼",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-star.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_idle-cute.png",
-   "tags": [
-    "谢谢",
-    "卖萌",
-    "乖巧"
-   ],
-   "desc": "双手合十乖巧笑",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-idle-cute.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_bold.png",
-   "tags": [
-    "叉腰",
-    "自信",
-    "哼"
-   ],
-   "desc": "叉腰自信",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-bold.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_work-boss.png",
-   "tags": [
-    "尴尬",
-    "心虚"
-   ],
-   "desc": "冒汗心虚笑",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-work-boss.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_tail-swing.png",
-   "tags": [
-    "嘚瑟",
-    "得意"
-   ],
-   "desc": "甩尾巴嘚瑟",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-tail-swing.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_festival-spring.png",
-   "tags": [
-    "新年",
-    "春节"
-   ],
-   "desc": "提灯笼过年",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-festival-spring.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_festival-mid-autumn.png",
-   "tags": [
-    "中秋"
-   ],
-   "desc": "兔耳捧月饼",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-festival-mid-autumn.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_festival-halloween.png",
-   "tags": [
-    "万圣节"
-   ],
-   "desc": "南瓜篮捣蛋",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-festival-halloween.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_festival-christmas.png",
-   "tags": [
-    "圣诞"
-   ],
-   "desc": "抱礼物戴圣诞帽",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-festival-christmas.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "shenshen_idle.gif",
-   "tags": [
-    "待机",
-    "卖萌",
-    "发呆"
-   ],
-   "desc": "Q版待机晃悠（动图）",
-   "source": "https://github.com/schrieeeffer/shenshen-codex-pet/blob/main/previews/states/idle.gif",
-   "repo": "https://github.com/schrieeeffer/shenshen-codex-pet",
-   "author": "Shenshen Pet contributors (schrieeeffer)；基于上善无形鲸鱼娘形象及 dsh-pet 谱系改编",
-   "license": "CC BY-NC-SA 4.0（ASSET_LICENSE.md）",
-   "modified": "原样复制，未修改"
-  },
-  {
-   "file": "shenshen_running-right.gif",
-   "tags": [
-    "冲鸭",
-    "来了"
-   ],
-   "desc": "Q版冲刺跑来（动图）",
-   "source": "https://github.com/schrieeeffer/shenshen-codex-pet/blob/main/previews/states/running-right.gif",
-   "repo": "https://github.com/schrieeeffer/shenshen-codex-pet",
-   "author": "Shenshen Pet contributors (schrieeeffer)；基于上善无形鲸鱼娘形象及 dsh-pet 谱系改编",
-   "license": "CC BY-NC-SA 4.0（ASSET_LICENSE.md）",
-   "modified": "原样复制，未修改"
-  },
-  {
-   "file": "yunyue_jump.gif",
-   "tags": [
-    "开心",
-    "蹦跶",
-    "兴奋"
-   ],
-   "desc": "蹦蹦跳（动图）",
-   "source": "https://github.com/YunYueSama/codex-deepseek-pet/blob/main/assets/whale/dense-jump.png",
-   "repo": "https://github.com/YunYueSama/codex-deepseek-pet",
-   "author": "作者：YunYueSama；仓库：https://github.com/YunYueSama/codex-deepseek-pet（AI 生成，依据社区角色参考）",
-   "license": "大肥鱼项目署名许可 1.0（允许修改/分发，须署名作者+仓库并保留许可）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "由 dense-jump.png 的 32 帧合成 GIF（白底，200px）"
-  },
-  {
-   "file": "yunyue_sneak.gif",
-   "tags": [
-    "偷吃",
-    "偷偷",
-    "馋"
-   ],
-   "desc": "偷偷摸零食（动图）",
-   "source": "https://github.com/YunYueSama/codex-deepseek-pet/blob/main/assets/whale/dense-sneak.png",
-   "repo": "https://github.com/YunYueSama/codex-deepseek-pet",
-   "author": "作者：YunYueSama；仓库：https://github.com/YunYueSama/codex-deepseek-pet（AI 生成，依据社区角色参考）",
-   "license": "大肥鱼项目署名许可 1.0（允许修改/分发，须署名作者+仓库并保留许可）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "由 dense-sneak.png 的 32 帧合成 GIF（白底，200px）"
-  },
-  {
-   "file": "sutera_daily-gaming.png",
-   "tags": [
-    "游戏",
-    "开黑",
-    "玩"
-   ],
-   "desc": "打游戏开黑",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-daily-gaming.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_daily-picnic.png",
-   "tags": [
-    "野餐",
-    "出门",
-    "郊游"
-   ],
-   "desc": "户外野餐",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-daily-picnic.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_daily-painting.png",
-   "tags": [
-    "画画",
-    "创作",
-    "艺术"
-   ],
-   "desc": "画画创作",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-daily-painting.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_waiting.png",
-   "tags": [
-    "等待",
-    "等一下",
-    "发呆"
-   ],
-   "desc": "等待发呆",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-waiting.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_weather-rain-happy.png",
-   "tags": [
-    "下雨",
-    "雨天",
-    "开心"
-   ],
-   "desc": "雨天开心玩水",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-weather-rain-happy.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
-  },
-  {
-   "file": "sutera_work-debug.png",
-   "tags": [
-    "调试",
-    "bug",
-    "修bug"
-   ],
-   "desc": "盯着屏幕修 bug",
-   "source": "https://github.com/Sutera-Diffusus/dsh-whale-musume/blob/main/assets/generated/dsh-whale-state-work-debug.webp",
-   "repo": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
-   "author": "SuteraWu / Sutera-Diffusus（AI 辅助生成）；角色原作 上善无形，女仆二设 ZipZipPipe",
-   "license": "MIT（仓库 LICENSE，© 2026 Sutera-Diffusus）；底层角色设计 CC BY-NC-SA 4.0 → 仅限非商业",
-   "modified": "webp→png，裁透明边"
   }
  ]
 }

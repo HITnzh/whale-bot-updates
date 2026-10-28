@@ -5,11 +5,73 @@
         "hint": "GPT-SoVITS 插件总开关，请在部署好 GPT-SoVITS 后再打开此开关",
         "default": true
     },
+    "speech_backend": {
+        "description": "聊天语音合成后端",
+        "type": "string",
+        "default": "gpt_sovits",
+        "options": ["gpt_sovits", "minimax"],
+        "hint": "gpt_sovits沿用本地角色音色；minimax需配置音色ID及MINIMAX_API_KEY环境变量。不会自动复刻音色或切换声音。"
+    },
+    "minimax": {
+        "description": "可选MiniMax语音合成",
+        "type": "object",
+        "items": {
+            "base_url": {
+                "description": "官方API地址",
+                "type": "string",
+                "default": "https://api.minimaxi.com",
+                "options": ["https://api.minimaxi.com", "https://api.minimax.io"]
+            },
+            "api_key_env": {
+                "description": "密钥环境变量名",
+                "type": "string",
+                "default": "MINIMAX_API_KEY",
+                "hint": "填写变量名，密钥在本机secrets.env配置；不要把密钥本身填入此字段。"
+            },
+            "model": {
+                "description": "语音模型",
+                "type": "string",
+                "default": "speech-2.8-hd",
+                "hint": "需使用当前账号支持的MiniMax Speech模型。"
+            },
+            "voice_id": {
+                "description": "固定角色音色ID",
+                "type": "string",
+                "default": "",
+                "hint": "使用MiniMax控制台中已创建或可用的音色ID；缺失时不生成，不替换成其他音色。"
+            },
+            "timeout": {
+                "description": "语音合成超时（秒）",
+                "type": "int",
+                "default": 60,
+                "hint": "1～600秒；失败回退文字，不自动重复收费请求。"
+            }
+        }
+    },
     "auto": {
         "description": "调用配置",
         "type": "object",
-        "hint": "本插件有一定概率主动将bot本来要发送的文本转成语音发送",
+        "hint": "主模型在当前对话中自主决定是否调用语音工具；概率模式需单独选择。",
         "items": {
+            "mode": {
+                "description": "语音选择方式",
+                "type": "string",
+                "default": "model",
+                "options": ["model", "probability", "off"],
+                "hint": "model由主模型自主选择，不额外调用分类模型；probability按tts_prob随机转语音；off关闭自动及工具语音，/说命令仍可用。"
+            },
+            "autonomous_max_chars": {
+                "description": "自主语音文本长度上限",
+                "type": "int",
+                "default": 120,
+                "hint": "代码、链接、表格、超过此长度及明确要求文字的回复用文字；流式输出也使用文字。"
+            },
+            "cooldown_sec": {
+                "description": "当前会话语音冷却（秒）",
+                "type": "int",
+                "default": 30,
+                "hint": "自主语音工具按会话计时，群聊中所有人共享；0表示关闭冷却。个人回复偏好按会话和发送者分别保存。"
+            },
             "only_llm_result": {
                 "description": "只处理LLM结果",
                 "type": "bool",
@@ -17,9 +79,9 @@
                 "default": true
             },
             "tts_prob": {
-                "description": "主动转语音发送的概率",
+                "description": "概率模式转语音的概率",
                 "type": "float",
-                "hint": "",
+                "hint": "仅auto.mode=probability生效，model模式不使用此概率。",
                 "slider": {
                     "min": 0,
                     "max": 1,

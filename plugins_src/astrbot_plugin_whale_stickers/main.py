@@ -12,7 +12,6 @@ LLM 在回复末尾可选地附加隐藏标记 ``[表情:标签]``（标签取�
   WHALE_STICKER_PROB      有标记时实际发图概率，默认 0.35
   WHALE_STICKER_COOLDOWN  同一会话两次发图之间至少间隔的回复条数，默认 3
   WHALE_STICKER_COOLDOWN_SEC  同一会话两次发图之间至少间隔秒数，默认 60
-  WHALE_STICKER_NOREPEAT  同一会话最近 N 张不重复发，默认 3
 """
 
 import json
@@ -58,7 +57,7 @@ ALIASES: dict[str, list[str]] = {
     "怕": ["害怕"], "吓": ["吓一跳", "害怕"], "晕了": ["晕"], "懵了": ["懵"],
     "期待": ["期待"], "兴奋": ["兴奋"], "等": ["等待"], "等你": ["等待"],
     "求夸": ["求夸奖"], "夸我": ["求夸奖"], "卖萌": ["卖萌"], "可爱": ["卖萌"],
-    # 2026-10-25 自学补充：常见但包里没有同名标签的写法
+    # reply_plan / common phrasing (map to existing tags when present)
     "唱歌": ["听歌"], "音乐": ["听歌"], "听音乐": ["听歌"], "生日": ["庆祝", "送礼"], "生日快乐": ["庆祝", "送礼"],
     "鼓掌": ["点赞", "太棒了"], "吃瓜": ["好奇", "偷偷"], "惊喜": ["星星眼", "震惊"], "感动": ["心动", "喜欢"],
     "emo": ["难过", "不开心"], "破防": ["崩溃", "哭哭"], "社死": ["尴尬", "崩溃"], "无奈": ["苦笑", "无语"],
@@ -68,8 +67,6 @@ ALIASES: dict[str, list[str]] = {
     "嗯嗯": ["好的", "乖巧"], "同意": ["好的", "点赞"], "气鼓鼓": ["生气", "哼"], "吃醋": ["哼", "不爽"],
     "想你": ["喜欢", "等待"], "思念": ["等待", "喜欢"], "喵": ["卖萌", "撒娇"], "大肥鱼": ["摸鱼"], "鲸鱼": ["摸鱼"],
     "白米饭": ["吃饭", "干饭"], "米饭": ["吃饭", "干饭"],
-    "开黑": ["游戏", "开黑"], "野餐": ["野餐", "出门"], "画画": ["画画", "创作"],
-    "等一下": ["等待"], "雨天": ["下雨", "雨天"], "修bug": ["调试", "修bug"], "debug": ["调试", "修bug"],
 }
 
 
@@ -96,12 +93,11 @@ class Main(star.Star):
         self.prob = float(os.environ.get("WHALE_STICKER_PROB", "0.35"))
         self.cooldown_n = int(os.environ.get("WHALE_STICKER_COOLDOWN", "3"))
         self.cooldown_s = float(os.environ.get("WHALE_STICKER_COOLDOWN_SEC", "60"))
-        # 同一会话最近发过的 N 张不重复（池子够大时）
         self.recent_n = int(os.environ.get("WHALE_STICKER_NOREPEAT", "3"))
         self.by_tag: dict[str, list[str]] = {}
         self._resolve_cache: dict[str, str | None] = {}
         self.credits = ""
-        # session -> [replies since last sticker, last sticker ts]
+        # session -> [replies since last sticker, last sticker ts, recent paths]
         self.state: dict[str, list] = {}
         _pref = os.environ.get("WHALE_EXPR_PREF") or os.path.join(
             os.environ.get("ASTRBOT_ROOT") or os.getcwd(), "data", "expression_prefs.json"
@@ -171,10 +167,13 @@ class Main(star.Star):
             logger.info(f"[whale_stickers] tag {tag!r} -> {hit!r}")
         return hit
 
+
     def pick(self, st: list, files: list[str]) -> str:
-        """Random sticker avoiding the last ``recent_n`` sent in this session (st[2] holds the history list)."""
+        """Random sticker avoiding the last ``recent_n`` sent in this session."""
         if len(st) < 3 or not isinstance(st[2], list):
-            st[2:] = [[st[2]] if len(st) > 2 and isinstance(st[2], str) else []]
+            # migrate old last-path str -> list
+            old = st[2] if len(st) > 2 and isinstance(st[2], str) else None
+            st[2:] = [[old] if old else []]
         hist: list[str] = st[2]
         win = min(self.recent_n, max(len(files) - 1, 0))
         recent = set(hist[-win:]) if win else set()
@@ -222,10 +221,11 @@ class Main(star.Star):
                 if pers and self.expr_prefs:
                     self.expr_prefs.set_mode(sid, pers)
                     pref = pers
+                turn = detect_turn_override(user_text)
                 plan = build_reply_plan(
                     reply_text=resp.completion_text or cleaned or text,
                     user_text=user_text,
-                    preference_mode=pref,
+                    preference_mode=turn or pref,
                     sticker_tag=(tags[-1] if tags else event.get_extra(EXTRA_KEY)),
                 )
                 event.set_extra(PLAN_KEY, plan.to_dict())
@@ -256,16 +256,13 @@ class Main(star.Star):
         plan = event.get_extra(PLAN_KEY) or {}
         if plan.get("sticker_tag"):
             tag = plan.get("sticker_tag")
-        if plan.get("mode") in ("text", "voice", "text_voice") and plan.get("mode") != "text_sticker":
-            # Plan says no sticker this turn
-            if plan.get("mode") != "text_sticker":
-                tag = None if plan.get("mode") in ("text", "voice", "text_voice") and not plan.get("sticker_tag") else tag
-        if plan.get("mode") == "text" and plan.get("source") in ("preference", "turn_override"):
+        if plan.get("mode") in ("text", "voice", "text_voice") and not plan.get("sticker_tag"):
+            # plan says no sticker this turn
             tag = None
         if not result.is_llm_result():
             return
         sid = event.unified_msg_origin
-        st = self.state.setdefault(sid, [999, 0.0, None])
+        st = self.state.setdefault(sid, [999, 0.0, []])
         st[0] += 1
         if not tag:
             return

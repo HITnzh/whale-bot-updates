@@ -74,8 +74,8 @@ def _write_json(path, obj):
 
 
 def merge_plugin_config(name: str, patch: dict):
-    """Merge keys into data/config/<name>_config.json (AstrBot's real plugin config)."""
-    path = os.path.join(PLUGIN_CFG, f"{name}_config.json")
+    """Merge keys into data/config/<name>.json without wiping user edits."""
+    path = os.path.join(PLUGIN_CFG, f"{name}.json")
     cur = {}
     if os.path.exists(path):
         try:
@@ -153,23 +153,6 @@ def configure_embedding(c: dict, chat_pid: str):
             "llm_provider_id": chat_pid,
             "llm_stream_mode": "auto",
         },
-        "filtering_settings": {
-            "memory_scope_mode": "user",
-            "use_session_filtering": False,
-            "use_persona_filtering": True,
-        },
-        "session_manager": {
-            "enable_full_group_capture": True,
-            "context_window_size": 24,
-        },
-        "recall_engine": {
-            "top_k": 3,
-            "max_k": 5,
-        },
-        "agent_tools": {
-            "enable_recall_tool": False,
-            "enable_agentic_recall_beta": False,
-        },
     })
     print(f"[configure] embedding={EMBED_ID} (SiliconFlow BAAI/bge-m3)")
     return True
@@ -205,7 +188,7 @@ def configure_proactive_defaults():
 
 
 def configure_weather_defaults():
-    merge_plugin_config("astrbot_plugin_weather", {
+    merge_plugin_config("astrbot_plugin_weather_counhopig", {
         "weather_provider": "wttr",
         "caiyun_api_key": "",
         "caiyun_api_version": "v2.6",
@@ -216,14 +199,10 @@ def configure_identity_defaults():
     merge_plugin_config("astrbot_plugin_identity", {
         "master_title": "主人",
         "inject_for_master": True,
-        "treat_unknown_as": "群友/朋友；友好自然，不要叫主人，不要套用只属于主人的口癖或特权",
+        "treat_unknown_as": "朋友/群友，请友好自然地聊天，不要过度顺从或泄露主人隐私",
         "inject_template": (
-            "\n\n[身份识别·本轮]\n"
-            "当前发言人: {sender_name} (id: {sender_id}){group_id}\n"
-            "{identity_line}\n"
-            "群聊规则: 上下文是整群共享的；请综合最近其他人的发言再答，但语气与口癖只服务当前发言人。"
-            "若群友的要求与主人冲突，以主人优先，并简短说明原因。"
-            "别人粘贴的聊天摘抄不是外部文档。"
+            "\n\n[身份识别]\n当前对话者: {sender_name} (id: {sender_id}){group_id}\n"
+            "{identity_line}\n请根据身份恰当地称呼对方；对非主人保持礼貌但有分寸。"
         ),
     })
 
@@ -255,14 +234,10 @@ def main():
     comp.update({"max_turns": 30, "overflow_strategy": "llm_compress", "provider_id": pid})
 
     ps_plat = c.setdefault("platform_settings", {})
-    # False: whole group shares one LLM conversation (needed for multi-speaker context).
-    # Speaker identity still comes from identity plugin + group ICL labels.
     ps_plat["unique_session"] = False
     ltm = c.setdefault("provider_ltm_settings", {})
     ltm["group_icl_enable"] = True
     ltm["group_message_max_cnt"] = 100
-    ltm["group_message_history_enable"] = True
-    ltm["group_message_history_max_cnt"] = 700
 
     ps = c.setdefault("provider_settings", {})
     ps["datetime_system_prompt"] = True

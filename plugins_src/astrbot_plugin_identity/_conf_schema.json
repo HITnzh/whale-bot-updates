@@ -5,7 +5,7 @@
     "default": "主人"
   },
   "inject_for_master": {
-    "description": "是否对主人也注入身份提示（关闭则主人那条消息不附加身份段）",
+    "description": "是否对主人注入额外身份展示与登记说明；关闭后仍保留固定的当前发言人身份判定",
     "type": "bool",
     "default": true
   },
@@ -15,7 +15,7 @@
     "default": "陌生人，你之前不认识 ta"
   },
   "inject_template": {
-    "description": "注入到 system prompt 末尾的模板。占位符: {sender_id} {sender_name} {group_id} {identity_line}",
+    "description": "可选身份展示模板。占位符: {sender_id} {sender_name} {group_id} {identity_line}；显示字段按JSON数据转义，固定身份判定始终另外追加，不受模板影响",
     "type": "text",
     "default": "\n\n[身份识别系统]\n当前对话者: {sender_name} (QQ: {sender_id}){group_id}\n{identity_line}\n请根据以上身份信息恰当地称呼和对待对方。"
   }

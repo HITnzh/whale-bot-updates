@@ -4,6 +4,65 @@
     "type": "bool",
     "default": true
   },
+  "generation_enabled": {
+    "description": "启用生成式原创短歌",
+    "type": "bool",
+    "default": true,
+    "hint": "主题或原创歌词走 ACE-Step → 分轨 → RVC → 混音；已有简谱仍走本地引擎"
+  },
+  "generation_base_url": {
+    "description": "ACE-Step 生成 API 地址",
+    "type": "string",
+    "default": "http://127.0.0.1:8002",
+    "hint": "先运行 voice-backends/music-generation/setup.ps1 安装，再启动「启动唱歌生成API.bat」"
+  },
+  "default_duration_sec": {
+    "description": "原创短歌默认时长（秒）",
+    "type": "int",
+    "default": 30,
+    "hint": "15～60秒；CPU生成可能耗时较长"
+  },
+  "generation_timeout_sec": {
+    "description": "生成或分轨的单阶段最长等待（秒）",
+    "type": "int",
+    "default": 1800
+  },
+  "separator_python": {
+    "description": "独立分轨环境 Python",
+    "type": "string",
+    "default": "",
+    "hint": "留空使用独立 CUDA 分轨环境；自定义路径也必须支持 CUDA"
+  },
+  "separator_device": {
+    "description": "分轨设备",
+    "type": "string",
+    "default": "cuda",
+    "options": ["cuda"],
+    "hint": "只使用显卡分轨；CUDA不可用或显存不足直接报错，不回退CPU"
+  },
+  "separator_segment_size": {
+    "description": "分轨片段大小",
+    "type": "int",
+    "default": 401,
+    "hint": "129～801；401约4秒，可降低显存峰值；801约8秒，上下文更长但更占显存"
+  },
+  "separator_model_dir": {
+    "description": "分轨模型目录",
+    "type": "string",
+    "default": "",
+    "hint": "留空使用 voice-backends/music-generation/models；模型由 setup.ps1 -ModelsOnly 显式下载"
+  },
+  "separator_model": {
+    "description": "分轨模型文件名",
+    "type": "string",
+    "default": "model_bs_roformer_ep_317_sdr_12.9755.ckpt"
+  },
+  "ffmpeg_path": {
+    "description": "FFmpeg 可执行文件路径",
+    "type": "string",
+    "default": "",
+    "hint": "留空自动查找 PATH 或项目 RVC/tools 中的 FFmpeg"
+  },
   "sing_python": {
     "description": "运行 sing.py 的 Python（建议 sing/.venv）",
     "type": "string",
@@ -41,15 +100,21 @@
     "default": 5
   },
   "rvc_enabled": {
-    "description": "合成后是否走本机 RVC 变声",
+    "description": "使用现有 RVC 转换独立人声",
     "type": "bool",
     "default": false,
-    "hint": "需先启动 voice-backends/RVC，并放入 .pth 模型；无音色时请保持关闭，直接发莲华原声"
+    "hint": "只转换人声，之后与同一次生成的伴奏混音；模型和索引沿用现有设置"
   },
   "rvc_base_url": {
     "description": "本机 RVC infer API",
     "type": "string",
     "default": "http://127.0.0.1:8001"
+  },
+  "rvc_timeout_sec": {
+    "description": "RVC换声最长等待（秒）",
+    "type": "int",
+    "default": 1800,
+    "hint": "独立于简谱合成和分轨超时；完整歌曲换声可能超过180秒"
   },
   "rvc_model_path": {
     "description": "RVC 模型 .pth 绝对路径（占位，放入后填写）",
@@ -65,7 +130,8 @@
   "rvc_f0_up_key": {
     "description": "RVC 升降调（半音）",
     "type": "int",
-    "default": 0
+    "default": 0,
+    "hint": "与伴奏混音时需保持0；改变此项不会同步改变伴奏调性"
   },
   "timeout_sec": {
     "description": "合成超时（秒）",
@@ -77,5 +143,28 @@
     "type": "bool",
     "default": false,
     "hint": "群里给大家玩可关；怕刷屏可开"
+  },
+  "cover_enabled": {
+    "description": "启用原曲翻唱",
+    "type": "bool",
+    "default": true,
+    "hint": "上传音频或从本地曲库选歌，仅分轨+现有RVC+混音，不调用ACE-Step"
+  },
+  "cover_library_dir": {
+    "description": "原曲音频曲库目录",
+    "type": "string",
+    "default": "",
+    "hint": "留空使用项目根目录covers；放MP3/WAV/FLAC等，命令 /翻唱列表、/翻唱 歌名"
+  },
+  "cover_max_duration_sec": {
+    "description": "翻唱原曲最大时长（秒）",
+    "type": "int",
+    "default": 300,
+    "hint": "默认5分钟；超限明确提示，不截断原歌曲"
+  },
+  "cover_max_upload_mb": {
+    "description": "翻唱源文件最大大小（MiB）",
+    "type": "int",
+    "default": 100
   }
 }

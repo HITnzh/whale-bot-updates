@@ -91,6 +91,9 @@ class ConfigNode:
 
 
 class AutoConfig(ConfigNode):
+    mode: str
+    autonomous_max_chars: int
+    cooldown_sec: int
     only_llm_result: bool
     tts_prob: float
     max_msg_len: int
@@ -119,6 +122,7 @@ class CacheConfig(ConfigNode):
 
 class PluginConfig(ConfigNode):
     enabled: bool
+    speech_backend: str
     auto: AutoConfig
     client: ClientConfig
     model: ModelConfig
