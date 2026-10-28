@@ -1,18 +1,18 @@
 {
- "version": 1793011868,
- "ref": "7e1086f398519e4a427d98b6d7ed28a69d7d55fb",
- "generated": "2026-10-26T18:51:08+0800",
+ "version": 1793178350,
+ "ref": "13df961e99eab04bc9b5d34392ae13ea148c8cd4",
+ "generated": "2026-10-28T17:05:50+0800",
  "note": "WhaleBot content update. Stickers CC BY-NC-SA 4.0, see stickers/CREDITS.md",
  "files": [
   {
    "path": "configure.py",
-   "sha256": "dc65d669ab44857443a2588e4185e5adbe3e115da64d78d6d723604e0509cc41",
-   "size": 13593
+   "sha256": "bd4dbea614505fa4b24778f3da8455d59d33569fe377c8b6b83d306790f99f06",
+   "size": 12854
   },
   {
    "path": "stickers/CREDITS.md",
-   "sha256": "06578a045b138d246d3179866bd4f2e79881d4723c3b56e262f3a293374e2c3b",
-   "size": 7434
+   "sha256": "8e18e2d167e44bded680819d32be690a93a6d2c468c3d0c071785cd86176db9f",
+   "size": 5411
   },
   {
    "path": "stickers/edmok_dazhaohu.jpg",
@@ -41,8 +41,8 @@
   },
   {
    "path": "stickers/index.json",
-   "sha256": "e28a16375b461d485f3ce1c0f44a784941fc0038358be63fb5dd5a0461bb56a1",
-   "size": 66249
+   "sha256": "e9a5b214a467eda390ab40103d5a7e2c101e436ccb4abdb973d6e78bd51dd0c6",
+   "size": 34467
   },
   {
    "path": "stickers/maid_delighted.png",
@@ -96,18 +96,13 @@
   },
   {
    "path": "stickers/preview.png",
-   "sha256": "6e2918574bd7125345099af43188b457c7252d6f7a6ad3468cac679ace7e822d",
-   "size": 3894491
+   "sha256": "54ed3738bfd5049cde2af86336cb8185ae20f10b355f04fc0971daf044bc8fa4",
+   "size": 2271510
   },
   {
    "path": "stickers/shenshen_failed.gif",
    "sha256": "9fd14fae9e00643c3f8105de68f0676bc36ff215c00a9ad97c53825b36249fdf",
    "size": 107638
-  },
-  {
-   "path": "stickers/shenshen_idle.gif",
-   "sha256": "f720e31ed4827d8c11e467ef170140cca00c82c061b40129ab9cef99b82dcff0",
-   "size": 90254
   },
   {
    "path": "stickers/shenshen_jumping.gif",
@@ -120,11 +115,6 @@
    "size": 92624
   },
   {
-   "path": "stickers/shenshen_running-right.gif",
-   "sha256": "a3333d3700ca2ab483724087a4399e293c855d67f00b85d6d13a2197fa97c09a",
-   "size": 102199
-  },
-  {
    "path": "stickers/shenshen_waiting.gif",
    "sha256": "06d635e369ab843f7dcd84d43c815c752a72e59a0f30ce4e0c508fdae9f1eb6c",
    "size": 87324
@@ -135,39 +125,14 @@
    "size": 62449
   },
   {
-   "path": "stickers/sutera_abstract.png",
-   "sha256": "3e584f8ce7a0156328fc600dfb7496ca4a1912d745d98de78e11ea17cf71ce46",
-   "size": 325955
-  },
-  {
-   "path": "stickers/sutera_achievement.png",
-   "sha256": "d1988caf3969fd298fb377ca6a93b64d3251e777b46eab1087d9a5ac9e28dba3",
-   "size": 270398
-  },
-  {
-   "path": "stickers/sutera_afk.png",
-   "sha256": "5329aa47ee2378ef7c9a860707ec5ac2b4a0c78c1dc93f7cd0e8fca2e194be84",
-   "size": 279970
-  },
-  {
    "path": "stickers/sutera_angry.png",
    "sha256": "dcfb4efb9374015637ef2798e5c41a05cb4eb0411e32534656d46c2a913e0e59",
    "size": 285112
   },
   {
-   "path": "stickers/sutera_balance-low.png",
-   "sha256": "809f9474bd19ebeefc2fe06722424de9ffd502771e740992bc4f9bd5ec1d17cb",
-   "size": 311321
-  },
-  {
    "path": "stickers/sutera_blush.png",
    "sha256": "30a48d8e2566293b42b4c2e5ccf209e0e7d695b5339fc49cabe5506a3488427c",
    "size": 266758
-  },
-  {
-   "path": "stickers/sutera_bold.png",
-   "sha256": "0334fe1eed4cb9c2f2e2bc459f97eb14a5894fa2be683a0cfb086c9cb046da2f",
-   "size": 264822
   },
   {
    "path": "stickers/sutera_celebrate.png",
@@ -185,21 +150,6 @@
    "size": 272796
   },
   {
-   "path": "stickers/sutera_daily-coffee.png",
-   "sha256": "9ee22d698b6604bc6bcb3e300d71f0bca7c7d8323df1178f4c64c94a1059feda",
-   "size": 264006
-  },
-  {
-   "path": "stickers/sutera_daily-cooking.png",
-   "sha256": "1956016ce640fba23c6572f7e6e1f4de8406860466381ca4e561c522c143fba0",
-   "size": 276231
-  },
-  {
-   "path": "stickers/sutera_daily-done.png",
-   "sha256": "2adc4f4a482fcf48f2c6fcd1639e5e760abb25cd2d5720305240e7fc10e7f1f6",
-   "size": 226482
-  },
-  {
    "path": "stickers/sutera_daily-eat.png",
    "sha256": "2f2ec37a48b6fd3bae62269cd85e3c3d06225347aba5fc77f3818198e502a8ce",
    "size": 275215
@@ -210,19 +160,9 @@
    "size": 284826
   },
   {
-   "path": "stickers/sutera_daily-gaming.png",
-   "sha256": "b8e034d882c4eb6e4235d6236d71ea97a8d38da2c243020c5c03020dec3c62f2",
-   "size": 271845
-  },
-  {
    "path": "stickers/sutera_daily-melt.png",
    "sha256": "786fe190de09fc8b9152ce63750a4b25780a46b494039a6c78cd3e7de42a6a7c",
    "size": 247108
-  },
-  {
-   "path": "stickers/sutera_daily-painting.png",
-   "sha256": "1203c07ffc7adb38e13e5f097ade8988b407f2773769a3db19430a3215f02c4e",
-   "size": 324388
   },
   {
    "path": "stickers/sutera_daily-pajama.png",
@@ -230,84 +170,14 @@
    "size": 257934
   },
   {
-   "path": "stickers/sutera_daily-picnic.png",
-   "sha256": "020076e3a41d9baaecdab51505500c03123763858ef719980d2acb538475a282",
-   "size": 297952
-  },
-  {
-   "path": "stickers/sutera_daily-stretch.png",
-   "sha256": "cc92f00f64d7eb87244a5da180f12ded1b011d49492f86abb01dbc1c4c84dc9d",
-   "size": 266881
-  },
-  {
-   "path": "stickers/sutera_eat.png",
-   "sha256": "bda07a6bafdeab99e8dbe3e0cf7fef278674cf7b437cea2556de15d1a98dd8fc",
-   "size": 281687
-  },
-  {
    "path": "stickers/sutera_failure.png",
    "sha256": "de45b6cb5c7315ba2e07bcd5170f81aa0651b14431632d96d6b5e4b2074ee573",
    "size": 270785
   },
   {
-   "path": "stickers/sutera_festival-christmas.png",
-   "sha256": "16503fec373155d7319badb3c9145b36a0c752c84ca37bb43c39318abd2e2144",
-   "size": 269335
-  },
-  {
-   "path": "stickers/sutera_festival-halloween.png",
-   "sha256": "daa7b73869962bdf2a8d988289f8c7d80714c55c5907355acf442cd8cd03c9b9",
-   "size": 276687
-  },
-  {
-   "path": "stickers/sutera_festival-mid-autumn.png",
-   "sha256": "4cbdf722fbd44b0ae1b9d8a6143055d9729b4727b063811362277d8a06bdb498",
-   "size": 255670
-  },
-  {
-   "path": "stickers/sutera_festival-spring.png",
-   "sha256": "8625d546e4c0188f16c9edd5e2b2f88f363ef4da0fb75c225df9e5aff2f8f6d6",
-   "size": 274755
-  },
-  {
-   "path": "stickers/sutera_game-cheat.png",
-   "sha256": "52ff5be70e9998e0efa3d803bf72883df33c2bc4d87811687ce9d94052465481",
-   "size": 296469
-  },
-  {
-   "path": "stickers/sutera_game-happy.png",
-   "sha256": "4fe57688b72cf867739eb373a000fdc7ab42ed05b780b828986d8e4e70b93921",
-   "size": 258953
-  },
-  {
-   "path": "stickers/sutera_game-lose.png",
-   "sha256": "54b7c7dfefa4efa6a222c5c562a86047b8573b6c26cf3c1359c1c157ee6867be",
-   "size": 245872
-  },
-  {
-   "path": "stickers/sutera_game-think.png",
-   "sha256": "920b05950f0208f49e53eb3d433ab476991ee5d3a9a8863fc6393a5197589bea",
-   "size": 280253
-  },
-  {
-   "path": "stickers/sutera_game-win.png",
-   "sha256": "6993a9882b51bbdc233da256ae6e2b05521c1b5adb3268adf7134a48e82f3a02",
-   "size": 234118
-  },
-  {
    "path": "stickers/sutera_greet.png",
    "sha256": "d72933df1e54d9a28312e2f743c89f89b979d0d7b852ec1c9e08841dd3452801",
    "size": 286236
-  },
-  {
-   "path": "stickers/sutera_idle-cute.png",
-   "sha256": "869f094aa6371df7e565f3dedc3d041bd639876ef30642e28c577ae1b94ae266",
-   "size": 272692
-  },
-  {
-   "path": "stickers/sutera_levelup.png",
-   "sha256": "1fd7ec0f43268fb30806f9694c2c624e5c4ddb0ad2ab31350bac9cf97097a5f4",
-   "size": 291067
   },
   {
    "path": "stickers/sutera_meme-broke.png",
@@ -320,11 +190,6 @@
    "size": 294107
   },
   {
-   "path": "stickers/sutera_meme-doge.png",
-   "sha256": "8dc446cd0da89a2fc6d21d07466ad6507ea0066a60acdbbd9cdd177ac4f1615c",
-   "size": 249267
-  },
-  {
    "path": "stickers/sutera_meme-doubt.png",
    "sha256": "669a1502f4418479e9a788c2a07c712974aebffab0fa57f02558af9b07c57448",
    "size": 238738
@@ -335,44 +200,14 @@
    "size": 301378
   },
   {
-   "path": "stickers/sutera_meme-kyun.png",
-   "sha256": "d39dc80c9f90646eddf4982615a080aaca4389b61e98dd82a0730a5ba7682a67",
-   "size": 249558
-  },
-  {
-   "path": "stickers/sutera_meme-music.png",
-   "sha256": "e6a67e0b7b4108894c4006bbdadea606a97d52b40f38d43147ac4c604f7a4ca1",
-   "size": 275128
-  },
-  {
    "path": "stickers/sutera_meme-no.png",
    "sha256": "b6ad034ade285e873af828f1b3a0c7bd660b2ac74036be4ca43215399745383c",
    "size": 262948
   },
   {
-   "path": "stickers/sutera_meme-ojisan.png",
-   "sha256": "b21db65d95440398c5fee6223016201c1ee4f34969d4aa71e950707942622d2c",
-   "size": 260653
-  },
-  {
    "path": "stickers/sutera_meme-omg.png",
    "sha256": "e55f95f17fc7ddae0705a1862f10992fab5247dcbe2b7b4038a80c339eb42455",
    "size": 279366
-  },
-  {
-   "path": "stickers/sutera_meme-peace.png",
-   "sha256": "d7a2630d9842af3e1b03ce2b6413c188b0f11a294d39cea2b10a433baa0609c0",
-   "size": 279019
-  },
-  {
-   "path": "stickers/sutera_meme-shock.png",
-   "sha256": "a5736f7e68773efefa88e37029240c0ab5294890e8ab31daa03cfe8c8d48c503",
-   "size": 302180
-  },
-  {
-   "path": "stickers/sutera_meme-sike.png",
-   "sha256": "3b9a666c139100a9d3d1d33c534d6e4c89437c5a8482e6246729c32313ddca5f",
-   "size": 262732
   },
   {
    "path": "stickers/sutera_meme-smile-pain.png",
@@ -400,24 +235,9 @@
    "size": 276876
   },
   {
-   "path": "stickers/sutera_night.png",
-   "sha256": "6ff9cba2ae9ff3da8cd8bd1fa357bfb436aec09f22905dac4ec5e12e0e8d6a91",
-   "size": 253056
-  },
-  {
-   "path": "stickers/sutera_react-belly.png",
-   "sha256": "32e9e6d588b5a24563aece0b34e8bf3e31227bd177be64183623f7d55575dea4",
-   "size": 260855
-  },
-  {
    "path": "stickers/sutera_react-head.png",
    "sha256": "909bd273cfe35d026f634dc9d99e6de8f025a2849b1541da2993b47bde001c8f",
    "size": 247874
-  },
-  {
-   "path": "stickers/sutera_react-tail.png",
-   "sha256": "d336aba18dd1008a1741ae91f2e9b01b9a703325db75c9b41f1ed27c4dc3cd21",
-   "size": 315468
   },
   {
    "path": "stickers/sutera_sleep.png",
@@ -425,19 +245,9 @@
    "size": 308499
   },
   {
-   "path": "stickers/sutera_star.png",
-   "sha256": "ccd6a21d80e74057e511b60071355c766187f257a13640f805202863a19bb25b",
-   "size": 287333
-  },
-  {
    "path": "stickers/sutera_success.png",
    "sha256": "6435e36a95dd8e1ace631a3217c9ef76ff12e0c4f4bdff5260ddb35d6ad1d473",
    "size": 273629
-  },
-  {
-   "path": "stickers/sutera_tail-swing.png",
-   "sha256": "eeb5cf9b35e88304ba50a371b519026350213eb60f61417e57bcbce28b8eceb7",
-   "size": 252896
   },
   {
    "path": "stickers/sutera_teasing.png",
@@ -450,69 +260,14 @@
    "size": 251316
   },
   {
-   "path": "stickers/sutera_valentine.png",
-   "sha256": "5fbf43d14f2b57fc7ccd5cff0c7b067c678b49bfea2f43a4bcc63a13c7e4d9ab",
-   "size": 249906
-  },
-  {
-   "path": "stickers/sutera_waiting.png",
-   "sha256": "8db20cc1633243aa00ad111be4c164dd29d237de4103d070d8b6320cf13f7519",
-   "size": 272380
-  },
-  {
-   "path": "stickers/sutera_weather-cold.png",
-   "sha256": "8627ad4fa4ad030974c2d5c04827d856457eb8423dd4c2182058c009306d4340",
-   "size": 251303
-  },
-  {
-   "path": "stickers/sutera_weather-rain-happy.png",
-   "sha256": "93baadd1fbf4763a0d53a1579f517d891171f990cc06554a712f0a88f9e8caca",
-   "size": 290885
-  },
-  {
-   "path": "stickers/sutera_weather-snow.png",
-   "sha256": "6314f6d3f43bb82750d0560ab94ae2ee91cf743b3c1530a949e24d7c62149cb2",
-   "size": 284533
-  },
-  {
-   "path": "stickers/sutera_weather-thunder.png",
-   "sha256": "73d6ba8493c6b334a73c33854cba0abaef5c165f682698d2a198d222f673c3a3",
-   "size": 335926
-  },
-  {
-   "path": "stickers/sutera_weather-umbrella.png",
-   "sha256": "d0508749c35f01d8ef70c4f13578b6a0bf46939e7b0f3328f075a9917f2b91bc",
-   "size": 270498
-  },
-  {
    "path": "stickers/sutera_wink.png",
    "sha256": "5a1aea74218372a1feeb26cfd8d226020434ba4924432c4506fb10a3e0a44a1f",
    "size": 263993
   },
   {
-   "path": "stickers/sutera_work-boss.png",
-   "sha256": "60e26bbe62ff7bfde2fcf6a90fec336dc5b247a8407e9b8dbd412bcae40c6e5a",
-   "size": 281355
-  },
-  {
-   "path": "stickers/sutera_work-celebrate.png",
-   "sha256": "321f0045ea772c6599bb7e3575265ea3355d2d2681bcc51a78ed198a54a61b42",
-   "size": 270287
-  },
-  {
    "path": "stickers/sutera_work-deadline.png",
    "sha256": "418d7365d926dc972e774d072fcf1fe8fbdfb1eb653c366b7770548ed5882637",
    "size": 336561
-  },
-  {
-   "path": "stickers/sutera_work-debug.png",
-   "sha256": "97867052cfb07fce76430db7959ff398fc8210067e18bd893de4a729ebbf43b2",
-   "size": 322983
-  },
-  {
-   "path": "stickers/sutera_work-idea.png",
-   "sha256": "1c20faae70f0c7716577760546a0d474aca97ef83aa0eca208f476777d90034f",
-   "size": 232639
   },
   {
    "path": "stickers/sutera_work-slack-phone.png",
@@ -545,11 +300,6 @@
    "size": 218800
   },
   {
-   "path": "stickers/yunyue_jump.gif",
-   "sha256": "be35819712490b7fcafb83bce6f1fe433a4155647bfbde5c257dda25d8f69154",
-   "size": 425277
-  },
-  {
    "path": "stickers/yunyue_pout.png",
    "sha256": "eb75da15acb424455fd8f83e0258cf8fa3940474725371d8eb2434a970faa962",
    "size": 202429
@@ -563,11 +313,6 @@
    "path": "stickers/yunyue_sleep.gif",
    "sha256": "d487427f85a867f6c4e71bc95b44827437e3a9989db3257e3bd948e309ed6b94",
    "size": 385243
-  },
-  {
-   "path": "stickers/yunyue_sneak.gif",
-   "sha256": "c8614aa785785a02e96fea431af9ef370dff9476f7eac0f55a6bd7e005274492",
-   "size": 442267
   },
   {
    "path": "stickers/yunyue_surprised.png",
@@ -615,39 +360,19 @@
    "size": 2224
   },
   {
-   "path": "persona/assistant_style.txt",
-   "sha256": "854ca5a6fa54c4d46a04f14a392aafe21296d974c0f9e719a96b2bb0ccce82bd",
-   "size": 842
-  },
-  {
-   "path": "persona/companion.md",
-   "sha256": "0186137759bf3906527ac3f0b5417d1156f0103184795e859ce9e4c2799590e1",
-   "size": 1464
-  },
-  {
-   "path": "persona/douyin_card_raw.md",
-   "sha256": "c31664bd5a62f4a4031ec3bb0b792e384bda54fc40168666d9db88b92497db80",
-   "size": 26043
+   "path": "persona/README.md",
+   "sha256": "c21500b89e403e1c49c8755d4955cfcf619eb7c31f8fa156a6832b5e71f49ade",
+   "size": 1724
   },
   {
    "path": "persona/safety_addendum.txt",
-   "sha256": "368cbfe52dc279dce2ca2847fb039565b5dc474625e2a4c6589784498ca988bd",
-   "size": 496
+   "sha256": "e52c99cae4a9fae125932879525cae96b468a75fd9843a724b3b0f83d31ab4f9",
+   "size": 598
   },
   {
    "path": "persona/system_prompt.txt",
-   "sha256": "d944d8feb8d4e298cf61be6df81f597388ca5f228784c2d9d986021c0bfb9804",
-   "size": 5840
-  },
-  {
-   "path": "persona/whale_girl_persona.md",
-   "sha256": "fed0c397f02feee57e1f442327faccad120f4c2240df3b4aa90df5e25aee6f73",
-   "size": 6986
-  },
-  {
-   "path": "persona/插件安装说明.md",
-   "sha256": "d24d1c6765b59d98e4b970b336797e7c3d8efd6fddceee9e794f8c11b55e901e",
-   "size": 6742
+   "sha256": "6370e0fca0fab2431d282940fed42556eb4effc1e2559c7dc1c2c449580a4b94",
+   "size": 9147
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/CHANGELOG.md",
@@ -661,13 +386,13 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/README.md",
-   "sha256": "26f4a6926c8ffbfc7db9b112b7bbe368d8c264cfaa72cd530513e36d9a6c5501",
-   "size": 9017
+   "sha256": "50ea698264a09952a4e3aff0426f48f2f4c1f016a6844a6f5b9e02b8cde88016",
+   "size": 1878
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/_conf_schema.json",
-   "sha256": "209a8a824ef1fee71ca45be707fe36feff790009e7d864b5e5464b9fc9ffbaa6",
-   "size": 15900
+   "sha256": "5440ca53bbc6f8f4ab4555724f4040422be15c1d248c4bb7eea0f6b5672e7394",
+   "size": 18938
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/builtin_entry.yaml",
@@ -675,14 +400,19 @@
    "size": 1883
   },
   {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/logo.png",
+   "sha256": "78e23a5b9319d0adcd18bec5d6f07539910e682f52fb4c0c919b0ce5a1ace03d",
+   "size": 81468
+  },
+  {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/main.py",
-   "sha256": "7cd9489f1778df2a07a382b943ed037d82e285e7f46c1e3190838289b591c6fe",
-   "size": 8930
+   "sha256": "c734633dd7743df8b6f558bf733a68837c41ba0fe234742e20dbde90786b67c5",
+   "size": 20428
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/metadata.yaml",
-   "sha256": "10619d7b2a27e426813507d5f9504103606f3406c120d263beec7d150f228503",
-   "size": 280
+   "sha256": "a7384d0d9edd93d7aba1f515aaa3ef02ceb8b1bd72f6b53d1a23b72dc24e2f14",
+   "size": 298
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/__init__.py",
@@ -696,8 +426,8 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/config.py",
-   "sha256": "10aa06604c4a9a437a856679f24526c1d0a21fb82185f05e98f715c9d8f1db48",
-   "size": 5705
+   "sha256": "1e3bf72191affda67cd718664804eb12996ebf238e6d2e26ff10ba28873b682c",
+   "size": 5799
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/emotion.py",
@@ -715,6 +445,11 @@
    "size": 3289
   },
   {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/minimax_client.py",
+   "sha256": "47a8066d52dc131f5fdfd2c49cd6dd77a1d9d09a6b2be41bffaf1d9a9c3419b3",
+   "size": 8602
+  },
+  {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/reply_plan.py",
    "sha256": "dd43e657ce944122ce5e13f7ff294dd9e2f0d16cc7bd2697ea4d12e79a670eb7",
    "size": 5440
@@ -725,9 +460,19 @@
    "size": 2682
   },
   {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/speech_norm.py",
+   "sha256": "700011044af5c8b18c1fbb6fa2f090257529faa4ecab0de309d6a5bcc306b8f9",
+   "size": 4286
+  },
+  {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/tone_hint.py",
    "sha256": "78461b783877deee9e009a0cefd0a720328475d63dbd2aad0a18b505699ea0a6",
    "size": 4299
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_GPT_SoVITS/core/voice_policy.py",
+   "sha256": "c523c1b9168eadeb71d035df3a37c5d96229fa003a92f88fa9e1fef89d27e7c0",
+   "size": 8356
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/default_audio/不要害怕，也不要哭了.wav",
@@ -751,13 +496,13 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_identity/README.md",
-   "sha256": "767504e3697766714b3a15e4890c3f20bc2c3c973bf0fd7e047784c9856a09f9",
-   "size": 4583
+   "sha256": "2f7489af286f1734bb643cca093bf0c2221d7df40a1e14259528e6521c07598d",
+   "size": 1751
   },
   {
    "path": "plugins_src/astrbot_plugin_identity/_conf_schema.json",
-   "sha256": "1238a62254e24e82d1d8c15ad30c17b646e5cf586b3d57e2e6d13caf96cef6dd",
-   "size": 850
+   "sha256": "fc83be4fbd3bcbd187ffd07562c1668143c8b8b044bd64a79aa1bc3471a2623f",
+   "size": 953
   },
   {
    "path": "plugins_src/astrbot_plugin_identity/address_prefs.py",
@@ -766,12 +511,17 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_identity/main.py",
-   "sha256": "9f9a7fb1a0ae8798a2023fe2e5cc5f2be7619f2b5ec9f5c5aa3aafd2efc38de9",
-   "size": 23502
+   "sha256": "1fce3913f6e078d23c93b79d89f19370bc1d090407d18966b0e3ab04729530ca",
+   "size": 30612
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_identity/main.py.bak_pre_v011",
+   "sha256": "e0a8a9eec18f13469d9072538c3e8f3ce1b3e5ef14a9f19b4c13f2585b21c0fc",
+   "size": 19921
   },
   {
    "path": "plugins_src/astrbot_plugin_identity/metadata.yaml",
-   "sha256": "802bd753da0b9e34ea09aa4ecfa928f9b74e7f0618347a0913c6252024a54719",
+   "sha256": "0452a27ff6fad70d643b4f56f2961688093b158a0e0f0cc3c8d1d075bcd39fdb",
    "size": 290
   },
   {
@@ -2171,23 +1921,43 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_sing/README.md",
-   "sha256": "f796b6da576de42085b2a5b151466d6cc5c8af1b793b62d77b4330bcc26b59d1",
-   "size": 283
+   "sha256": "3d36802b0783854adc3798a80fe0018f1232aff3410e6866dce48afe1615345b",
+   "size": 7477
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_sing/_conf_schema.json",
-   "sha256": "62bc612c99c6ab02c61c66c42009c226023463dafda60208d52c5f4150b194c3",
-   "size": 2303
+   "sha256": "3e704b5d99bd20a2bb31993f06677f32f79cad9ff27529646ef462622288da7a",
+   "size": 5395
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_sing/audio_processing.py",
+   "sha256": "609d1ed540b79e54abddd638d8081a0049bbd40c8dc037836e84b0faa3b01adf",
+   "size": 7212
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_sing/cover_render.py",
+   "sha256": "526774ab59222e8187dc941b2ea864f9f3444308276a7aa3b8ecf10094e808f2",
+   "size": 8910
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_sing/cover_sources.py",
+   "sha256": "254aa762fd4120ae9d6ee64a784628bc4935f327ed92fe83e4993308192e9562",
+   "size": 10906
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_sing/generation.py",
+   "sha256": "e04e05fe4d21d7893c50d2d6dc503bd240ea12fe11d4b648cf31d93549ba5172",
+   "size": 6482
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_sing/main.py",
-   "sha256": "52fba2bebe1bd903f4370ec9945ddc9ebbbde03aa9afc8c8110d2bc586b626f9",
-   "size": 17191
+   "sha256": "e00ab778937b026f344f83d88c03388d2762fe474519aabe713fb8252a2522e0",
+   "size": 38275
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_sing/metadata.yaml",
-   "sha256": "22d927138d54e6a9fbe6a497642ac3b36e2aea0a71d83f1f62d1139152d6a8e4",
-   "size": 275
+   "sha256": "f1501266d47c34c93ad3e7c0ea5e760111e050dc6d320cb0b1a5bd14ab5c131d",
+   "size": 280
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_sing/requirements.txt",
@@ -2203,6 +1973,11 @@
    "path": "plugins_src/astrbot_plugin_whale_sing/theme_songs.py",
    "sha256": "a23963888d2ef0b16ba9be978d486e3efe6fa74a22c07945cf9462c4a7a8cc83",
    "size": 10588
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_sing/scripts/separate_stems.py",
+   "sha256": "a00eee4ae966fbf5e00814efbeb2c15b1857ff0dd5d02eeff0c0a8f9a20bb27e",
+   "size": 8998
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_sing/templates/jiayou.txt",
@@ -2231,8 +2006,8 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_stickers/main.py",
-   "sha256": "24b66c07e8aac603bd58ec7d6712a6f7aeb1759db26d2c2d3c973e3150ed6000",
-   "size": 15765
+   "sha256": "2da8193d73adb9fa2dd16c352fba6e143048976225d3059bd43465178e118f97",
+   "size": 15243
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_stickers/metadata.yaml",
@@ -2265,5 +2040,62 @@
    "size": 157
   }
  ],
- "remove": []
+ "remove": [
+  "persona/assistant_style.txt",
+  "persona/companion.md",
+  "persona/douyin_card_raw.md",
+  "persona/whale_girl_persona.md",
+  "persona/插件安装说明.md",
+  "stickers/shenshen_idle.gif",
+  "stickers/shenshen_running-right.gif",
+  "stickers/sutera_abstract.png",
+  "stickers/sutera_achievement.png",
+  "stickers/sutera_afk.png",
+  "stickers/sutera_balance-low.png",
+  "stickers/sutera_bold.png",
+  "stickers/sutera_daily-coffee.png",
+  "stickers/sutera_daily-cooking.png",
+  "stickers/sutera_daily-done.png",
+  "stickers/sutera_daily-gaming.png",
+  "stickers/sutera_daily-painting.png",
+  "stickers/sutera_daily-picnic.png",
+  "stickers/sutera_daily-stretch.png",
+  "stickers/sutera_eat.png",
+  "stickers/sutera_festival-christmas.png",
+  "stickers/sutera_festival-halloween.png",
+  "stickers/sutera_festival-mid-autumn.png",
+  "stickers/sutera_festival-spring.png",
+  "stickers/sutera_game-cheat.png",
+  "stickers/sutera_game-happy.png",
+  "stickers/sutera_game-lose.png",
+  "stickers/sutera_game-think.png",
+  "stickers/sutera_game-win.png",
+  "stickers/sutera_idle-cute.png",
+  "stickers/sutera_levelup.png",
+  "stickers/sutera_meme-doge.png",
+  "stickers/sutera_meme-kyun.png",
+  "stickers/sutera_meme-music.png",
+  "stickers/sutera_meme-ojisan.png",
+  "stickers/sutera_meme-peace.png",
+  "stickers/sutera_meme-shock.png",
+  "stickers/sutera_meme-sike.png",
+  "stickers/sutera_night.png",
+  "stickers/sutera_react-belly.png",
+  "stickers/sutera_react-tail.png",
+  "stickers/sutera_star.png",
+  "stickers/sutera_tail-swing.png",
+  "stickers/sutera_valentine.png",
+  "stickers/sutera_waiting.png",
+  "stickers/sutera_weather-cold.png",
+  "stickers/sutera_weather-rain-happy.png",
+  "stickers/sutera_weather-snow.png",
+  "stickers/sutera_weather-thunder.png",
+  "stickers/sutera_weather-umbrella.png",
+  "stickers/sutera_work-boss.png",
+  "stickers/sutera_work-celebrate.png",
+  "stickers/sutera_work-debug.png",
+  "stickers/sutera_work-idea.png",
+  "stickers/yunyue_jump.gif",
+  "stickers/yunyue_sneak.gif"
+ ]
 }
