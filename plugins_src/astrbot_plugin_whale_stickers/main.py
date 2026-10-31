@@ -110,6 +110,9 @@ class Main(star.Star):
         self.cooldown_s = float(os.environ.get("WHALE_STICKER_COOLDOWN_SEC", "60"))
         self.recent_n = int(os.environ.get("WHALE_STICKER_NOREPEAT", "3"))
         self.by_tag: dict[str, list[str]] = {}
+        self.tags_of: dict[str, list[str]] = {}
+        # context-aware pick inside crowded tags (e.g. 开心 x15); WHALE_STICKER_CTX=0 disables
+        self.ctx_pick = os.environ.get("WHALE_STICKER_CTX", "1") != "0"
         self._resolve_cache: dict[str, str | None] = {}
         self.credits = ""
         # session -> [replies since last sticker, last sticker ts, recent paths]
@@ -129,6 +132,7 @@ class Main(star.Star):
                 if os.path.basename(p) in EXCLUDE:
                     continue
                 if os.path.isfile(p):
+                    self.tags_of[p] = list(s.get("tags", []))
                     for t in s.get("tags", []):
                         self.by_tag.setdefault(t, []).append(p)
             logger.info(f"[whale_stickers] loaded {sum(len(v) for v in self.by_tag.values())} sticker-tag entries, {len(self.by_tag)} tags from {self.dir}")
@@ -183,8 +187,25 @@ class Main(star.Star):
         return hit
 
 
-    def pick(self, st: list, files: list[str]) -> str:
-        """Random sticker avoiding the last ``recent_n`` sent in this session."""
+    def ctx_score(self, path: str, main_tag: str | None, context: str) -> int:
+        """How many of this sticker's *other* tags (or their aliases) show up in the reply/user text."""
+        if not context:
+            return 0
+        ctx = _norm(context)
+        sc = 0
+        for t in self.tags_of.get(path, []):
+            if t == main_tag or len(t) < 2:
+                continue
+            words = [t.lower()] + [k for k, vs in ALIASES.items() if t in vs and len(k) >= 2]
+            if any(w in ctx for w in words):
+                sc += 1
+        return sc
+
+    def pick(self, st: list, files: list[str], main_tag: str | None = None, context: str = "") -> str:
+        """Random sticker avoiding the last ``recent_n`` sent in this session.
+
+        If the reply/user text mentions another tag of some candidates (e.g. 开心 + 下雪),
+        prefer those candidates; otherwise plain random as before."""
         if len(st) < 3 or not isinstance(st[2], list):
             # migrate old last-path str -> list
             old = st[2] if len(st) > 2 and isinstance(st[2], str) else None
@@ -193,6 +214,11 @@ class Main(star.Star):
         win = min(self.recent_n, max(len(files) - 1, 0))
         recent = set(hist[-win:]) if win else set()
         pool = [f for f in files if f not in recent] or files
+        if self.ctx_pick and context and len(pool) > 1:
+            scored = [(self.ctx_score(f, main_tag, context), f) for f in pool]
+            best = max(sc for sc, _ in scored)
+            if best > 0:
+                pool = [f for sc, f in scored if sc == best]
         path = random.choice(pool)
         hist.append(path)
         del hist[:-max(self.recent_n, 1) * 4]
@@ -295,7 +321,12 @@ class Main(star.Star):
             logger.info(f"[whale_stickers] tag={tag} skipped (prob)")
             return
         tag = resolved
-        path = self.pick(st, files)
+        ctx_text = " ".join(c.text for c in result.chain if isinstance(c, Plain))
+        try:
+            ctx_text += " " + (event.get_message_str() or "")
+        except Exception:
+            pass
+        path = self.pick(st, files, tag, ctx_text)
         result.chain.append(Image.fromFileSystem(path))
         st[0], st[1] = 0, time.time()
         logger.info(f"[whale_stickers] tag={tag} attached {os.path.basename(path)}")
