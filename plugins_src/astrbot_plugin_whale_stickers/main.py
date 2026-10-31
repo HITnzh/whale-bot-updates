@@ -1,228 +1,299 @@
-"""鲸鱼娘表情包插件.
+"""Model-selected local stickers with verified delivery and bounded context."""
 
-LLM 在回复末尾可选地附加隐藏标记 ``[表情:标签]``（标签取自 stickers/index.json）。
-本插件：
-  1. on_llm_response: 从回复文本中剥离标记，把标签暂存在 event extra 中；
-  2. on_decorating_result: 再次兜底剥离所有 Plain 中的标记（防泄漏），
-     并按「概率 + 每会话冷却」决定是否附带一张该标签的随机表情图（本地文件）。
-  3. /表情作者 (/credits): 回复署名与许可说明。
+from __future__ import annotations
 
-环境变量（可选）：
-  WHALE_STICKER_DIR       表情目录，默认 $ASTRBOT_ROOT/stickers
-  WHALE_STICKER_PROB      有标记时实际发图概率，默认 0.35
-  WHALE_STICKER_COOLDOWN  同一会话两次发图之间至少间隔的回复条数，默认 3
-  WHALE_STICKER_COOLDOWN_SEC  同一会话两次发图之间至少间隔秒数，默认 60
-"""
-
+import asyncio
 import json
-from pathlib import Path
-from .reply_plan import EXTRA_KEY as PLAN_KEY, build_reply_plan, detect_persistent_pref, detect_turn_override
-from .expression_prefs import ExpressionPrefStore
+import math
 import os
-import random
 import re
 import time
+from pathlib import Path
 
 from astrbot.api import logger, star
 from astrbot.api.event import AstrMessageEvent, filter
 from astrbot.api.message_components import Image, Plain
 from astrbot.api.provider import LLMResponse
 
-MARKER_RE = re.compile(r"\s*[\[【［(（]\s*表情\s*[:：]\s*([^\]】］)）\n]{1,12})\s*[\]】］)）]\s*")
-EXTRA_KEY = "whale_sticker_tag"
-EXCLUDE = {"preview.png"}  # contact sheet, never sent
+from .catalog import StickerCatalog
 
-# 常见近义词 -> 包内已有标签（按顺序尝试，命中第一个存在的）
-ALIASES: dict[str, list[str]] = {
-    "摸摸": ["摸头", "求摸头"], "摸摸头": ["摸头", "求摸头"], "rua": ["摸头", "求摸头"],
-    "抱抱": ["撒娇", "喜欢", "求摸头"], "求抱抱": ["撒娇", "求摸头"], "贴贴": ["喜欢", "撒娇"],
-    "笑": ["开心", "哈哈"], "大笑": ["哈哈", "笑死"], "笑哭": ["笑死", "哈哈"], "嘿嘿": ["偷笑", "坏笑"],
-    "窃笑": ["偷笑"], "奸笑": ["坏笑", "偷笑"], "高兴": ["开心"], "快乐": ["开心"], "耶耶": ["耶"],
-    "哭": ["哭哭", "难过"], "大哭": ["哭哭"], "呜呜": ["哭哭", "委屈"], "伤心": ["难过", "哭哭"],
-    "惊讶": ["震惊"], "吃惊": ["震惊"], "惊": ["震惊"], "啊这": ["无语", "尴尬"], "汗": ["尴尬", "无语"],
-    "翻白眼": ["翻白眼", "白眼"], "鄙视": ["白眼", "斜眼"], "嫌弃": ["白眼", "无语"],
-    "愤怒": ["生气"], "气": ["生气"], "不爽": ["不爽", "生气"], "哼哼": ["哼", "傲娇"],
-    "困": ["犯困"], "好困": ["犯困"], "睡": ["睡觉"], "晚安安": ["晚安"], "早": ["早安"], "早上好": ["早安"],
-    "你好": ["打招呼"], "嗨": ["打招呼"], "在吗": ["打招呼"], "拜拜": ["打招呼"], "再见": ["打招呼"],
-    "饿": ["饿了"], "好饿": ["饿了"], "干饭": ["干饭", "吃饭"], "白饭": ["吃饭"], "吃": ["吃饭"],
-    "钱": ["没钱"], "穷": ["没钱"], "投喂": ["求投喂"],
-    "赞": ["点赞"], "牛": ["点赞", "佩服"], "厉害": ["佩服", "崇拜"], "好棒": ["太棒了", "点赞"],
-    "冲": ["冲鸭", "加油"], "加油鸭": ["加油"], "努力": ["加油"],
-    "谢": ["谢谢"], "感谢": ["谢谢"], "多谢": ["谢谢"],
-    "不行": ["拒绝"], "不要": ["拒绝"], "才不": ["拒绝", "傲娇"], "好": ["好的"], "行": ["好的"], "收到": ["好的"],
-    "嘚瑟": ["嘚瑟", "得意"], "骄傲": ["骄傲", "得意"], "炫耀": ["得意", "嘚瑟"],
-    "害臊": ["害羞"], "羞": ["害羞"], "脸红": ["害羞"], "爱": ["喜欢", "比心"], "喜欢你": ["喜欢", "比心"],
-    "疑问": ["疑惑"], "问号": ["疑惑"], "啥": ["疑惑"], "想想": ["思考"],
-    "累": ["累了", "心累"], "心累了": ["心累"], "躺平": ["摆烂"], "摸鱼中": ["摸鱼"], "忙碌": ["忙碌", "忙", "加班"], "下头": ["下头", "无语", "白眼"],
-    "怕": ["害怕"], "吓": ["吓一跳", "害怕"], "晕了": ["晕"], "懵了": ["懵"],
-    "期待": ["期待"], "兴奋": ["兴奋"], "等": ["等待"], "等你": ["等待"],
-    "求夸": ["求夸奖"], "夸我": ["求夸奖"], "卖萌": ["卖萌"], "可爱": ["卖萌"],
-    # reply_plan / common phrasing (map to existing tags when present)
-    "唱歌": ["听歌"], "音乐": ["听歌"], "听音乐": ["听歌"], "生日": ["庆祝", "送礼"], "生日快乐": ["庆祝", "送礼"],
-    "鼓掌": ["点赞", "太棒了"], "吃瓜": ["吃瓜", "好奇", "偷偷"], "惊喜": ["星星眼", "震惊"], "感动": ["心动", "喜欢"],
-    "emo": ["emo", "难过", "不开心"], "破防": ["破防", "崩溃", "哭哭"], "社死": ["尴尬", "崩溃"], "无奈": ["苦笑", "无语"],
-    "叹气": ["心累", "无语"], "摊手": ["佛系", "无语"], "安慰": ["摸头", "喜欢"], "道歉": ["心虚", "委屈"],
-    "对不起": ["心虚", "委屈"], "晚上好": ["打招呼"], "下班": ["庆祝", "伸懒腰"], "上班": ["加班", "忙"],
-    "学习": ["思考", "加油"], "游戏": ["调皮", "兴奋"], "睡不着": ["熬夜"], "失眠": ["熬夜"], "赞同": ["点赞", "好的"],
-    "嗯嗯": ["好的", "乖巧"], "同意": ["好的", "点赞"], "气鼓鼓": ["生气", "哼"], "吃醋": ["哼", "不爽"],
-    "想你": ["想你", "喜欢", "等待"], "思念": ["等待", "喜欢"], "喵": ["卖萌", "撒娇"], "大肥鱼": ["摸鱼"], "鲸鱼": ["摸鱼"],
-    "白米饭": ["吃饭", "干饭"], "米饭": ["吃饭", "干饭"],
-    "开黑": ["游戏", "开黑"], "野餐": ["野餐", "出门"], "画画": ["画画", "创作"],
-    "等一下": ["等待"], "雨天": ["下雨", "雨天"], "修bug": ["调试", "修bug"], "debug": ["调试", "修bug"],
-    # Douyin-comment-style moods (phrases only; art is original / open-licensed)
-    "破大防": ["破防", "崩溃", "哭哭"], "破防了": ["破防", "崩溃"], "好破防": ["破防", "崩溃"],
-    "在吃瓜": ["吃瓜", "好奇", "偷偷"], "瓜": ["吃瓜", "好奇"], "看戏": ["吃瓜", "偷偷"],
-    "我emo了": ["emo", "难过", "不开心"], "上完班": ["累了", "心累"],
-    "上头": ["兴奋", "期待"], "绝绝子": ["太棒了", "星星眼"], "yyds": ["太棒了", "崇拜"],
-    "栓Q": ["谢谢", "无语"], "退退退": ["害怕", "拒绝"], "拿下": ["胜利", "得意"],
-    "已读乱回": ["已读不回", "无语"], "已读": ["已读不回"], "尊嘟假嘟": ["疑惑", "怀疑"],
-    "宝子": ["卖萌", "打招呼"], "家人们": ["打招呼"], "谁懂啊": ["破防", "崩溃", "委屈"],
-    "好想你": ["想你", "喜欢", "等待"], "想暴富": ["没钱", "穷"], "干饭人": ["干饭", "吃饭"],
-    "摸鱼人": ["摸鱼"], "摆烂了": ["摆烂"], "救命": ["崩溃", "害怕"], "啊啊啊": ["崩溃", "兴奋"],
-    "无语住了": ["无语"], "白眼了": ["翻白眼", "白眼"], "翻个白眼": ["翻白眼", "白眼"],
-    "加油加油": ["加油", "冲鸭"], "晚安啦": ["晚安"], "忙疯了": ["忙碌", "忙", "加班"],
-    "害羞羞": ["害羞", "脸红"], "委屈巴巴": ["委屈", "哭哭"], "得意坏了": ["得意", "嘚瑟"],
-}
+MARKER_RE = re.compile(
+    r"[\[【［(（]\s*表情\s*[:：]\s*(?P<choice>[^\]】］)）\n]*)"
+    r"(?:(?P<closed>[\]】］)）])|(?=\n|$))"
+)
+CHOICE_KEY = "whale_sticker_choice"
+DELIVERY_KEY = "whale_sticker_delivery"
+TURN_KEY = "whale_sticker_turn"
+VOICE_KEY = "whale_voice_delivery"
 
 
-def _norm(t: str) -> str:
-    return re.sub(r"[\s~～!！?？。，,、.…·]+", "", t or "").strip().lower()
-
-
-def _default_dir() -> str:
-    root = os.environ.get("ASTRBOT_ROOT") or os.getcwd()
-    return os.environ.get("WHALE_STICKER_DIR") or os.path.join(root, "stickers")
+def _default_dir() -> Path:
+    if directory := os.environ.get("WHALE_STICKER_DIR"):
+        return Path(directory).expanduser()
+    if root := os.environ.get("ASTRBOT_ROOT"):
+        return Path(root) / "stickers"
+    return next((parent / "stickers" for parent in Path(__file__).resolve().parents
+                 if (parent / "stickers/index.json").is_file()), Path.cwd() / "stickers")
 
 
 def strip_markers(text: str) -> tuple[str, list[str]]:
-    tags = [m.strip() for m in MARKER_RE.findall(text or "")]
-    cleaned = MARKER_RE.sub(" ", text or "").strip() if tags else (text or "")
-    cleaned = re.sub(r"[ \t]{2,}", " ", cleaned)
-    return cleaned, tags
+    tags = []
+    for match in MARKER_RE.finditer(text or ""):
+        choice = match.group("choice").strip()
+        tags.append(choice if match.group("closed") and 1 <= len(choice) <= 96 else "")
+    cleaned = MARKER_RE.sub("", text or "")
+    return cleaned.strip(), tags
 
 
 class Main(star.Star):
     def __init__(self, context: star.Context, config: dict | None = None) -> None:
         super().__init__(context)
-        self.dir = _default_dir()
-        self.prob = float(os.environ.get("WHALE_STICKER_PROB", "0.35"))
-        self.cooldown_n = int(os.environ.get("WHALE_STICKER_COOLDOWN", "3"))
-        self.cooldown_s = float(os.environ.get("WHALE_STICKER_COOLDOWN_SEC", "60"))
-        self.recent_n = int(os.environ.get("WHALE_STICKER_NOREPEAT", "3"))
-        self.by_tag: dict[str, list[str]] = {}
-        self.tags_of: dict[str, list[str]] = {}
-        # context-aware pick inside crowded tags (e.g. 开心 x15); WHALE_STICKER_CTX=0 disables
-        self.ctx_pick = os.environ.get("WHALE_STICKER_CTX", "1") != "0"
-        self._resolve_cache: dict[str, str | None] = {}
-        self.credits = ""
-        # session -> [replies since last sticker, last sticker ts, recent paths]
-        self.state: dict[str, list] = {}
-        _pref = os.environ.get("WHALE_EXPR_PREF") or os.path.join(
-            os.environ.get("ASTRBOT_ROOT") or os.getcwd(), "data", "expression_prefs.json"
-        )
-        self.expr_prefs = ExpressionPrefStore(Path(_pref))
-        self._load()
-
-    def _load(self) -> None:
-        try:
-            with open(os.path.join(self.dir, "index.json"), encoding="utf-8") as f:
-                idx = json.load(f)
-            for s in idx.get("stickers", []):
-                p = os.path.join(self.dir, s["file"])
-                if os.path.basename(p) in EXCLUDE:
-                    continue
-                if os.path.isfile(p):
-                    self.tags_of[p] = list(s.get("tags", []))
-                    for t in s.get("tags", []):
-                        self.by_tag.setdefault(t, []).append(p)
-            logger.info(f"[whale_stickers] loaded {sum(len(v) for v in self.by_tag.values())} sticker-tag entries, {len(self.by_tag)} tags from {self.dir}")
-        except Exception as e:
-            logger.error(f"[whale_stickers] failed to load index.json: {e}")
+        self.config = config if config is not None else {}
+        self.dir = str(_default_dir().resolve())
+        self.catalog = StickerCatalog(Path(self.dir))
+        self.by_tag = self.catalog.by_tag
+        self.state: dict[str, dict] = {}
+        self._locks: dict[str, asyncio.Lock] = {}
+        self._clock = time.monotonic
         self.credits = self._build_credits()
+        logger.info("[whale_stickers] Loaded %s images and %s tags",
+                    len(self.catalog.records), len(self.by_tag))
+        if self.catalog.load_errors:
+            logger.warning("[whale_stickers] Ignored %s invalid catalog entries", len(self.catalog.load_errors))
+
+    def _number(self, key: str, default: float, env_name: str = "") -> float:
+        value = self.config.get(key)
+        if value is None and env_name:
+            value = os.environ.get(env_name)
+        try:
+            value = default if value is None else float(value)
+            return value if math.isfinite(value) and value >= 0 else default
+        except (TypeError, ValueError, OverflowError):
+            return default
+
+    def _streaming(self, event: AstrMessageEvent) -> bool:
+        try:
+            override = event.get_extra("enable_streaming")
+            if override is not None:
+                return bool(override)
+            settings = self.context.get_config(event.unified_msg_origin)
+            return bool(settings.get("provider_settings", {}).get("streaming_response", False))
+        except Exception:
+            return True
+
+    def _ensure_turn(self, event: AstrMessageEvent) -> tuple[str, dict]:
+        sid = str(event.unified_msg_origin or "")
+        state = self.state.setdefault(sid, {
+            "turn": 0, "last_turn": None, "last_at": 0.0, "last_id": None, "recent": [],
+        })
+        turn = event.get_extra(TURN_KEY)
+        if not isinstance(turn, dict) or turn.get("session") != sid:
+            state["turn"] += 1
+            event.set_extra(TURN_KEY, {"session": sid, "number": state["turn"]})
+        return sid, state
+
+    def _blocked(self, event: AstrMessageEvent) -> str | None:
+        sid, state = self._ensure_turn(event)
+        if not self.config.get("enabled", True):
+            return "disabled"
+        if not sid:
+            return "missing_session"
+        if self._streaming(event):
+            return "streaming_requires_text"
+        voice = event.get_extra(VOICE_KEY) or {}
+        if voice.get("phase") in {"inflight", "voice_sent", "text_sent"}:
+            return "voice_selected_for_turn"
+        if state["last_turn"] is not None:
+            replies = int(self._number("cooldown_replies", 3, "WHALE_STICKER_COOLDOWN"))
+            seconds = self._number("cooldown_seconds", 60, "WHALE_STICKER_COOLDOWN_SEC")
+            if state["turn"] - state["last_turn"] < replies:
+                return "cooldown_replies"
+            if self._clock() - state["last_at"] < seconds:
+                return "cooldown_seconds"
+        return None
+
+    def ctx_score(self, sticker_id: str, main_tag: str, context: str) -> int:
+        """Count this sticker's *other* tags mentioned in the user's message.
+
+        Crowded tags (e.g. 开心 with 15+ images) then list the images that fit the
+        conversation first (开心+下雪 -> the snowy one). WHALE_STICKER_CTX=0 disables."""
+        if not context or os.environ.get("WHALE_STICKER_CTX", "1") == "0":
+            return 0
+        ctx = re.sub(r"\s+", "", context).casefold()
+        item = self.catalog.records.get(sticker_id) or {}
+        return sum(1 for t in item.get("tags", [])
+                   if t != main_tag and len(t) >= 2 and t.casefold() in ctx)
 
     def resolve_tag(self, tag: str) -> str | None:
-        """Map whatever the model wrote to an existing tag: exact -> alias -> substring -> char overlap."""
-        raw = _norm(tag)
-        if not raw:
-            return None
-        if raw in self._resolve_cache:
-            return self._resolve_cache[raw]
-        tags = self.by_tag
-        hit: str | None = None
-        if raw in tags:
-            hit = raw
-        if hit is None:
-            hit = next((t for t in tags if t.lower() == raw), None)
-        if hit is None:
-            for a in ALIASES.get(raw, []):
-                if a in tags:
-                    hit = a
-                    break
-        if hit is None:
-            # substring either way, prefer the tag with most stickers then shortest
-            subs = [t for t in tags if t in raw or raw in t]
-            if subs:
-                hit = sorted(subs, key=lambda t: (-len(tags[t]), abs(len(t) - len(raw))))[0]
-        if hit is None:
-            # alias keys contained in the raw text (e.g. "想要抱抱" -> 抱抱)
-            for k, vs in ALIASES.items():
-                if len(k) >= 2 and k in raw:
-                    hit = next((a for a in vs if a in tags), None)
-                    if hit:
-                        break
-        if hit is None:
-            # closest by shared characters (needs at least one shared char)
-            best, score = None, 0.0
-            rs = set(raw)
-            for t in tags:
-                common = len(rs & set(t))
-                if common:
-                    sc = common / max(len(rs | set(t)), 1)
-                    if sc > score:
-                        best, score = t, sc
-            hit = best if score >= 0.34 else None
-        self._resolve_cache[raw] = hit
-        if hit != raw:
-            logger.info(f"[whale_stickers] tag {tag!r} -> {hit!r}")
-        return hit
+        return self.catalog.resolve_tag(tag)
 
+    def _compat_choice(self, choice: str) -> str | None:
+        if self.catalog.get(choice) is not None:
+            return choice
+        tag = self.resolve_tag(choice)
+        candidates = self.by_tag.get(tag, []) if tag else []
+        # A legacy label with several images is ambiguous; never guess a picture.
+        return candidates[0] if len(candidates) == 1 else None
 
-    def ctx_score(self, path: str, main_tag: str | None, context: str) -> int:
-        """How many of this sticker's *other* tags (or their aliases) show up in the reply/user text."""
-        if not context:
-            return 0
-        ctx = _norm(context)
-        sc = 0
-        for t in self.tags_of.get(path, []):
-            if t == main_tag or len(t) < 2:
+    @filter.on_llm_request(priority=5)
+    async def on_request(self, event: AstrMessageEvent, req) -> None:
+        _sid, state = self._ensure_turn(event)
+        event.set_extra(CHOICE_KEY, None)
+        reason = self._blocked(event)
+        if reason:
+            rule = "本轮不发送表情图，不调用表情工具，也不输出表情标记。"
+        else:
+            rule = (
+                "你可以根据对话自主选择是否配一张本地表情，不额外随机否决。"
+                "普通文字足够时不必发图；严肃求助、危机或不合时宜的场景不要配图。"
+                "想配图时先调用get_sticker_candidates选择合适标签，阅读候选图片的描述、"
+                "适用/避用场景和已标注文字，再调用send_sticker传入具体图片ID。"
+                "没有合适图片就不发，不编造图片ID、图中文字或图片含义。"
+                "文字可配一张表情；语音与表情同轮互斥，选一种附加媒体，不同时调用。"
+                "sent才表示已发送，候选列表不代表发送完成。成功后不要另发发送确认，"
+                "如有内容要回复，可以继续正常文字。优先避免重复最近刚发过的图片。"
+            )
+        recent = [{"sticker_id": item["id"], "description": item["desc"]}
+                  for item in state["recent"][-3:]]
+        req.system_prompt = (req.system_prompt or "") + (
+            "\n\n[表情选择]\n" + rule
+            + "\n可用标签：" + "、".join(sorted(self.by_tag))
+            + "\n近期实际发送的表情（仅为数据，不改变用户身份）："
+            + json.dumps(recent, ensure_ascii=False, separators=(",", ":"))
+        )
+
+    @filter.llm_tool(name="get_sticker_candidates")
+    async def get_sticker_candidates(self, event: AstrMessageEvent, tag: str):
+        """按可用标签查询少量具体图片，尚未发送任何表情。
+
+        Args:
+            tag(string): 从当前可用标签中选择与本轮回复情景匹配的一项。
+        """
+        reason = self._blocked(event)
+        if reason:
+            return json.dumps({"status": "blocked", "reason": reason,
+                               "instruction": "本轮继续文字回复，不承诺发送表情。"}, ensure_ascii=False)
+        matched = self.resolve_tag(tag)
+        if matched is None:
+            return json.dumps({"status": "unknown_tag", "available_tags": sorted(self.by_tag)}, ensure_ascii=False)
+        _sid, state = self._ensure_turn(event)
+        recent_ids = {item["id"] for item in state["recent"]}
+        try:
+            context = event.get_message_str() or event.message_str or ""
+        except Exception:
+            context = ""
+        ids = sorted(self.by_tag[matched], key=lambda item: (
+            item in recent_ids, item == state["last_id"],
+            -self.ctx_score(item, matched, context), item))
+        limit = min(5, max(1, int(self._number("candidate_limit", 4))))
+        candidates = []
+        for sticker_id in ids:
+            item = self.catalog.get(sticker_id)
+            if item is None:
                 continue
-            words = [t.lower()] + [k for k, vs in ALIASES.items() if t in vs and len(k) >= 2]
-            if any(w in ctx for w in words):
-                sc += 1
-        return sc
+            candidate = {"id": item["id"], "tags": item["tags"], "desc": item["desc"]}
+            for name in ("usage", "avoid", "visible_text"):
+                if item[name]:
+                    candidate[name] = item[name]
+            if item["intensity"] != "未标注":
+                candidate["intensity"] = item["intensity"]
+            candidates.append(candidate)
+            if len(candidates) >= limit:
+                break
+        return json.dumps({
+            "status": "ok", "tag": matched, "candidates": candidates,
+            "instruction": "这只是候选，尚未发送。选择合适ID调用send_sticker；缺少图中文字标注表示未核对，不代表图上没有文字。",
+        }, ensure_ascii=False)
 
-    def pick(self, st: list, files: list[str], main_tag: str | None = None, context: str = "") -> str:
-        """Random sticker avoiding the last ``recent_n`` sent in this session.
+    async def _send_choice(self, event: AstrMessageEvent, sticker_id: str) -> dict:
+        delivery = event.get_extra(DELIVERY_KEY) or {}
+        phase = delivery.get("phase")
+        if phase == "sent":
+            return {"status": "already_sent", "sticker_id": delivery["sticker_id"],
+                    "description": delivery["description"], "instruction": "本轮已发送表情，不重复发图。"}
+        if phase == "inflight":
+            return {"status": "already_pending", "instruction": "本轮表情正在发送，不重复调用。"}
+        if phase in {"failed", "cancelled"}:
+            return {"status": "failed", "instruction": "本轮图片未确认发送，不再重试；正常文字回复即可。"}
+        reason = self._blocked(event)
+        if reason:
+            return {"status": "blocked", "reason": reason}
+        item = self.catalog.get(sticker_id)
+        if item is None:
+            return {"status": "unknown_sticker", "instruction": "没有该有效图片ID，不发送或猜测。"}
+        sid, state = self._ensure_turn(event)
+        event.set_extra(DELIVERY_KEY, {"phase": "inflight"})
+        try:
+            async with self._locks.setdefault(sid, asyncio.Lock()):
+                reason = self._blocked(event)
+                if reason:
+                    event.set_extra(DELIVERY_KEY, {"phase": "failed"})
+                    return {"status": "blocked", "reason": reason}
+                item = self.catalog.get(sticker_id)
+                if item is None:
+                    event.set_extra(DELIVERY_KEY, {"phase": "failed"})
+                    return {"status": "unknown_sticker"}
+                await event.send(event.chain_result([Image.fromFileSystem(item["file"])]))
+                state.update(last_turn=state["turn"], last_at=self._clock(), last_id=sticker_id)
+                state["recent"] = [*state["recent"], {"id": sticker_id, "desc": item["desc"], "tags": item["tags"]}][-5:]
+                event.set_extra(DELIVERY_KEY, {"phase": "sent", "sticker_id": sticker_id,
+                                             "description": item["desc"], "tags": item["tags"]})
+            return {"status": "sent", "sticker_id": sticker_id, "description": item["desc"],
+                    "tags": item["tags"], "instruction": "表情已发送；可以继续正常文字，不重复发图或另发确认。"}
+        except asyncio.CancelledError:
+            event.set_extra(DELIVERY_KEY, {"phase": "cancelled"})
+            raise
+        except Exception:
+            event.set_extra(DELIVERY_KEY, {"phase": "failed"})
+            logger.warning("[whale_stickers] Image delivery failed; no cooldown or sent history recorded")
+            return {"status": "failed", "sticker_id": sticker_id,
+                    "instruction": "图片没有确认发送，继续文字回复，不声称发图成功，不重试。"}
 
-        If the reply/user text mentions another tag of some candidates (e.g. 开心 + 下雪),
-        prefer those candidates; otherwise plain random as before."""
-        if len(st) < 3 or not isinstance(st[2], list):
-            # migrate old last-path str -> list
-            old = st[2] if len(st) > 2 and isinstance(st[2], str) else None
-            st[2:] = [[old] if old else []]
-        hist: list[str] = st[2]
-        win = min(self.recent_n, max(len(files) - 1, 0))
-        recent = set(hist[-win:]) if win else set()
-        pool = [f for f in files if f not in recent] or files
-        if self.ctx_pick and context and len(pool) > 1:
-            scored = [(self.ctx_score(f, main_tag, context), f) for f in pool]
-            best = max(sc for sc, _ in scored)
-            if best > 0:
-                pool = [f for sc, f in scored if sc == best]
-        path = random.choice(pool)
-        hist.append(path)
-        del hist[:-max(self.recent_n, 1) * 4]
-        return path
+    @filter.llm_tool(name="send_sticker")
+    async def send_sticker(self, event: AstrMessageEvent, sticker_id: str):
+        """发送已选中的一张本地表情。只有status=sent代表发送成功。
+
+        Args:
+            sticker_id(string): 候选工具给出的具体图片ID，不能填写路径、网址或情绪句子。
+        """
+        return json.dumps(await self._send_choice(event, sticker_id), ensure_ascii=False)
+
+    @filter.on_llm_response()
+    async def on_llm_resp(self, event: AstrMessageEvent, resp: LLMResponse) -> None:
+        # Every response, including intermediate tool responses, replaces the marker.
+        event.set_extra(CHOICE_KEY, None)
+        cleaned, choices = strip_markers(resp.completion_text or "")
+        resp.completion_text = cleaned
+        if choices:
+            event.set_extra(CHOICE_KEY, self._compat_choice(choices[-1]))
+
+    @filter.on_decorating_result()
+    async def on_decorate(self, event: AstrMessageEvent) -> None:
+        result = event.get_result()
+        if result is None or not result.chain:
+            return
+        choices = []
+        clean_chain = []
+        pure_text = all(isinstance(part, Plain) for part in result.chain)
+        for part in result.chain:
+            if isinstance(part, Plain):
+                text, found = strip_markers(part.text)
+                choices.extend(found)
+                if text:
+                    clean_chain.append(Plain(text))
+            else:
+                clean_chain.append(part)
+        result.chain = clean_chain
+        if not result.is_llm_result() or not pure_text:
+            event.set_extra(CHOICE_KEY, None)
+            return
+        choice = event.get_extra(CHOICE_KEY)
+        if choices:
+            choice = self._compat_choice(choices[-1])
+        event.set_extra(CHOICE_KEY, None)
+        if choice:
+            # Await the actual send instead of assuming a later framework hook succeeded.
+            await self._send_choice(event, choice)
 
     def _build_credits(self) -> str:
         srcs = []
@@ -244,94 +315,6 @@ class Main(star.Star):
         tail = "\n许可：https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans\n权利人如需移除请联系机器人维护者。"
         return head + "\n".join(srcs) + tail
 
-    # 1) strip marker from the raw LLM response (keeps stored history clean too)
-    @filter.on_llm_response()
-    async def on_llm_resp(self, event: AstrMessageEvent, resp: LLMResponse) -> None:
-        try:
-            text = resp.completion_text or ""
-            cleaned, tags = strip_markers(text)
-            if tags:
-                resp.completion_text = cleaned
-                event.set_extra(EXTRA_KEY, tags[-1])
-            # Build shared reply_plan once (stickers + TTS consume it)
-            try:
-                user_text = event.get_message_str() or event.message_str or ""
-                sid = f"{event.get_platform_name()}:{event.get_sender_id()}"
-                pref = self.expr_prefs.get_mode(sid) if getattr(self, "expr_prefs", None) else None
-                pers = detect_persistent_pref(user_text)
-                if pers and self.expr_prefs:
-                    self.expr_prefs.set_mode(sid, pers)
-                    pref = pers
-                turn = detect_turn_override(user_text)
-                plan = build_reply_plan(
-                    reply_text=resp.completion_text or cleaned or text,
-                    user_text=user_text,
-                    preference_mode=turn or pref,
-                    sticker_tag=(tags[-1] if tags else event.get_extra(EXTRA_KEY)),
-                )
-                event.set_extra(PLAN_KEY, plan.to_dict())
-            except Exception as _pe:
-                logger.debug(f"[whale_stickers] reply_plan: {_pe}")
-        except Exception as e:
-            logger.error(f"[whale_stickers] on_llm_response: {e}")
-
-    # 2) final safety strip + maybe attach sticker
-    @filter.on_decorating_result()
-    async def on_decorate(self, event: AstrMessageEvent) -> None:
-        result = event.get_result()
-        if result is None or not result.chain:
-            return
-        found: list[str] = []
-        new_chain = []
-        for comp in result.chain:
-            if isinstance(comp, Plain):
-                cleaned, tags = strip_markers(comp.text)
-                found += tags
-                if tags:
-                    if not cleaned.strip():
-                        continue
-                    comp = Plain(cleaned)
-            new_chain.append(comp)
-        result.chain = new_chain
-        tag = event.get_extra(EXTRA_KEY) or (found[-1] if found else None)
-        plan = event.get_extra(PLAN_KEY) or {}
-        if plan.get("sticker_tag"):
-            tag = plan.get("sticker_tag")
-        if plan.get("mode") in ("text", "voice", "text_voice") and not plan.get("sticker_tag"):
-            # plan says no sticker this turn
-            tag = None
-        if not result.is_llm_result():
-            return
-        sid = event.unified_msg_origin
-        st = self.state.setdefault(sid, [999, 0.0, []])
-        st[0] += 1
-        if not tag:
-            return
-        resolved = self.resolve_tag(tag)
-        files = self.by_tag.get(resolved) if resolved else None
-        if not files:
-            logger.info(f"[whale_stickers] unknown tag {tag!r}, ignored")
-            return
-        if any(isinstance(c, Image) for c in result.chain):
-            return
-        if st[0] < self.cooldown_n or time.time() - st[1] < self.cooldown_s:
-            logger.info(f"[whale_stickers] tag={tag} skipped (cooldown)")
-            return
-        if random.random() >= self.prob:
-            logger.info(f"[whale_stickers] tag={tag} skipped (prob)")
-            return
-        tag = resolved
-        ctx_text = " ".join(c.text for c in result.chain if isinstance(c, Plain))
-        try:
-            ctx_text += " " + (event.get_message_str() or "")
-        except Exception:
-            pass
-        path = self.pick(st, files, tag, ctx_text)
-        result.chain.append(Image.fromFileSystem(path))
-        st[0], st[1] = 0, time.time()
-        logger.info(f"[whale_stickers] tag={tag} attached {os.path.basename(path)}")
-
     @filter.command("表情作者", alias={"credits", "表情署名"})
     async def credits_cmd(self, event: AstrMessageEvent):
-        """查看鲸鱼娘表情包的作者署名与许可"""
         yield event.plain_result(self.credits)

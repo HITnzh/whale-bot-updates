@@ -212,9 +212,13 @@ def decide_group_wake(
     if already_wake or is_command or is_at_bot or is_reply_to_bot:
         return WakeDecision(True, "explicit")
 
-    # Talking to someone else — do not interrupt
+    names = _split_keywords(name_keywords)
+    text_cf = text.casefold()
+    # Talking to someone else — do not interrupt, unless she is explicitly called by name
     if (is_at_other or is_reply_to_other) and not is_at_bot:
-        return WakeDecision(False, "directed_elsewhere")
+        called = mention_always and any(n.casefold() in text_cf for n in names) and not name_is_report_only(text, names)
+        if not called:
+            return WakeDecision(False, "directed_elsewhere")
 
     if looks_like_end(text):
         st.ended = True
@@ -224,9 +228,7 @@ def decide_group_wake(
     if in_continuity_window(st, sid, now=now) and looks_like_continuation(text):
         return WakeDecision(True, "continuity")
 
-    names = _split_keywords(name_keywords)
     pokes = _split_keywords(poke_keywords)
-    text_cf = text.casefold()
     hit_name = any(n.casefold() in text_cf for n in names)
     hit_poke = any(p in text for p in pokes)
 

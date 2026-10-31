@@ -1,0 +1,26 @@
+{
+  "enabled": {
+    "description": "启用自主表情",
+    "type": "bool",
+    "default": true
+  },
+  "cooldown_replies": {
+    "description": "表情间隔对话轮数",
+    "type": "int",
+    "default": 3,
+    "hint": "按当前会话计数；同一用户轮内的多次工具推理只计一次。0不限制轮数。"
+  },
+  "cooldown_seconds": {
+    "description": "表情间隔秒数",
+    "type": "int",
+    "default": 60,
+    "hint": "与轮数限制同时满足才发图；仅实际发送成功后开始冷却。0不限制秒数。"
+  },
+  "candidate_limit": {
+    "description": "每次查询返回的候选图片数",
+    "type": "int",
+    "default": 4,
+    "slider": {"min": 1, "max": 5, "step": 1},
+    "hint": "模型按需查询图片描述再选择具体ID，不在普通聊天中传入全部图片。"
+  }
+}

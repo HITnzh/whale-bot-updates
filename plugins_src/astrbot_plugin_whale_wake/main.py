@@ -1,9 +1,15 @@
-"""Wake on explicit call / continuity / name address — no owner random interrupt.
+"""Wake on explicit call / continuity / name address, plus rare group participation.
+
+Random participation (owner_probability / other_probability) is low by default and
+shares one per-group cooldown with explicit wakes (merged from the PC 0.2.0 build).
 
 QQ official API has no poke event; text keywords remain the poke fallback.
 """
 from __future__ import annotations
 
+import math
+import random
+import time
 from typing import Any
 
 from astrbot.api import AstrBotConfig, logger
@@ -27,7 +33,10 @@ def _message_at_targets(event: AstrMessageEvent) -> tuple[bool, bool]:
     at_other = False
     try:
         self_id = str(event.get_self_id() or "")
-        for comp in getattr(event.message_obj, "message", None) or []:
+        comps = getattr(getattr(event, "message_obj", None), "message", None)
+        if not comps and hasattr(event, "get_messages"):
+            comps = event.get_messages()
+        for comp in comps or []:
             qq = str(getattr(comp, "qq", "") or getattr(comp, "uid", "") or "")
             # At component duck-typing
             cname = type(comp).__name__
@@ -82,6 +91,7 @@ class WhaleWakeFilter(CustomFilter):
             star: WhaleWake | None = _STAR.get("inst")
             if star and not event.is_private_chat():
                 star.note_explicit_wake(event)
+                star.touch_group(event)
             return False
         if event.is_private_chat():
             return False
@@ -119,8 +129,21 @@ class WhaleWakeFilter(CustomFilter):
             return False
 
         if not decision.wake:
-            return False
+            # Rare random participation (PC 0.2.0): never interrupt commands or talk
+            # addressed to someone else; shared per-group cooldown.
+            if star is None or text.startswith("/") or at_other or reply_other:
+                return False
+            if not star.random_participation(event):
+                return False
+            decision_reason = "owner_random" if star.is_owner(event) else "group_random"
+            event.set_extra("_whale_wake_reason", decision_reason)
+            event.is_at_or_wake_command = True
+            event.is_wake = True
+            logger.debug(f"[whale_wake] wake reason={decision_reason}")
+            return True
 
+        if star:
+            star.touch_group(event)
         event.is_at_or_wake_command = True
         event.is_wake = True
         if star:
@@ -134,18 +157,53 @@ class WhaleWakeFilter(CustomFilter):
 @register(
     "whale_wake",
     "whale",
-    "群聊接话：明确呼叫/连续对话跟进；不再因主人身份随机插话",
-    "0.2.0",
+    "群聊接话：明确呼叫/连续对话跟进 + 低频随机接话与同群共享冷却",
+    "0.3.0",
 )
 class WhaleWake(Star):
     def __init__(self, context: Context, config: AstrBotConfig | None = None):
         super().__init__(context)
         self.config = config or {}
         self.store = ConversationStateStore()
+        self._last_group_activity: dict[tuple[str, str], float] = {}
         _STAR["inst"] = self
+
+    def _group_key(self, event: AstrMessageEvent) -> tuple[str, str]:
+        return (str(event.get_platform_id()), str(event.get_group_id()))
+
+    def touch_group(self, event: AstrMessageEvent) -> None:
+        self._last_group_activity[self._group_key(event)] = time.monotonic()
+
+    def _num(self, key: str, default: float) -> float:
+        try:
+            v = float(self.config.get(key, default))
+        except (TypeError, ValueError):
+            return default
+        return v if math.isfinite(v) else default
+
+    def random_participation(self, event: AstrMessageEvent) -> bool:
+        """Low-probability unsolicited reply with a shared per-group cooldown."""
+        group = self._group_key(event)
+        now = time.monotonic()
+        cooldown = max(0.0, self._num("group_cooldown_seconds", 180))
+        last = self._last_group_activity.get(group)
+        if last is not None and now - last < cooldown:
+            return False
+        if self.is_owner(event):
+            p = self._num("owner_probability", 0.1)
+        else:
+            p = self._num("other_probability", 0.02)
+        p = max(0.0, min(1.0, p))
+        if random.random() >= p:
+            return False
+        # Reserve the slot before generation so simultaneous messages cannot pile up.
+        self._last_group_activity[group] = now
+        return True
 
     def is_owner(self, event: AstrMessageEvent) -> bool:
         sid = str(event.get_sender_id() or "")
+        if not sid.strip():
+            return False
         ids: set[str] = set()
         try:
             for a in self.context.get_config().get("admins_id") or []:

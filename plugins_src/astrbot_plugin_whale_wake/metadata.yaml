@@ -1,5 +1,5 @@
 name: astrbot_plugin_whale_wake
-version: v0.1.0
+version: v0.3.0
 author: whale
-desc: 群聊按主人概率/名字唤醒；官机无戳一戳事件时用文本兜底
+desc: 群聊明确呼叫/连续对话跟进 + 低频随机接话与同群共享冷却
 repo: ""

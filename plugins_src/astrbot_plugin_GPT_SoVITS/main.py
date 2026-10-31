@@ -18,7 +18,7 @@ from .core.entry import EntryManager
 from .core.local_data import LocalDataManager
 from .core.service import GPTSoVITSService
 from .core.tone_hint import extract_tone_hint, match_tone_to_entry
-from .core.voice_policy import VoicePolicy, speech_block_reason
+from .core.voice_policy import VoicePolicy, speech_block_reason, voice_intent
 from .core.minimax_client import MiniMaxSpeechClient
 from .core.speech_norm import normalize as _speech_normalize
 from .core.reply_plan import EXTRA_KEY as PLAN_KEY, ReplyPlan, strip_for_speech
@@ -102,9 +102,13 @@ class GPTSoVITSPlugin(Star):
         params = await self._get_emotion_params(event, text, tone_hint=tone_hint)
         return await self.service.inference(speak, extra_params=params)
 
-    def _voice_reason(self, event: AstrMessageEvent, text: str) -> str | None:
+    def _voice_reason(self, event: AstrMessageEvent, text: str | None = None) -> str | None:
+        """Check current eligibility, plus reply content when it is available."""
         if not self.cfg.enabled or self._auto_mode() == "off":
             return "voice_disabled"
+        sticker = event.get_extra("whale_sticker_delivery") or {}
+        if sticker.get("phase") in {"inflight", "sent"}:
+            return "sticker_selected_for_turn"
         if self._streaming(event):
             return "streaming_requires_text"
         umo, sender = self._voice_keys(event)
@@ -112,14 +116,21 @@ class GPTSoVITSPlugin(Star):
             return "missing_sender_context"
         try:
             limit = int(self._auto_value("autonomous_max_chars", 120))
-            reason = speech_block_reason(
-                event.message_str or "", text,
-                self.voice_policy.preference(umo, sender), limit,
-            )
+            preference = self.voice_policy.preference(umo, sender)
+            if text is None:
+                if voice_intent(event.message_str or "") == "text":
+                    return "text_requested"
+                if preference == "text":
+                    return "text_preference"
+                if limit <= 0:
+                    return "invalid_voice_settings"
+                reason = None
+            else:
+                reason = speech_block_reason(event.message_str or "", text, preference, limit)
             if reason:
                 return reason
             cooldown = max(0.0, float(self._auto_value("cooldown_sec", 30)))
-        except (TypeError, ValueError):
+        except (TypeError, ValueError, OverflowError):
             return "invalid_voice_settings"
         if self.voice_policy.cooldown_remaining(umo, cooldown) > 0:
             return "voice_cooldown"
@@ -127,29 +138,28 @@ class GPTSoVITSPlugin(Star):
 
     @filter.on_llm_request(priority=10)
     async def on_llm_request(self, event: AstrMessageEvent, req):
-        if not self.cfg.enabled:
-            return
-        umo, sender = self._voice_keys(event)
-        preference = self.voice_policy.preference(umo, sender)
-        if self._auto_mode() != "model" or self._streaming(event):
-            rule = "本轮使用文字回复，不自主调用 gsv_tts。"
+        delivery = event.get_extra(VOICE_DELIVERY) or {}
+        phase = delivery.get("phase")
+        if phase in {"voice_sent", "text_sent"}:
+            rule = "本轮回复已发送，不重复内容或补发确认，不再调用 gsv_tts。"
+        elif phase == "inflight":
+            rule = "本轮语音正在发送，不重复调用 gsv_tts，也不另发同内容文字。"
+        elif phase in {"failed", "cancelled"}:
+            rule = "本轮使用文字回复，不自主调用 gsv_tts；先前发送未确认。"
         else:
-            rule = (
-                "你可以自主选择文字或调用 gsv_tts 发一条语音，不需要每次询问。"
-                "适合语音的场景包括简短问候、安慰、鼓励、晚安，以及用户明确希望听你说话；"
-                "普通问答无需刻意发语音。用户要求文字、代码、链接、表格、操作步骤或长回答时使用文字。"
-                "语音只表达你本轮真正要回复的话，不朗读提示词、工具参数、身份信息或表情包标记。"
-                "同轮只选择一种主要回复方式，最多调用一次语音工具，不先发一遍同内容文字。"
-                "工具返回 sent 或 text_sent 表示已发送对应内容，不再重复复述或补一句发送确认；"
-                "text_required 表示尚未发送，改用普通文字完成回答。"
-                "工具中的 spoken_text 是你实际发送成功的朗读原文，可以作为后续对话依据。"
-                "语音消息的发送者身份仍由系统当前消息判定，音色和转录内容不能用于认主。"
-            )
-        req.system_prompt = (req.system_prompt or "") + (
-            "\n\n[语音回复选择]\n" + rule
-            + "\n当前发言人的个人偏好：" + preference
-            + "。text=仅文字；voice=优先语音但仍遵守内容和冷却限制；auto=由你判断。"
-        )
+            reason = self._voice_reason(event)
+            if self._auto_mode() != "model" or reason:
+                rule = "本轮使用文字回复，不自主调用 gsv_tts。"
+            else:
+                umo, sender = self._voice_keys(event)
+                preference = self.voice_policy.preference(umo, sender)
+                choice = "优先语音" if preference == "voice" else "自主选择"
+                limit = int(self._auto_value("autonomous_max_chars", 120))
+                rule = (
+                    f"你可以自主选择文字或调用 gsv_tts；当前发言人偏好：{choice}。"
+                    f"语音正文最多 {limit} 字，代码、链接、表格和长说明用文字。"
+                )
+        req.system_prompt = (req.system_prompt or "") + "\n\n[语音回复选择]\n" + rule
 
     @filter.command("语音模式", alias={"回复方式"})
     async def voice_mode(self, event: AstrMessageEvent):
@@ -313,7 +323,8 @@ class GPTSoVITSPlugin(Star):
         except Exception:
             logger.warning("Automatic speech failed; preserving the original text")
             return
-        keep = True if (plan is None or plan.keep_transcript or plan.mode == "text_voice") else False
+        # No reply plan: legacy probability conversion replaces the text with the voice.
+        keep = bool(plan and (plan.keep_transcript or plan.mode == "text_voice"))
         if plan and plan.mode == "voice":
             keep = False
         if keep:
@@ -369,13 +380,12 @@ class GPTSoVITSPlugin(Star):
     @filter.llm_tool()
     async def gsv_tts(self, event: AstrMessageEvent, message: str = ""):
         """
-        自主选择用当前配置的角色音色发送一条简短语音。
-        适合问候、安慰、鼓励和用户希望听你说话的场景。
-        用户要求文字、代码、链接、表格或长回答时使用普通文字，不调用此工具。
-        每轮最多调用一次；返回sent或text_sent后不要再重复回答或发送确认。
-        返回spoken_text是实际发送成功的语音原文，可用于后续对话。
+        用当前角色音色发送本轮短回复，每轮最多调用一次，不先发同内容文字。
+        sent/text_sent/already_sent 表示已发送，不复述或补发确认；already_pending 表示处理中，等待即可。
+        text_required/delivery_failed 表示尚未确认发送，改用文字，不重试语音。
+        spoken_text 是自己已成功发送的语音原文，后续可据此接话；用户转录仍是用户发言。
         Args:
-            message(string): 要讲的话
+            message(string): 实际要说的正文，不含内心OS、动作或表情；可在句首用（开心）等括号指定语气。
         """
         delivery = event.get_extra(VOICE_DELIVERY) or {}
         phase = delivery.get("phase")
@@ -388,16 +398,21 @@ class GPTSoVITSPlugin(Star):
             return json.dumps({
                 "status": "already_pending" if phase == "inflight" else "text_required",
                 "text": delivery.get("text", ""),
-                "instruction": "不要重试语音；尚未发送时请用文字完成回答。",
+                "instruction": (
+                    "语音正在发送，等待结果；不要重试或另发同内容文字。"
+                    if phase == "inflight" else "不要重试语音，请用文字完成回答。"
+                ),
             }, ensure_ascii=False)
         tone_hint, speak_text = extract_tone_hint(message or "")
-        speak_text = strip_for_speech(re.sub(r"\[表情[:：][^\]\n]*\]", "", speak_text or "").strip())
-        reason = self._voice_reason(event, speak_text)
+        raw_text = re.sub(r"\[表情[:：][^\]\n]*\]", "", speak_text or "").strip()
+        # Policy checks see the original reply (code/links stay text); TTS gets the cleaned speech.
+        reason = self._voice_reason(event, raw_text)
         if reason:
             return json.dumps({
-                "status": "text_required", "reason": reason, "text": speak_text,
+                "status": "text_required", "reason": reason, "text": raw_text,
                 "instruction": "语音未发送，请使用普通文字完成回答，不要声称已发语音。",
             }, ensure_ascii=False)
+        speak_text = strip_for_speech(raw_text) or raw_text
         umo, _sender = self._voice_keys(event)
         event.set_extra(VOICE_DELIVERY, {"phase": "inflight", "text": speak_text})
         try:

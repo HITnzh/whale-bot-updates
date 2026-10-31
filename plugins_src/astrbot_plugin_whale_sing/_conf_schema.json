@@ -14,7 +14,7 @@
     "description": "ACE-Step 生成 API 地址",
     "type": "string",
     "default": "http://127.0.0.1:8002",
-    "hint": "先运行 voice-backends/music-generation/setup.ps1 安装，再启动「启动唱歌生成API.bat」"
+    "hint": "先运行 voice-backends/music-generation/setup.ps1 安装，再从「鲸鱼娘.bat」启动原创生成"
   },
   "default_duration_sec": {
     "description": "原创短歌默认时长（秒）",

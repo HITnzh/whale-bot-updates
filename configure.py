@@ -27,20 +27,12 @@ def sticker_rule() -> str:
     idx = os.path.join(BASE, "stickers", "index.json")
     if not os.path.exists(idx):
         return ""
-    count: dict[str, int] = {}
-    for st in json.load(open(idx, encoding="utf-8")).get("stickers", []):
-        if st.get("file") == "preview.png":
-            continue
-        for t in st.get("tags", []):
-            count[t] = count.get(t, 0) + 1
-    tags = sorted(count, key=lambda t: -count[t])
     return ("\n\n【表情包】\n"
-            "你可以偶尔在情绪明显的回复末尾加一个表情标记，格式严格为 [表情:标签]，标签只能从下面原样选一个："
-            + "、".join(tags) + "。\n"
-            "- 每条回复最多一个标记，放在最后；大多数回复不要加，大约三四条里最多一次。\n"
-            "- 选和你这句话情绪最贴的标签，比如被摸头用「摸头」、道晚安用「晚安」、被夸用「得意」或「害羞」、无语用「无语」。\n"
-            "- 标记会被系统自动换成一张表情图，对方看不到标记文字；不要解释或提起它，不要自己编新标签，也不要发预览图。\n"
-            "- 严肃话题（对方难过、危机、求助）时不要加。")
+            "有合适情境时，可按当前可用工具自主配一张本地表情；普通回复不必刻意配图。\n"
+            "先用get_sticker_candidates查询候选，读图片描述后用send_sticker选择具体ID；"
+            "候选不代表已发送，以工具的发送结果为准，不编图片ID或未核对的图中文字。\n"
+            "文字可以配一张表情，语音和表情同轮只选一种附加媒体；严肃求助或危机时不配图。\n"
+            "工具已发送后无需另发确认；可以继续正常文字。不要输出隐藏表情标记或发送预览拼图。")
 
 
 def install_plugins():
@@ -175,7 +167,7 @@ def configure_owner(c: dict):
 
 def configure_proactive_defaults():
     """Seed gentle defaults; session UMO list must be filled by user via /sid."""
-    merge_plugin_config("astrbot_plugin_proactive_chat", {
+    merge_plugin_config("astrbot_plugin_proactive_chat_config", {
         "friend_settings": {
             "enable": True,
             "session_list": [],
@@ -184,6 +176,7 @@ def configure_proactive_defaults():
                 "auto_trigger_after_minutes": 45,
             },
         },
+        "group_settings": {"enable": False},
     })
 
 
@@ -235,9 +228,12 @@ def main():
 
     ps_plat = c.setdefault("platform_settings", {})
     ps_plat["unique_session"] = False
+    ps_plat["ignore_at_all"] = True
     ltm = c.setdefault("provider_ltm_settings", {})
     ltm["group_icl_enable"] = True
     ltm["group_message_max_cnt"] = 100
+    # The wake plugin owns random participation and its shared group cooldown.
+    ltm.setdefault("active_reply", {})["enable"] = False
 
     ps = c.setdefault("provider_settings", {})
     ps["datetime_system_prompt"] = True

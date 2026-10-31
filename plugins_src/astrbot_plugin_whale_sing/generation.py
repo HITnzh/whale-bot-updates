@@ -124,5 +124,5 @@ async def generate_music(
     except aiohttp.ClientError as exc:
         raise RuntimeError(
             "连接生成服务失败；请先完成 voice-backends/music-generation/setup.ps1，"
-            "再运行「启动唱歌生成API.bat」"
+            "再从「鲸鱼娘.bat」启动原创生成"
         ) from exc

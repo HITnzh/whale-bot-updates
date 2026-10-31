@@ -4,18 +4,37 @@
     "type": "bool",
     "default": true
   },
+  "owner_probability": {
+    "description": "主人普通群消息的接话概率",
+    "type": "float",
+    "hint": "0~1，默认0.1；冷却期间不抽样，明确@或叫名字不受影响。",
+    "default": 0.1
+  },
+  "other_probability": {
+    "description": "群友普通群消息的接话概率",
+    "type": "float",
+    "hint": "0~1，默认0.02；不要同时启用框架的随机主动回复。",
+    "default": 0.02
+  },
+  "group_cooldown_seconds": {
+    "description": "同群随机接话冷却（秒）",
+    "type": "int",
+    "hint": "默认180秒，从最近一次明确唤醒或随机接话触发计时；全群共享。明确@或叫名字仍可回应。重载会清空计时。",
+    "default": 180
+  },
   "name_keywords": {
-    "description": "唤醒关键词（逗号分隔）",
+    "description": "唤醒关键词（逗号分隔，命中任一即视为叫你）",
     "type": "string",
-    "default": "鲸鱼娘,小鲸鱼,大肥鱼,蓝色大肥鱼,DeepSeek,deepseek"
+    "default": "鲸鱼娘,小鲸鱼,大肥鱼,蓝色大肥鱼"
   },
   "poke_text_keywords": {
-    "description": "文本戳一戳兜底词（官机无 poke 事件）",
+    "description": "额外强制唤醒词（默认留空）",
     "type": "string",
-    "default": "戳戳,戳一下,戳了戳,拍了拍"
+    "hint": "命中即绕过冷却；避免填写群友之间也常用的戳戳、拍了拍等词。官机没有poke事件。",
+    "default": ""
   },
   "extra_owner_ids": {
-    "description": "额外主人 openid（每行一个；默认还读 admins_id；不再用于随机插话）",
+    "description": "额外主人 openid（每行一个；默认还读 admins_id；用于主人接话概率）",
     "type": "text",
     "default": ""
   },
