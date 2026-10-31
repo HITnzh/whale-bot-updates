@@ -166,7 +166,13 @@ class WhaleSing(Star):
 
     @filter.on_llm_request()
     async def remember_voice_for_cover(self, event: AstrMessageEvent, req):
-        if self._cfg("enabled", True) and self._cfg("cover_enabled", True) and self._allowed(event):
+        if not (self._cfg("enabled", True) and self._cfg("cover_enabled", True)):
+            # Cover handed to another plugin: hide whale_cover so the model never picks it.
+            tools = getattr(req, "func_tool", None)
+            if tools is not None and hasattr(tools, "remove_tool"):
+                tools.remove_tool("whale_cover")
+            return
+        if self._allowed(event):
             self._remember_upload(event)
 
     async def _cover_pipeline(self, *, source: Path | None = None, attachment=None) -> Path:

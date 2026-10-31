@@ -200,6 +200,33 @@ def configure_identity_defaults():
     })
 
 
+def configure_addon_defaults(chat_pid: str):
+    """Safe first-run defaults for the third-party add-on plugins (existing values are kept)."""
+    # self-learning: local SQLite, never rewrite the 鲸鱼娘 persona by itself, no random daily mood.
+    merge_plugin_config("astrbot_plugin_self_learning_config", {
+        "Database_Settings": {"db_type": "sqlite"},
+        "Model_Configuration": {"filter_provider_id": chat_pid, "refine_provider_id": chat_pid,
+                                "reinforce_provider_id": chat_pid},
+        "Advanced_Settings": {"auto_apply_approved_persona": False},
+        "Persona_Evolution_Settings": {"auto_apply_persona_updates": False},
+        "Mood_System_Settings": {"enable_daily_mood": False, "enable_startup_random_mood": False},
+        "Affection_System_Settings": {"daily_mood_change": False},
+        "Social_Context_Settings": {"include_mood_info": False},
+        "Runtime_Internal_Settings": {"enable_llm_hooks": True},
+        "Integration_Settings": {"delegate_memory_to_livingmemory": True},
+    })
+    # AI点歌 (matsuko_cover): only the local RVC gateway (scripts/cover_gateway.py on :3333).
+    merge_plugin_config("astrbot_plugin_matsuko_cover_config", {
+        "rvc_base_url": "http://127.0.0.1:3333/",
+        "enable_rvc": True, "enable_svc": False, "enable_svcvc": False,
+        "default_api": "qqmusic", "default_api_type": "rvc",
+        "rvc_models_keywords": ["Hutao-rvc2.pth|||胡桃"],
+        "model_gender_map": ["胡桃:female"],
+        "enable_progress_bar": False, "enable_config_report": False,
+        "inference_timeout": 900, "task_timeout_seconds": 1800, "max_batch_size": 3,
+    })
+
+
 def main():
     install_plugins()
     if not os.path.exists(CFG):
@@ -260,6 +287,7 @@ def main():
     configure_identity_defaults()
     configure_weather_defaults()
     configure_proactive_defaults()
+    configure_addon_defaults(pid)
 
     # 6) persona — tools=NULL means ALL tools (web search / weather / memory tools)
     pf = os.environ.get("PERSONA_FILE", os.path.join(BASE, "persona", "system_prompt.txt"))
