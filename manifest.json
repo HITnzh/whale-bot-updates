@@ -1,18 +1,18 @@
 {
- "version": 1793432333,
- "ref": "dc2b4831c38d6ab6b6528ce8c1990e8b6b826e2a",
- "generated": "2026-10-31T15:38:53+0800",
+ "version": 1793465182,
+ "ref": "485494564a59b57cc1c513bffc694b1195638df3",
+ "generated": "2026-11-01T00:46:22+0800",
  "note": "WhaleBot content update. Stickers CC BY-NC-SA 4.0, see stickers/CREDITS.md",
  "files": [
   {
    "path": "configure.py",
-   "sha256": "2e9da3a875106f791dc06409dcf43f775e6a1e72b8ced48e1b1135ab9e45749e",
-   "size": 12630
+   "sha256": "0342d140a4cb13dfea4c6b053f79fa8edd4f4d73d835b4179a9163f3c31e397b",
+   "size": 14036
   },
   {
    "path": "使用说明.txt",
-   "sha256": "5291057b8b3a58b1aff1f36976230cba5410fce96947ddcb428853f5f875ff8c",
-   "size": 32083
+   "sha256": "cf321f10e15b011e46c0e7ca73be31e84152cba82b44242ccc1fe7b68756c212",
+   "size": 33477
   },
   {
    "path": "stickers/CREDITS.md",
@@ -781,8 +781,13 @@
   },
   {
    "path": "persona/system_prompt.txt",
-   "sha256": "5f3dbdaa4efe7f8f1c9d452ed4e564e5bbbf168c2d56bee93a08b57d6d35c67e",
-   "size": 6802
+   "sha256": "573792a4735c37cb56f30295a585289182bfd58395702312df50eaae5499e7b1",
+   "size": 8100
+  },
+  {
+   "path": "plugins_src/THIRD_PARTY_PLUGINS.md",
+   "sha256": "e97ee72e2a1287da31c935b2c37d73b7680e815a977c304fcdf6348a86d1f69b",
+   "size": 1192
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/CHANGELOG.md",
@@ -903,6 +908,41 @@
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/default_audio/就算是这样，也不至于直接碎掉啊，除非.wav",
    "sha256": "544817777d98d2c37a19aa32b0c29557b4b647941ad0a72ce381ccc9ec8fb59d",
    "size": 475436
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_debounce/LICENSE",
+   "sha256": "f440d399276dcbd8a845dee6e873a54c1f59ff44b502b45f3bc9352224ed5789",
+   "size": 34531
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_debounce/README.md",
+   "sha256": "c4e8cd7b3f23459ef777a7c4728f69faafe2aeee52f4e82bae4ccdb728c12e3d",
+   "size": 18880
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_debounce/_conf_schema.json",
+   "sha256": "d246f755bceb80db3b3b517201e51b7d096c766e87a4993cb46d53d857111b1d",
+   "size": 3144
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_debounce/jev_client.py",
+   "sha256": "0eea87af72820b90250f036b96dc0e601dbab520edabf8c813f9fd16f2d6a7ee",
+   "size": 7246
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_debounce/main.py",
+   "sha256": "ed5e88dcf31988923781ee4acde0fa96ed768ccf998245206dffeaaff6220cfc",
+   "size": 30078
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_debounce/metadata.yaml",
+   "sha256": "48a2444a25e81a6f35aaa95c54e501507f9c8664e4cb97003c1aa24a694b805a",
+   "size": 378
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_debounce/requirements.txt",
+   "sha256": "be2697b3fb6081c56ad30d105a1f0993a39a64be94cfd8070690e7642c1aca1c",
+   "size": 105
   },
   {
    "path": "plugins_src/astrbot_plugin_identity/README.md",
@@ -1780,6 +1820,56 @@
    "size": 6534
   },
   {
+   "path": "plugins_src/astrbot_plugin_matsuko_cover/LICENSE",
+   "sha256": "f440d399276dcbd8a845dee6e873a54c1f59ff44b502b45f3bc9352224ed5789",
+   "size": 34531
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_matsuko_cover/README.md",
+   "sha256": "f61981870ee10adbbed2368cad355142f5fa9836c9974b84fe3a58676bedfed4",
+   "size": 19185
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_matsuko_cover/_conf_schema.json",
+   "sha256": "b244a04ae896baa8f9235deeb34d6313ff0a542c64a2a06cdc26b27a2dcfc33a",
+   "size": 24849
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_matsuko_cover/api.py",
+   "sha256": "e17bc96f2a7a1a661b13e8c763e41c3d6048277f3feb32a6f478bf98e94044be",
+   "size": 17832
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_matsuko_cover/logo.png",
+   "sha256": "7fcb5cc342a585ceda6fbe1f1f26a4f125376f4916173a25311a482782eb2127",
+   "size": 91428
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_matsuko_cover/main.py",
+   "sha256": "2defba26568b806cb9b9fb94be42f7b21bb3e2f5bfc3e285c512661914cf84d0",
+   "size": 255758
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_matsuko_cover/metadata.yaml",
+   "sha256": "5a0345dd2941776e861c2536ac769a8c536310d9d843decbbb319e8fd3142757",
+   "size": 277
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_matsuko_cover/qq_callbacks.py",
+   "sha256": "2327b430d1f38c496f456678e22c85b46368a1818b970a33574b3359733a3ccb",
+   "size": 10109
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_matsuko_cover/requirements.txt",
+   "sha256": "8c9e2910d91c565ea6dad730d9eac99fecbcc6a2cd14ad862db077d74f74bc49",
+   "size": 48
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_matsuko_cover/selection.py",
+   "sha256": "00d5ce11fe267bb15a95cd3db0839d82e39e57880dd8a8e76db0fcac26aa8518",
+   "size": 22517
+  },
+  {
    "path": "plugins_src/astrbot_plugin_proactive_chat/CHANGELOG.md",
    "sha256": "ae39f2c6229d2a99d128c8f1890c6d3b36ff2bdda6f17144896f58f84237a225",
    "size": 40537
@@ -2280,6 +2370,1441 @@
    "size": 6699
   },
   {
+   "path": "plugins_src/astrbot_plugin_qq_face_to_text/LICENSE",
+   "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+   "size": 35149
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_qq_face_to_text/README.md",
+   "sha256": "8c188cda6a942a681c8392be1ec9f13a5b1c92617527f3fadeb1bec7be6f549b",
+   "size": 1069
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_qq_face_to_text/logo.png",
+   "sha256": "1e8aa5683b3126214df9c7f8f33333b42c4f1948457ad9d51ac894f10898c354",
+   "size": 15088
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_qq_face_to_text/main.py",
+   "sha256": "e4a32e46da0a617cce7be9a99fe7d29d72278142ce4a0966fcf2ae5ccda5618e",
+   "size": 8986
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_qq_face_to_text/metadata.yaml",
+   "sha256": "df17f1d96e5c09e3009d041844ba806845a7b1e3e7c9cbb38ea2747e30b35909",
+   "size": 261
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/CHANGELOG.md",
+   "sha256": "95434ec2f3c44045f20b8cb4820666e2d73f16b71d66b828e35483ce7cfa7acb",
+   "size": 109011
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/CONTRIBUTING.md",
+   "sha256": "00c3b479ea0f79fb218b24e789105b8bf27b3f9ab062b3ff027f16a02760f7b8",
+   "size": 4599
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/LICENSE",
+   "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+   "size": 34523
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/README.md",
+   "sha256": "4268093e6f22211252164d3fb5eb5d53d350a87bcc58d642943a5b4dbb491ffc",
+   "size": 15211
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/README_EN.md",
+   "sha256": "1b238ef6174f154ec1dbab4396f046f6e78c5bc6cb62245ed51c61c55ef209b3",
+   "size": 13613
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/SECURITY.md",
+   "sha256": "5b834ed0e6e4ba9d37851b635846389ab6ba5f7ece6df6f5986ac61f7b09b20f",
+   "size": 2228
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/__init__.py",
+   "sha256": "9f39952a37d576fbef3804d92519797f784230f62eb10a21ec82d3bc473a5cb2",
+   "size": 859
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/_conf_schema.json",
+   "sha256": "a40bca0bb9766ffb1f2650de0ed05af96c2517933d494d7f68f75668cc09cdff",
+   "size": 42304
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/config.py",
+   "sha256": "460cb5cf877697656e30892ea7bd7455c2fa9a2a4d12b192b1da9b3b5a09e5c7",
+   "size": 43187
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/constants.py",
+   "sha256": "2b65dc422a15c5a71012ea85b18413bb6acce2af3e714c13b2f16d6e79957483",
+   "size": 2846
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/exceptions.py",
+   "sha256": "cd555eac7731eb459c3a526b10af8923831777f33b5ccb110fc4ef901539af2c",
+   "size": 1476
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/logo.png",
+   "sha256": "22544602cc6c1d57517f53d1aa6f85eca36d46c477d3daee98b2d3fe603d9bc3",
+   "size": 227041
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/main.py",
+   "sha256": "e0965daab591a5ccaf78cfe21f1535de1887b1586bffa29dd925d107e91de3c8",
+   "size": 24094
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/metadata.yaml",
+   "sha256": "471182c5c9e68210ce4ee22d4414f957ee555beb403010bd450abe191634c565",
+   "size": 1089
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/persona_web_manager.py",
+   "sha256": "5056fec379bc2f47c3bc7adb0a96977bef26115a54dae2f10e031f34b2479d73",
+   "size": 13473
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/requirements.txt",
+   "sha256": "2b02d1faa844fc080ad7f815f7ade6d92a7b52d329ebcab7051c7dceaae52003",
+   "size": 225
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/ruff.toml",
+   "sha256": "bc1baad64bd0d86d0e16f47c0e091fe802205c076248144ddc0fa58cb6f0c087",
+   "size": 235
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/core/__init__.py",
+   "sha256": "386deca3d3fab579d58b103a781f728243c2ad125923b386f5f39d1994bc5ab6",
+   "size": 1410
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/core/factory.py",
+   "sha256": "9e9aed3a413b10cf44df3ce107ca35a36f40d0e5b355f607ccd9b5596222dd0a",
+   "size": 48647
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/core/feature_delegation.py",
+   "sha256": "b5e07a82e4fac2af6a43179dc6faa85c273a0301e207686272ab2bc6d4766a41",
+   "size": 5715
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/core/framework_llm_adapter.py",
+   "sha256": "b1ebe0df728fc979bd927df164a731d45c41a31fa8f183a0f7c195f71d33f341",
+   "size": 28570
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/core/interfaces.py",
+   "sha256": "40ae477ab4c578a6069a7d00704e5dcd7295686075d634c7c432696f5644cf03",
+   "size": 13015
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/core/llm_client.py",
+   "sha256": "1e95fb343cf585c168354da16ad03fbeb0fa9323d5ee02c6441512f2930d8448",
+   "size": 8170
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/core/page_api.py",
+   "sha256": "aaf96c97d41a29649b0098afb9e08eb1495efc6dba4ace82609a9a8d692ab378",
+   "size": 102177
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/core/patterns.py",
+   "sha256": "f71381a9ef5431a6c2ed5390daa53f3e488c9abc7cad50668d6f8960eab68957",
+   "size": 14163
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/core/plugin_lifecycle.py",
+   "sha256": "23110a0fa1f03fab6035557dd971860fd9e930470e62cb3cb75c534937645b7d",
+   "size": 29939
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/core/database/__init__.py",
+   "sha256": "e4d8fd46b67d2f1359d16fe5490a46b717c36a38ab19cc0bd85f6ef4bccb1fec",
+   "size": 110
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/core/database/engine.py",
+   "sha256": "03c14cc207413052f00b3312b56de86664b8c82336398c7ee5f8016268c0b9da",
+   "size": 30720
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/core/plugin/__init__.py",
+   "sha256": "58cf8a61e67b721180568b7788a57a98ccdf9d30ef69b97b27b0bd4017efb0fc",
+   "size": 81
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/jargon.py",
+   "sha256": "4e251de0920a14c7841045430672e6edb1911060d9bf768412a535d10a2d90c6",
+   "size": 3788
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/psychological_state.py",
+   "sha256": "0153c9c8e389aa9435e298c661d6d9610c5d39b6e7945d7804b6077f751b65ff",
+   "size": 20682
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/social_relation.py",
+   "sha256": "7d1a26d393bc14853b827c68a71bfa3f57edde42c461f50ea30dd9c187a168df",
+   "size": 13998
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/__init__.py",
+   "sha256": "beb6fec1f63509a55b6102d710a0d1a68d835815b69e207834648352eedc1d3f",
+   "size": 3830
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/affection.py",
+   "sha256": "99e88b54174ed3b569306d7daf33def6ff5384bb3ac2f3ae605c006205b78347",
+   "size": 2911
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/base.py",
+   "sha256": "f8c0b7897adf408230c017a1c2d0fabbece42f6af814c714f561e1f98021e7c5",
+   "size": 219
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/conversation_goal.py",
+   "sha256": "2990662749f3aea413cf08ac43c4fee36798e33b7a1d6cc61177d12cd970432c",
+   "size": 2848
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/emotion.py",
+   "sha256": "291209df106a21af283c5e878039e9b67c5a41a4ad4c2f00c07f4816dc484307",
+   "size": 1835
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/exemplar.py",
+   "sha256": "45df57788a2493ec46aaf908c1e312300973e550eb98cc76102bf83e94f0ee81",
+   "size": 1968
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/expression.py",
+   "sha256": "7680399d578b4593696b93d31a96a0b69d25e538ff1bab5d8ebdbd50c1888ea3",
+   "size": 7240
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/jargon.py",
+   "sha256": "8143f3df657f1469f3128c28990da138a98420194e88aa3bd5417d156a41efaa",
+   "size": 3818
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/knowledge_graph.py",
+   "sha256": "b01ad51921c12b3fb6ae513bff74eaf00c0f07e421d51e16cb5dc25cc6ce434c",
+   "size": 2206
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/learning.py",
+   "sha256": "edcd59421b1a87e4bf2e853ab5f57a3e98e1b1fb87d4c98fc44fac8bdf8e518d",
+   "size": 11380
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/memory.py",
+   "sha256": "d57c53ffacf49359354f5265a37ae68992fcf58b2aa216727fb8511f344514f9",
+   "size": 2315
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/message.py",
+   "sha256": "6011c2c6eab6ceb4bedc47b765884ac93ec1036268133e063df012c440b9248c",
+   "size": 8186
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/performance.py",
+   "sha256": "d3ea9aa98fbf27aaad88f5be412ab437a4a8813243d7788214bc1fdc51dc2904",
+   "size": 921
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/psychological.py",
+   "sha256": "67f037a177bc21cccd572fdd076d0dd07f008958b5fb50c76841cf28e1487ecf",
+   "size": 9571
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/reinforcement.py",
+   "sha256": "db69f3d486744481902cb02054460bc7895e924e114d7160a0f7b429947e67aa",
+   "size": 3251
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/shadow.py",
+   "sha256": "07836a7300886ffa9f9c0ab3ea707f412285d61f6ed68d9a8b3d8ab2951b61f0",
+   "size": 1250
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/social_analysis.py",
+   "sha256": "cea68d13075d8f876a0628886c97899f30e799661794bb5cdfb1f74ae8f129a9",
+   "size": 2093
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/models/orm/social_relation.py",
+   "sha256": "61b9c87eb88ca6626b5521d3fd0e7a66fb7f0e2d99ae44b46d33e69c72896b0a",
+   "size": 5855
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/pages/dashboard/_page.json",
+   "sha256": "22da09284e0bca3305694c7be54b419dc678dbec8e9e54c8e9c3becbf5d26a8f",
+   "size": 131
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/pages/dashboard/app.js",
+   "sha256": "6118083c1c9ae9801ceb7d0e3e43dce59d6cced4e0c33aee41b52a4ada2c3a50",
+   "size": 125875
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/pages/dashboard/index.html",
+   "sha256": "21bf31532113e0da07388fa10245c0b7d79f917e1a87480e933886cb0be7c501",
+   "size": 36973
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/pages/dashboard/styles.css",
+   "sha256": "5a7a96658d6eb69a786040dd6088dddba10746d899755d6500eaaf23876fdfcc",
+   "size": 26119
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/__init__.py",
+   "sha256": "013683c526ba7752d92c14c19d351843b2a148aa9fced6350f8159d0be87877a",
+   "size": 4750
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/affection_repository.py",
+   "sha256": "7aed6e37e1758bc52b96eb6f3e483354a494164f46e671382ff32840b72776f2",
+   "size": 11494
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/base_repository.py",
+   "sha256": "2957ffa1723c4f9ddbd59c6ee6d0ae354eba0f02ec0dc400b8058d1cd2a4fa99",
+   "size": 9521
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/bot_message_repository.py",
+   "sha256": "285a25a142d97a6021ef97c33c6fb4c7763d4acd4ffc37916c32d6b993fa0639",
+   "size": 5000
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/bot_mood_repository.py",
+   "sha256": "cf42ddace002f6a7195ef11298b479136e7a4213c528fadef260bc426d4bed0b",
+   "size": 6178
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/conversation_goal_repository.py",
+   "sha256": "c0683ba97599a952653415cc9bc1bb2780b22ba1e160c0701cd87f64f81ece5f",
+   "size": 10679
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/emotion_profile_repository.py",
+   "sha256": "e59ca2a1a5cd8630694aac24ae858d3937dd5f6c1f4054b011ca1eb15489f02b",
+   "size": 4727
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/expression_repository.py",
+   "sha256": "fc141b9cd954500d80953c5e37de61ef26174c27e8c9266c0e106753ef53e181",
+   "size": 5366
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/filtered_message_repository.py",
+   "sha256": "8bf0f29139e747f18482d725eb2b026cfd6017fbc3f2ecc16b35a3c9e5c8259d",
+   "size": 7375
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/jargon_expression_repository.py",
+   "sha256": "34374cd9d21cbee7451a589b4dae50911a0f7d9a70abf376b695961469cc5ac6",
+   "size": 22358
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/jargon_repository.py",
+   "sha256": "2b26efbfec3ed97f52b4529b09790f8864f27ebf542937ab6a6132ffed22a745",
+   "size": 7406
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/knowledge_graph_repository.py",
+   "sha256": "ea4d362d39a7aa8635285a82d4921804bc76d2db671a04d61f209443e92fd914",
+   "size": 10555
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/learning_repository.py",
+   "sha256": "058eae8752cc07efdbdc165a81416b06eeaab1ed5de53695a5c25095ac1763c5",
+   "size": 38460
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/memory_repository.py",
+   "sha256": "22f626fd80add455697baf657e7b955118e9e553daf44ee84d1c9acbd64ec27d",
+   "size": 9649
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/message_repository.py",
+   "sha256": "c76cea60ef4b61d94855737b0ae6fade2f4badbdaa0aefcdde669370ad00c435",
+   "size": 29575
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/persona_backup_repository.py",
+   "sha256": "13fb18a48db30cc360f68a0969e219416a3fddcb48b5252db20f19e4728a1e41",
+   "size": 5507
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/persona_repository.py",
+   "sha256": "a60e8e9e533a12c05ebcbac5a96c8c9189a61585996458e299c9e3154e8f50f6",
+   "size": 17180
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/psychological_repository.py",
+   "sha256": "3bc3bad24aff8ecf90acd58f29644650d84478da909e6b366443bdd70f596f26",
+   "size": 7740
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/raw_message_repository.py",
+   "sha256": "50671f40ae79c00c89a9a87ad1da22c1a7e2fe0b5980b903b1ae5d4a70676a72",
+   "size": 9538
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/reinforcement_repository.py",
+   "sha256": "55ea5af7a4f965bd4d76a1f1b63f22300479952069c0f0d3f71bf762a734ad5d",
+   "size": 7321
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/shadow_profile_repository.py",
+   "sha256": "8846e4327df9beda0fcbbea1daa070fbc49ca2cce43e6941a1b57b41edd3871a",
+   "size": 2283
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/social_repository.py",
+   "sha256": "5206e78dc8fb2f773c4c743d69d94616614c5d0459cd294aaef45fdf40919db3",
+   "size": 8630
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/style_profile_repository.py",
+   "sha256": "b91f7df6d0fc0a469b476bce295d882d2059c6a5811d1b046fc7c047f3733eb0",
+   "size": 4294
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/user_preferences_repository.py",
+   "sha256": "99be59694448fee6673fa28c658700e0af580c37909c3cee47e1baee4d659878",
+   "size": 4673
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/repositories/user_profile_repository.py",
+   "sha256": "bb55fc188751d80091750048255f44947964a90e070709329266c0d7bb4182f8",
+   "size": 4248
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/__init__.py",
+   "sha256": "bb98dee323231dc2acff0b356a9f84970896306df56751d89cc51bce6cc8626c",
+   "size": 171
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/provider_registry.py",
+   "sha256": "a58428a92d15fad1bb6d208ba2d7792fe86e1aa83a323d8911bd77e1208510c5",
+   "size": 5657
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/shadow_mode.py",
+   "sha256": "69ff4fe82b63cc6bfb4c5ce0cfd31ad67a6abea7d35181e7382fd386a3826821",
+   "size": 16416
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/sqlalchemy_database_manager.py",
+   "sha256": "6e10d46cbb01ca209a56599ca7821750520fd1dfce7c61e1d45d039909022f85",
+   "size": 2838
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/analysis/__init__.py",
+   "sha256": "4b621ae0fd7cbb40d06b1eb4a5779f7820c2b8f8019fe787a37ac2a9731bf21e",
+   "size": 539
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/analysis/expression_pattern_learner.py",
+   "sha256": "527e1c0b4bba36027e25612ca2d6c5c903851bdb34b7171fd5931f30a53a9597",
+   "size": 30568
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/analysis/intelligence_enhancement.py",
+   "sha256": "9d7be0deb21b6dc5240cb283d52608d752e541d9dc2b2c1061b63600beea7cd4",
+   "size": 47898
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/analysis/intelligence_metrics.py",
+   "sha256": "303d07d6436b51458cfdba2044bc1db4bef4eaa5d82e53a9fe5b38206eaf247f",
+   "size": 18908
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/analysis/ml_analyzer.py",
+   "sha256": "b776b954dcb669cccdaa539d84b4acba553d8db69c7ee9ab8bd4b354b06d5bf2",
+   "size": 49191
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/analysis/multidimensional_analyzer.py",
+   "sha256": "0b80315b34205f3c2758ec20e30c410950e263df2e3b99cc6acf2d00fe0b1d32",
+   "size": 83620
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/commands/__init__.py",
+   "sha256": "a47f505cf9d0334925686a1bbfd318d1c86e1ecd9418798b1f3a69c2931bf914",
+   "size": 218
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/commands/command_filter.py",
+   "sha256": "1f1b8b1490b4a7ac533fa4e6af236cfdf4e44b381304825d2df0b6c3b3600315",
+   "size": 2122
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/commands/handlers.py",
+   "sha256": "3b7a7c4e27b5ea0dd94bfea70227442430c6db2d557e4b088455910e779aabf9",
+   "size": 26436
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/core_learning/__init__.py",
+   "sha256": "f969faf0c5ab25dd730b9a9f6ffd7653a447118b791b7ddc3bd833fe34af1338",
+   "size": 489
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/core_learning/advanced_learning.py",
+   "sha256": "72e398af87d81e85d0ce8d0d7669f1764cf3a2f9517321be05b1ad87131a0cb7",
+   "size": 14617
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/core_learning/message_collector.py",
+   "sha256": "45b39c19eeec0a3f8030584405eedfbf7ecb1829bc90894b33ea66f3a6df5bc2",
+   "size": 11591
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/core_learning/progressive_learning.py",
+   "sha256": "ce4d8c1923d6d7cfd1fbfaadfb7379347528922bc9f34182f8bf54577955450b",
+   "size": 48255
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/core_learning/v2_learning_integration.py",
+   "sha256": "4b42e799221abc2ffb645ccc793536a4907018f0dbcd16027045b90aecd255b4",
+   "size": 37213
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/database/__init__.py",
+   "sha256": "b278d897d0ffd6e4cd2c1dcd2c40375d5f02f950b9ac0fdcbee98186143ebac9",
+   "size": 431
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/database/manager_factory.py",
+   "sha256": "db62264810b169ecdc381761638674e355431bdbb8939f7c2662d018d972fe71",
+   "size": 9019
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/database/sqlalchemy_database_manager.py",
+   "sha256": "d4be1a20f8f005f0dc7cdcde3cc8b8134d8062916fb75776cc1861a069861943",
+   "size": 50915
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/database/facades/__init__.py",
+   "sha256": "dee628c31c54a0872c3d563899f02cd9aade2ba8a449d2514ea83980c594c3f3",
+   "size": 854
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/database/facades/_base.py",
+   "sha256": "30cef2ec44ba5967be5755b5b348898c4afb9f0a1113fee6662d5d43883a771f",
+   "size": 3309
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/database/facades/admin_facade.py",
+   "sha256": "b1323c808ed30b96fca41def3392f6c1609b5cba3114af13f770f3ee885e541e",
+   "size": 20109
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/database/facades/affection_facade.py",
+   "sha256": "e8f8aed2da62abf12c23dd594f44dbe91caf7690ed2dd88070cdc84be3f13f0f",
+   "size": 5415
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/database/facades/expression_facade.py",
+   "sha256": "3e520b88bec3065b80793d36799a7734312617382f255cf7d41c0851cdde11c9",
+   "size": 10086
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/database/facades/jargon_facade.py",
+   "sha256": "5e4c58b9cec8d0611d10805e87c2561f731d0efb0fa0d7402b8db8863f31495b",
+   "size": 40542
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/database/facades/learning_facade.py",
+   "sha256": "8d8f5d44e988c14323d7fba586dc19fdb6d4a040cd29bfbdaf0742ad1a10cda2",
+   "size": 47324
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/database/facades/message_facade.py",
+   "sha256": "db9b0c2a2acb2e8afdd8f109e42ff753c6f6098a80101cef004311fedd6ac559",
+   "size": 19219
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/database/facades/metrics_facade.py",
+   "sha256": "2a32cfbab98b25d26f39055b4b6afdce64313c2a4d85151a9c94a3bf56680abb",
+   "size": 6339
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/database/facades/persona_facade.py",
+   "sha256": "8350843e6f4e0496bc9624b591f56c980a943cdd414c226f3f882f684aa2631a",
+   "size": 6683
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/database/facades/psychological_facade.py",
+   "sha256": "d8ddfd1dccfe4934e4415d872ecaba094f60066340ca93de73de803382e247d0",
+   "size": 3466
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/database/facades/reinforcement_facade.py",
+   "sha256": "f701d0dfcc2247566727c92eea7a849dd87c311932a17b91dc77737be7e7921f",
+   "size": 5301
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/database/facades/social_facade.py",
+   "sha256": "f7be65ee6109021da4e857acc208a2093f9bc804d04e6a671ea1d9bd57527205",
+   "size": 12831
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/embedding/__init__.py",
+   "sha256": "083faa1c8aa8f3faad074174adf60b35888c5410e76937adc5fdc9b9cbd338be",
+   "size": 816
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/embedding/base.py",
+   "sha256": "afb7b0191520f05f0b9bc4d19d6560bda66b7ada360469fcbac2102273052e08",
+   "size": 2620
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/embedding/factory.py",
+   "sha256": "dde206c3adbd409fa7e47f68ddc347717d3b913fca69f7d0299e3bb459355271",
+   "size": 5836
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/embedding/framework_adapter.py",
+   "sha256": "9ff36e90ee66d6ee9104acb1443549a182706133753de1e47183d625ed5302a0",
+   "size": 6372
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/hooks/__init__.py",
+   "sha256": "009df21f407e26b66fe4dc10b0c0fa945e32ffa680198b65eef1e07a6de3ae4d",
+   "size": 65
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/hooks/llm_hook_handler.py",
+   "sha256": "c6b86be3d960eae906dc5fc67b14d6b98681722fd4eea9fdc5ed42172d56d9f4",
+   "size": 26911
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/hooks/perf_tracker.py",
+   "sha256": "f4944515fb6fedceffd36af2471a497c978ed5ef866cc53e8ec3a6bb5b041e7a",
+   "size": 2310
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/integration/__init__.py",
+   "sha256": "f3f730eb2f39976d382e997b4a8755a8d16ecfa9948ba18f747cd685d00bf3eb",
+   "size": 1429
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/integration/exemplar_library.py",
+   "sha256": "22d8914f0c4fd498d7f60a3c1f52fb315a42e7081b9ecdd2501f12e85054241e",
+   "size": 17393
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/integration/knowledge_graph_manager.py",
+   "sha256": "98baa4108c196fa88558332a16d4369df2952bd1d7f2b406e8b267a4034f2a7f",
+   "size": 20915
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/integration/lightrag_knowledge_manager.py",
+   "sha256": "e6406e39d6aea9db94cd2f5250558780f4b48a84ee9506882c6a28b2e77631b0",
+   "size": 23964
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/integration/maibot_adapters.py",
+   "sha256": "af3ef52c71c3b61f07fd20df0c9f4c7eae303c4ef49b16c204bdd831eaefd914",
+   "size": 47188
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/integration/maibot_enhanced_learning_manager.py",
+   "sha256": "ef123bc2bc89c84075b9b3df8e0b93bba0d0c83e0bff81b06222c138268c670c",
+   "size": 25007
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/integration/maibot_integration_factory.py",
+   "sha256": "bef9e9907051a25eb978b14419ad6b74eb7563184d630c290545147aa2c9f43c",
+   "size": 12670
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/integration/maibot_learning_importer.py",
+   "sha256": "628418bb404cce181c6770877448c38b2157bb440fc1fac3aa97fc101a207c31",
+   "size": 36914
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/integration/mem0_memory_manager.py",
+   "sha256": "e65a4360a0199fa3e502d5d4a663629fc04e770e78a2cdc17a81921a67f9bf36",
+   "size": 13535
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/integration/qq_chat_history_importer.py",
+   "sha256": "430889fb625f9c3eb193e7ae7a3d3075b356e5cb6ef22bca8dd6c532e28071c6",
+   "size": 44186
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/integration/training_data_exporter.py",
+   "sha256": "4a827b7f6383e815b4f0f4d17795b0bfb177a6ef74548a407d07c28a63c60158",
+   "size": 22553
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/integration/worldbook_importer.py",
+   "sha256": "0f0852ba61cd15f2921c17d152c052bf3fb5644a60ccbebfbc940d72db83e4c8",
+   "size": 30737
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/jargon/__init__.py",
+   "sha256": "b548161a624231770695eef05b2f70ffda19af3aa331cd479294e4e690a05ec8",
+   "size": 555
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/jargon/jargon_miner.py",
+   "sha256": "ee02586a634c211190124a8f8f68c34dc512270380ab79a961fd4468327f8adc",
+   "size": 33305
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/jargon/jargon_query.py",
+   "sha256": "b04226819bc1980141fece9219e1bdf5a4dba5ca60f42d85ee5e3b559791ef78",
+   "size": 11390
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/jargon/jargon_statistical_filter.py",
+   "sha256": "f2a2fe2824d353f92e9d9e177e15a7f6bcdfd6bb5986b2a29a5ef7d6eb16bdca",
+   "size": 14582
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/jargon/web_search_definition.py",
+   "sha256": "e8cf3bdeba7a980c1c600802184d7a8762f4302340c8534ce84457f53cdcd00f",
+   "size": 14103
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/learning/__init__.py",
+   "sha256": "3b850275a4b901470fa4e6f07c3aa9c67617946b1add6828be68429abd49a565",
+   "size": 353
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/learning/dialog_analyzer.py",
+   "sha256": "28059b5205baa23322e907b676444c9fa0ff2c92d0f3b0cf3dc7289b3adfbe5f",
+   "size": 9878
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/learning/expression_learning.py",
+   "sha256": "930b7c6cefcf5c6193797aaf666f14066dc2327c690bff9979eddc30c260520b",
+   "size": 12387
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/learning/forgetting_manager.py",
+   "sha256": "fa9eef46602de1b5d316dbd4034aad01d88bf2e6a297f4ee098e6322655ca7b6",
+   "size": 18221
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/learning/group_orchestrator.py",
+   "sha256": "37356bc1558cee5109cdb6b5a4d23834f7df851f05055f072ae8a396e118cde5",
+   "size": 13278
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/learning/jargon_learning.py",
+   "sha256": "27b1fc69ccf100ef150ad1ab39b16c96fd2d10c74cb79f206fe5652a931e163d",
+   "size": 6959
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/learning/message_pipeline.py",
+   "sha256": "80596888f1b12ae15dd65c761033f96b61bfeee95a01b8a90c5b86b692fe7e09",
+   "size": 13824
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/learning/persona_learning.py",
+   "sha256": "3544658e279c391f03416d50e3d45ad555a8cf71b8f110c5126e95a9e337f5ca",
+   "size": 23720
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/learning/realtime_processor.py",
+   "sha256": "7f52f38f2a34f321c17b14c263f2b3d991401125cf90cc67d87634cd16565169",
+   "size": 17259
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/learning/remember_service.py",
+   "sha256": "183a021944d08125c6dd9b777ad494907ca13a8ae15d2dd9135ac5fbaf076aa7",
+   "size": 18179
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/learning/sample_filter.py",
+   "sha256": "b9e81a9bf6bdb9e8afc2d7dc309ba6c9e63a59ab9bff2edb25c1ccbc57be8426",
+   "size": 15324
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/monitoring/__init__.py",
+   "sha256": "8130db2fa5960e7970688951e380e88bccce7bf5ac38a574a6d0e18aaa10435e",
+   "size": 2029
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/monitoring/collector.py",
+   "sha256": "67f661bf891a92f72bb7e3d4beb1c9a1a4a8287a44ab7d1c43089a2c5b67cf7a",
+   "size": 10663
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/monitoring/health_checker.py",
+   "sha256": "9b6c8143612ed2ec9ffda4e6146f0c47013565d7336fa08614b1cd5ad33bf055",
+   "size": 10446
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/monitoring/instrumentation.py",
+   "sha256": "124ad9696891af346f48ac48515c7f98ba1d11ad6d69444a193bc9d79b991648",
+   "size": 12729
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/monitoring/metrics.py",
+   "sha256": "03793e1b19b5ff2b40d7ce021b4c45f35be8e07f5394b4d224403acfde09c91e",
+   "size": 5241
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/monitoring/profiler.py",
+   "sha256": "d716a752969cf66c8c1c39ee49b54d3e2844f94260a496871b147af997de0032",
+   "size": 9510
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/persona/__init__.py",
+   "sha256": "c68a75f22272207f1d839c4f8c9120abfd61e53d4f4d8736ad82a0402926ed89",
+   "size": 501
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/persona/persona_backup_manager.py",
+   "sha256": "489dcb293c5e7e0ea39fc47c55b915032ca5cc5b10595eaa9cd10960197ceace",
+   "size": 16172
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/persona/persona_manager.py",
+   "sha256": "c54f130f97a97e6e19dda3a5447924f16d08e576faf05234f78caf208f84c907",
+   "size": 6774
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/persona/persona_manager_updater.py",
+   "sha256": "c4839f1b8e69b62e40723af81785fd16a7108d71398913069b455a41ced83126",
+   "size": 16112
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/persona/persona_updater.py",
+   "sha256": "0b9c8b6d7c89e1a01784c23057f58823f80c90d6de28b83a0a5f6e5ab926030a",
+   "size": 57748
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/persona/temporary_persona_updater.py",
+   "sha256": "8bcb8b72a9605470443121b25879f2a7c0e216980c897df3c02f83baad62f4ee",
+   "size": 68885
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/quality/__init__.py",
+   "sha256": "f2c760dd5055f47a28ec4d8f3f47ac261c5d7b6388b08eb84d1d35ec600ae1fd",
+   "size": 526
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/quality/conversation_goal_manager.py",
+   "sha256": "c74f828e1144f0b15b09b4ab1417ea7ad389bef15427fb6e24c4fd5aa0dd1f47",
+   "size": 53628
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/quality/learning_quality_monitor.py",
+   "sha256": "2bf00d5bf260535c9225193e33331f8fc684765d87bdcaf60ed521ea22340385",
+   "size": 28503
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/quality/tiered_learning_trigger.py",
+   "sha256": "4088460ad86f59614ac5a16c626b15f71ac8eab4f5b7f0c031270adc39f245b9",
+   "size": 11358
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/reranker/__init__.py",
+   "sha256": "f35e25b735a596ab26de37fa43383c746b5a028e02079556017337607420d8ac",
+   "size": 684
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/reranker/base.py",
+   "sha256": "c6768e2a04bd8d9bb20b362b93c0a7570fd1495819088ce20ba62f3590b78d66",
+   "size": 1770
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/reranker/factory.py",
+   "sha256": "e9ec4fd3d41a2f165d2a91881ead7ee1fadd1f3fbf75a72dc5d91ccd692fe5a1",
+   "size": 5110
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/reranker/framework_adapter.py",
+   "sha256": "9207162947acee08e4676029d08296489efce4d829bd120045cbf642827f103f",
+   "size": 2644
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/response/__init__.py",
+   "sha256": "a5c2264e370b202f49e8b280462f37d8cb4be8625598a832333d3b282bfedfe7",
+   "size": 509
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/response/intelligent_chat_service.py",
+   "sha256": "2cfb1c90f708f39e964d2e54b484506e86e40a639dc917354df9dc459cb47121",
+   "size": 5529
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/response/intelligent_responder.py",
+   "sha256": "4ba8d5c9972767c443f3832f24d66301da0e629f564614b63c3a9e82e69d450b",
+   "size": 38267
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/response/prompt_sanitizer.py",
+   "sha256": "22a32812ae55ed82e38fe94da389e239048af4068fea8fd5f5f6ebe54d8e95ee",
+   "size": 25227
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/response/response_diversity_manager.py",
+   "sha256": "f5945a372b1fb5fd83ab46e73700dd854bf7883f9ab52a7fcecd1bb51b412592",
+   "size": 21091
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/response/style_analyzer.py",
+   "sha256": "31b13083bee37220df28929cd2481a323853722020c2757d61dbfd5af82b5f5f",
+   "size": 18075
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/social/__init__.py",
+   "sha256": "d0af67de0f59c63e923480f8b7ca79792c45b8945a3c865a117db3a4b13b7e41",
+   "size": 554
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/social/enhanced_social_relation_manager.py",
+   "sha256": "c3a8027be8fc5cd2b015c87f2a4eaa976775a442b043cbce9d97b9d5f6b7cf39",
+   "size": 28978
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/social/message_relationship_analyzer.py",
+   "sha256": "6787d52bba3f0c65122bd50804496270425f48f32961c841b1a2d4982740e257",
+   "size": 19999
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/social/social_context_injector.py",
+   "sha256": "4016872dde4f67667d20cc5a106a860df40495d8172c477fbbdb039a401d1e83",
+   "size": 47381
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/social/social_graph_analyzer.py",
+   "sha256": "513ef957aa51c1f7713c2c30f34422b2191632d3cc5a6aa4ac8af7a3083448d3",
+   "size": 12025
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/social/social_relation_analyzer.py",
+   "sha256": "b1e05190edc43c00d05eac8904ea37ef070fc1b88a2c0f74bdfbc557fccc1818",
+   "size": 17578
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/state/__init__.py",
+   "sha256": "a7b4ad37903a4ff46ca6cab36cfb467bcd7d1c0a6170f5725da9346119ad5cf6",
+   "size": 698
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/state/affection_manager.py",
+   "sha256": "64e4b1604fb6533573655e53f140d703807ff26e6ca5a50972bd0397d8e46569",
+   "size": 48777
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/state/emotion_learning_gate.py",
+   "sha256": "4b9753f1a3c84d38979cfc5934d73b9eee21e06344abf377e79275ef9d6a7333",
+   "size": 14395
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/state/enhanced_interaction.py",
+   "sha256": "573cde39f359cf06bd3a976ddfe6c61f08b61eda530f67606db618fc6bdb6266",
+   "size": 25739
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/state/enhanced_memory_graph_manager.py",
+   "sha256": "767d1933657cb8d6f04c0d706790e06e493d64d33b1488719a912fffae50ec99",
+   "size": 28137
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/state/enhanced_psychological_state_manager.py",
+   "sha256": "af7758e7b8e7abb06ddb7cee0c4c99691d4928fa16801a324d62e0318143ef6a",
+   "size": 17820
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/services/state/time_decay_manager.py",
+   "sha256": "679ebcea18cd9bc3b3892c7a0195513e54c96629e4231369053726bba0fd020b",
+   "size": 13664
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/statics/__init__.py",
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "size": 0
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/statics/messages.py",
+   "sha256": "f9874c481e56aac5b06c84f8145e5bd142d343be6d1e87569067d474769d690d",
+   "size": 15999
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/statics/prompts.py",
+   "sha256": "2ee572e3b44d346e01a6dbf12fb7c9c99114e472cac09ca5b806416eafa7a57a",
+   "size": 21878
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/statics/temp_persona_messages.py",
+   "sha256": "cc6cd21faa936897a0f37d666fce0dcb373d6e62b25d4ad754edd8b297601cd3",
+   "size": 1658
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/utils/__init__.py",
+   "sha256": "4a90219bc7efb95d52bcb72d6d093ae6cdc468993a4ffc1dfb0a8ab08c4a4793",
+   "size": 1579
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/utils/cache_manager.py",
+   "sha256": "f0384bb0535feac5d46c1b8777b675d590d24303cbda3a82f59f0f640a738053",
+   "size": 11713
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/utils/framework_compat.py",
+   "sha256": "623003ba3b0e719b3b1700ed6501e04c56e3eb0afb3caa85d770cf8e1d465dd3",
+   "size": 3393
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/utils/guardrails_manager.py",
+   "sha256": "615832a7dd1bfc536a31899ec355b437818f69473ef60724124fec4da0b1bb7c",
+   "size": 23169
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/utils/json_utils.py",
+   "sha256": "bb3ffe12130c3fd10cff280e36f45545e4ac57f01938c45bc328a1d0ad0c0412",
+   "size": 15094
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/utils/logging_utils.py",
+   "sha256": "f12e1c08cda662b5685162bdcc10de74de4f97d36f463bd917ada7ec1536c48d",
+   "size": 4148
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/utils/persona_selection.py",
+   "sha256": "b67e2cd6752d5a6f26f2baaf6a4a87798e47af5b014e4c86e99419547684873c",
+   "size": 15230
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/utils/schema_validator.py",
+   "sha256": "316f6207ca27464f28093d9b2792aad373f38f0006ed69a2870aca568b9ccc79",
+   "size": 24213
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/utils/security_utils.py",
+   "sha256": "d65d61b2fecba73e6f10a5278ae0e26b1029a0a5e4995946451908de0dd22e14",
+   "size": 13371
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/utils/task_scheduler.py",
+   "sha256": "fc25faeaa26831d82d7a5c715c77ba94638651cc0b0f5ace4b3ce5654ec16517",
+   "size": 11674
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/utils/text_utils.py",
+   "sha256": "4dda4fad5a91b239d4302f2d8343b2f6014cd17c26f65eac418199777029cdd9",
+   "size": 1919
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/web_res/static/dashboard/index.html",
+   "sha256": "8dd71a23dc6d41c9ebade95d1f416088c17cf823382f7522e88033726797247c",
+   "size": 741
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/web_res/static/dashboard/assets/echarts-BFYZiO-4.js",
+   "sha256": "9027085df046d1ef59cc6141b0624a8ba22f22ddae264e7e45576e7048d99270",
+   "size": 603110
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/web_res/static/dashboard/assets/index-BD4t9wuY.js",
+   "sha256": "6257335a2e0f1fc62cbabe4ae830fea571e7f4efda98421d477e871eb7e4d69d",
+   "size": 169828
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/web_res/static/dashboard/assets/index-BLXMp6xA.css",
+   "sha256": "e0c5fe1aef495a4cb2e20c125fa7afd8e412188761eb649a86148f08e0e06f5f",
+   "size": 46050
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/web_res/static/fonts/Gotham-Book.woff2",
+   "sha256": "1a8ac6cf017d7acae3de429faf03cb28a9fbddae3b2b0907514d1cdd8a2d3126",
+   "size": 20064
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/web_res/static/html/change_password.html",
+   "sha256": "8df3b9f46f00913d4974be0d9f918ab267e1f4540f9a31f6d2a239be7aa27253",
+   "size": 6143
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/web_res/static/html/graph_share.html",
+   "sha256": "fb65adfa9e082ac7051ab7e61da6bdc2f514bf2c20ebae5448196590592b2a34",
+   "size": 28054
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/web_res/static/html/login.html",
+   "sha256": "afb12d1103004925e4638ba3d4e1ec817a7e9191df061741640ea0dd973223a0",
+   "size": 4777
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/web_res/static/img/bg.jpg",
+   "sha256": "706b82bb21f7be9ccd8c5748ce676c31855fe342450cd96139883460b42e9c82",
+   "size": 82554
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/web_res/static/img/logo.png",
+   "sha256": "22544602cc6c1d57517f53d1aa6f85eca36d46c477d3daee98b2d3fe603d9bc3",
+   "size": 227041
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/web_res/static/vendor/echarts.min.js",
+   "sha256": "1156429a16a38cb8604dcc6518c19406d4226142d908f8edd2e3531443c54d19",
+   "size": 1024740
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/web_res/static/vendor/material-icons/LICENSE",
+   "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+   "size": 11358
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/web_res/static/vendor/material-icons/material-icons.css",
+   "sha256": "87229031256becf38b1a3c44701f8047e41cb89598571f31039ed65b50e7be5c",
+   "size": 3314
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/web_res/static/vendor/material-icons/material-icons.woff",
+   "sha256": "fd84f88b497040d4f7d5e8c9f8635aef8d3e706c0fa52e2b6facf14eee87e522",
+   "size": 164912
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/web_res/static/vendor/material-icons/material-icons.woff2",
+   "sha256": "8265f64786397d6b832d1ca0aafdf149ad84e72759fffa9f7272e91a0fb015d1",
+   "size": 128352
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/__init__.py",
+   "sha256": "46d3d646beda3021d4456fb5eb71bd1e5448886b7ec56a231922dc836f3545b3",
+   "size": 318
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/app.py",
+   "sha256": "f5a59687b06ba5e86a7fb789a72ad61fae44e74882ef6dbd636bf386cc8bfc46",
+   "size": 4690
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/compat.py",
+   "sha256": "81d0bd85723ed7388d56d2e8f425ad886fa882af294b2fe1f2ec7e1ba8d5fc1f",
+   "size": 27546
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/config.py",
+   "sha256": "00ccd8096f1b4ffc12d3722f09cfea9cbc152fdf700d7e44922610bacb892b23",
+   "size": 1762
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/dependencies.py",
+   "sha256": "44b4775b4cee21676c92044a314766f499d495bf2a066ef25bb38ae4915a50da",
+   "size": 10273
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/frontend_builder.py",
+   "sha256": "f54f4022abd7dd57d15b1da2d9f017a69f0abb10e93fb78c1a644f444e959c65",
+   "size": 5468
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/manager.py",
+   "sha256": "560f7e9a9a82907ddb1175dfc243f6f08719a910e43b49527e8be8a819c9b1a7",
+   "size": 13214
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/server.py",
+   "sha256": "c7b356d9af720d3613a9e130176cb1fa6c2db0a97665b7223aa63acf1cf83ee1",
+   "size": 8668
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/__init__.py",
+   "sha256": "015e9d8767536503a4e1f6cb6f226740c108375abe8386e57f1223ba4c522f95",
+   "size": 2271
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/auth.py",
+   "sha256": "c501dacc4a0027e80d8672be35c01a269a47976c58234c634bb04770dd008a2a",
+   "size": 8668
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/bug_report.py",
+   "sha256": "ba58765b0c40238cdb119f1f28bae0a99053406da9a436d6281fd8a892534683",
+   "size": 2335
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/chat.py",
+   "sha256": "f65b220c1247a50e5d1ba19137ca75481e9142e6751c7582d96558fa6f80a253",
+   "size": 3342
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/config.py",
+   "sha256": "6e44a5ed6771f6ac9a32f127ab04879b367bf41eef7eeed0041c54a57325a8f2",
+   "size": 10709
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/data_management.py",
+   "sha256": "33ebe4cd1e546ff4f64d726bfb7a271e09da26311e73bd9f09c2e2f136e104b5",
+   "size": 5602
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/emotion.py",
+   "sha256": "2825f1fbd52291de8783253301130b9eb1d08bc4f8cc1d1227294466547a25b3",
+   "size": 1985
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/graph_share.py",
+   "sha256": "979557e9553adfe66bfe16d957d2605af942ec4e05f268c64bce6a762ec541c6",
+   "size": 3358
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/graphs.py",
+   "sha256": "26afd58012472cf093e32dfbb88625577661533259443e65b9e1f137b0dad37c",
+   "size": 1717
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/hub.py",
+   "sha256": "07800daa352f97a99bb65d046661be0c4743ba41e277907874e7bd95a1931fc7",
+   "size": 4217
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/integrations.py",
+   "sha256": "4bd487d79e5d0d2a418e1fc554ddcfb7c704522961c42d147855f726231e770d",
+   "size": 10495
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/intelligent_chat.py",
+   "sha256": "bdf8e7e51de6de002fc6a920c04df53c061a8ea23b42639aa0788f6f714d94d3",
+   "size": 4614
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/jargon.py",
+   "sha256": "94634081298145fef21c1ba0f167f78bd1b5d9d1754a030846319561228bf531",
+   "size": 16601
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/learning.py",
+   "sha256": "a2530cd1a02a22100ffeafafb2c401853e9ddb20d688f4858bf8fddbd6c7b240",
+   "size": 29328
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/metrics.py",
+   "sha256": "4b4ab6322a1c63c7654f159e7bf95d911bc209b22fefa2390ae55db557ead44f",
+   "size": 21999
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/monitoring.py",
+   "sha256": "675447fd739ee2aa424c7201511bff9098751f95372040502add9e360ea4a43d",
+   "size": 10126
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/persona_reviews.py",
+   "sha256": "86046a9a36ef61bfdce60ff0c4d0690fc02d7f34f8762cb36e2ffd29217d515c",
+   "size": 7154
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/personas.py",
+   "sha256": "b191fe073b2212e428ef633781580795796346cd4390564f6c6489b1d00fa531",
+   "size": 11149
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/shadow_mode.py",
+   "sha256": "63e9dcd7448db4e2b4c68bed9754dc9a783f2c53a74c7266e6d9588f78a20053",
+   "size": 3513
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/blueprints/social.py",
+   "sha256": "9f3d09bc7dcaf71bd3c46c97dfeb0e0be3ba0c9b7ea1c986b5b50c015120fe4d",
+   "size": 6203
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/middleware/__init__.py",
+   "sha256": "e56f8f06084242602773cf57eb166173d668bd127a99ef9b307613cea642acf7",
+   "size": 199
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/middleware/auth.py",
+   "sha256": "f7f46fff32680a5365f1410c82bdf2de9ade8fa9d3b5c00d2d42146b0034776f",
+   "size": 1241
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/middleware/error_handler.py",
+   "sha256": "447c22b783515144ec446753cf2862b73b1663829ef798483da6ab42ffa3e1a9",
+   "size": 1288
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/middleware/hub_aspects.py",
+   "sha256": "b52e585e21ba427d00702220bdc6d525d38a5e3317bf9111b6a1bec6957d4388",
+   "size": 5553
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/middleware/local_guard.py",
+   "sha256": "26a5488c6d93a4d2b7c71e59d8d61a0f446770c5dba11f308a08a2ea0f1af297",
+   "size": 5172
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/__init__.py",
+   "sha256": "ab3921c2f36dfb0d862ca8e0942b38e3c7760d14ede400b474dfad20da5c15e2",
+   "size": 893
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/auth_service.py",
+   "sha256": "ab4517d499602bf03c1bd31536707ce15f818b8970b7bb0b1787e6420ece898a",
+   "size": 15768
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/bug_report_service.py",
+   "sha256": "378f0e25db9770ac7f897f4b968743128f15f0319c4b7d0cbcebae0054c2b465",
+   "size": 8641
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/chat_service.py",
+   "sha256": "9b8d45fcbf05054d61e6aa5e2b3be4f1304239d1228575b5705f5de98a9e0e58",
+   "size": 3761
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/config_service.py",
+   "sha256": "76a464db641984a409956389c30cec5daab44ccb43f2efb54bd4d8cbe154f296",
+   "size": 76693
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/data_management_service.py",
+   "sha256": "d1478061a5fb9467746c22b2bcd940eb0d452ed639bc03a4191d1e8014d0469a",
+   "size": 9610
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/emotion_board_service.py",
+   "sha256": "fd7c9a995e72978379d0ab6864f759b89631939c823b1223495abb9907c6388d",
+   "size": 13943
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/graph_service.py",
+   "sha256": "85740cef8ae69d60d83a266cfe512e75810c86f0af04582c8e2769c6b9a16a46",
+   "size": 45068
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/graph_share_service.py",
+   "sha256": "f14dbafaf86c23c7a50abb739efe2bcb268b5d70d501f837fed6fa4a66800d1b",
+   "size": 8031
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/hub_service.py",
+   "sha256": "2638b48b75a7ca4c6fafb32ee1c26d855f09b27ec3e342a158f5e9958aa139d0",
+   "size": 20530
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/integration_service.py",
+   "sha256": "a61352cb312a2c69c5e52f532e1d9d43035efe47d85d035e305ea056b047b09b",
+   "size": 20285
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/jargon_service.py",
+   "sha256": "97e3cbb16b7ea888cda2da29b99e3a01a29a23dd9f9bedd6ca96c35c8d7120d0",
+   "size": 27583
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/learning_service.py",
+   "sha256": "cc0c770f617304cd129b4092478134f971e584b7a22f9cf387d2939a176e75c6",
+   "size": 19386
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/metrics_service.py",
+   "sha256": "e78813140b316cffcd9b2f63f87ae81db02b38d1ea684b146769eff6adea75d8",
+   "size": 9765
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/persona_backup_service.py",
+   "sha256": "03374a67fd5656d606a7f055a1238ad6848d19262d1e3dd64c033cc630f3fb69",
+   "size": 12006
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/persona_review_service.py",
+   "sha256": "628e183f77ad7f4c9be433da32c40aef947ee268210b528d1c991ae6a684429d",
+   "size": 70866
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/persona_service.py",
+   "sha256": "0df9481bb0fdebfe0963c938eb53b36e86d42df45a8c76eba9868333e1552444",
+   "size": 13980
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/services/social_service.py",
+   "sha256": "1d7278fc882c0bc580d76de837088efc38f1f1506fba3774aa8efe5fd47fbfca",
+   "size": 12736
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/utils/__init__.py",
+   "sha256": "a5a5b01e409d4a2fee9fa1304a8a328773ee140491208ac93a28559efa68dff2",
+   "size": 50
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_self_learning/webui/utils/response.py",
+   "sha256": "0f5b727806381cdc2a958a4b38d8e8d6b6dd9dd9e13e09633beacfe61f263026",
+   "size": 1740
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_sticker_sense/LICENSE",
+   "sha256": "0b974052fa555acf26ebb018194a9e77a952c1cdd94e02e85a0b85f567254af0",
+   "size": 1068
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_sticker_sense/README.md",
+   "sha256": "f077324c45743bfd3e52c6c4b615cec8bad2d7327e99e4bad78e23f64d8450c6",
+   "size": 6157
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_sticker_sense/_conf_schema.json",
+   "sha256": "c85e4d325f206ebee0e843d63e9992740f5c3a62d3ab28dbe41c80c4b73ff6f7",
+   "size": 2309
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_sticker_sense/backlog.md",
+   "sha256": "f672ff9060680f24d45060d2f32ea2198752ef91e1a70e95629617c6d07de090",
+   "size": 2825
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_sticker_sense/detector.py",
+   "sha256": "c142905810551a443d78bdede7347e4c51020e19c6c758f440ea21611e3a85da",
+   "size": 11604
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_sticker_sense/face_map.py",
+   "sha256": "a25fc2aa05e9d7e7d4dfba13e10d132801de689392b88328310770d65a0ee3c3",
+   "size": 3242
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_sticker_sense/logo.png",
+   "sha256": "3de969eb7d0f66b705a45dd5d567983653da584ead55c388c46dc53686442bf2",
+   "size": 262347
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_sticker_sense/main.py",
+   "sha256": "59a756deb83b7ecf5bfbfd6b90925646a50b8df22ea4d8fcfc3400c4d330b6bf",
+   "size": 12552
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_sticker_sense/metadata.yaml",
+   "sha256": "233bd5fb40bc79e0f6426755dc2699df2d9d49071ec9ce31e7f82ef306439be7",
+   "size": 1142
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_sticker_sense/objective.md",
+   "sha256": "19615cfd6516e6768b339c57dece98a5e8916b2229b827c82d34ecea13c3956d",
+   "size": 5705
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_sticker_sense/requirements.txt",
+   "sha256": "e36848f673847de9ea26fbde287f64d9f34bb0fe7b0546beeeb612148544c4d8",
+   "size": 15
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_sticker_sense/test_plan.md",
+   "sha256": "d6e9d717c6c088d207762bf37b8b74bb34b8e09c8afea211169fe293d4fb43c5",
+   "size": 2334
+  },
+  {
    "path": "plugins_src/astrbot_plugin_weather/CHANGELOG.md",
    "sha256": "f68a712daa6f7b550b10910412f0fac1fe20f9a5a320f5a8c58c8801292ae43a",
    "size": 2828
@@ -2361,8 +3886,8 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_sing/main.py",
-   "sha256": "e00ab778937b026f344f83d88c03388d2762fe474519aabe713fb8252a2522e0",
-   "size": 38275
+   "sha256": "e58d43f42ff3efc79e83630e4f1ec0153efdd39e43486536311495b5fd456108",
+   "size": 38569
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_sing/metadata.yaml",
@@ -2383,6 +3908,11 @@
    "path": "plugins_src/astrbot_plugin_whale_sing/theme_songs.py",
    "sha256": "a23963888d2ef0b16ba9be978d486e3efe6fa74a22c07945cf9462c4a7a8cc83",
    "size": 10588
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_sing/scripts/cover_gateway.py",
+   "sha256": "85fd5554135fa2954955c8b5e8239634c92dbd63fc56bcd4833ae0db8f56b7aa",
+   "size": 14286
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_sing/scripts/separate_stems.py",
