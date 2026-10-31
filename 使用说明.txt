@@ -189,8 +189,9 @@ master_title 只设置主人称呼，不授予身份；主人询问是否认得�
 重启后如提示找不到会话，可先在目标群与机器人说一句话，再重试。
 
 扩展插件（第三方，随更新包安装）：
-- 消息防抖（astrbot_plugin_debounce）：对方连续发几条没说完的话时，等说完（最多10秒）合并成一条再回复。
-  第一次启动会从 ModelScope 下载一个小判断模型；WebUI → 插件 → 消息防抖 可关 enabled 或调 timeout_seconds。
+- 消息防抖（astrbot_plugin_debounce）：对方连续发几条没说完的话时，等说完（最多等6秒）合并成一条再回复。
+  用本机小模型判断一句话是否说完（已下载在 data/plugin_data/astrbot_plugin_debounce/），send_threshold=0.6；
+  WebUI → 插件 → 消息防抖 可关 enabled，或调 send_threshold（越高越爱等）和 timeout_seconds。
 - 表情感知（astrbot_plugin_sticker_sense）：区分对方发的是表情包还是普通照片，引导自然接梗，
   不改人设。/sticker status 查看状态，/sticker toggle 开关。
 - QQ 表情转文字（astrbot_plugin_qq_face_to_text）：把 QQ 小黄脸转成文字意思。官方机器人平台本身已把

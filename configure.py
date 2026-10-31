@@ -215,6 +215,8 @@ def configure_addon_defaults(chat_pid: str):
         "Runtime_Internal_Settings": {"enable_llm_hooks": True},
         "Integration_Settings": {"delegate_memory_to_livingmemory": True},
     })
+    # 消息防抖: 0.8 holds greetings like 「大肥鱼你好呀」(~0.63) for the full wait; be snappier.
+    merge_plugin_config("astrbot_plugin_debounce_config", {"send_threshold": 0.6, "timeout_seconds": 6})
     # AI点歌 (matsuko_cover): only the local RVC gateway (scripts/cover_gateway.py on :3333).
     merge_plugin_config("astrbot_plugin_matsuko_cover_config", {
         "rvc_base_url": "http://127.0.0.1:3333/",
