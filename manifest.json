@@ -1,13 +1,18 @@
 {
- "version": 1793430160,
- "ref": "754ced99679d0f73fee949821f7fcd5426595feb",
- "generated": "2026-10-31T15:02:40+0800",
+ "version": 1793432333,
+ "ref": "dc2b4831c38d6ab6b6528ce8c1990e8b6b826e2a",
+ "generated": "2026-10-31T15:38:53+0800",
  "note": "WhaleBot content update. Stickers CC BY-NC-SA 4.0, see stickers/CREDITS.md",
  "files": [
   {
    "path": "configure.py",
-   "sha256": "bd4dbea614505fa4b24778f3da8455d59d33569fe377c8b6b83d306790f99f06",
-   "size": 12854
+   "sha256": "2e9da3a875106f791dc06409dcf43f775e6a1e72b8ced48e1b1135ab9e45749e",
+   "size": 12630
+  },
+  {
+   "path": "使用说明.txt",
+   "sha256": "5291057b8b3a58b1aff1f36976230cba5410fce96947ddcb428853f5f875ff8c",
+   "size": 32083
   },
   {
    "path": "stickers/CREDITS.md",
@@ -776,8 +781,8 @@
   },
   {
    "path": "persona/system_prompt.txt",
-   "sha256": "6370e0fca0fab2431d282940fed42556eb4effc1e2559c7dc1c2c449580a4b94",
-   "size": 9147
+   "sha256": "5f3dbdaa4efe7f8f1c9d452ed4e564e5bbbf168c2d56bee93a08b57d6d35c67e",
+   "size": 6802
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/CHANGELOG.md",
@@ -791,8 +796,8 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/README.md",
-   "sha256": "50ea698264a09952a4e3aff0426f48f2f4c1f016a6844a6f5b9e02b8cde88016",
-   "size": 1878
+   "sha256": "430c699aa0e9da018042ba014426335b5dea3b99e55f9582df46d2cc540dfebb",
+   "size": 1990
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/_conf_schema.json",
@@ -811,12 +816,12 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/main.py",
-   "sha256": "c734633dd7743df8b6f558bf733a68837c41ba0fe234742e20dbde90786b67c5",
-   "size": 20428
+   "sha256": "4a4dd82d4babbf9953b3e9e11e1047cc870dac324c38143aeb3008c8d0500fa0",
+   "size": 21164
   },
   {
    "path": "plugins_src/astrbot_plugin_GPT_SoVITS/metadata.yaml",
-   "sha256": "a7384d0d9edd93d7aba1f515aaa3ef02ceb8b1bd72f6b53d1a23b72dc24e2f14",
+   "sha256": "1f2cb4d1e3364d22a8d23ea5cc49b5e16c56756d749ecc6c14f867d79a43b1f3",
    "size": 298
   },
   {
@@ -916,8 +921,8 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_identity/main.py",
-   "sha256": "1fce3913f6e078d23c93b79d89f19370bc1d090407d18966b0e3ab04729530ca",
-   "size": 30612
+   "sha256": "5dd386b56be564fa13eace2b09638e9fcbe4b0a9ddfc124c0ac0d9da969964ba",
+   "size": 27828
   },
   {
    "path": "plugins_src/astrbot_plugin_identity/main.py.bak_pre_v011",
@@ -926,7 +931,7 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_identity/metadata.yaml",
-   "sha256": "0452a27ff6fad70d643b4f56f2961688093b158a0e0f0cc3c8d1d075bcd39fdb",
+   "sha256": "1f058d5dd0b52c907d550a1d3a5faea93f4784248fd388d759e6e2672433c371",
    "size": 290
   },
   {
@@ -2326,13 +2331,13 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_sing/README.md",
-   "sha256": "3d36802b0783854adc3798a80fe0018f1232aff3410e6866dce48afe1615345b",
-   "size": 7477
+   "sha256": "b399be11666dd8344d52547ad0bba4a8fe3a77da9bc8caf6a402472b5d6d87c9",
+   "size": 7445
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_sing/_conf_schema.json",
-   "sha256": "3e704b5d99bd20a2bb31993f06677f32f79cad9ff27529646ef462622288da7a",
-   "size": 5395
+   "sha256": "d2a0f78a7910096cc616b56067f877487e498da52b86d110a5f1970be6478cf5",
+   "size": 5398
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_sing/audio_processing.py",
@@ -2351,8 +2356,8 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_sing/generation.py",
-   "sha256": "e04e05fe4d21d7893c50d2d6dc503bd240ea12fe11d4b648cf31d93549ba5172",
-   "size": 6482
+   "sha256": "6731e30642b53388c6667a46ab553df450d5c751477e8092c6ca55025e278f9a",
+   "size": 6485
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_sing/main.py",
@@ -2405,19 +2410,34 @@
    "size": 499
   },
   {
+   "path": "plugins_src/astrbot_plugin_whale_stickers/README.md",
+   "sha256": "c6a8513c39d45606b0cc73522ccb60b3003710298006f4b41b84398d408e8c9b",
+   "size": 2254
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_stickers/_conf_schema.json",
+   "sha256": "2494294288d5136f48a199b96cd88bd5747f64045731d9811e4e5cb2edf8e52f",
+   "size": 827
+  },
+  {
+   "path": "plugins_src/astrbot_plugin_whale_stickers/catalog.py",
+   "sha256": "290461a7d705db4fc23d0c0d2fb160b833d05e025fd7500d9e806b5e9bdf067c",
+   "size": 9411
+  },
+  {
    "path": "plugins_src/astrbot_plugin_whale_stickers/expression_prefs.py",
    "sha256": "43185da79fd8e3798f265ae5298be54f2fbe962ceb3805742fdaba353d2c845d",
    "size": 1423
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_stickers/main.py",
-   "sha256": "80050895f792fe3332d009d6e22034b9b42733a003fecfb007d8ecede80d5b93",
-   "size": 18543
+   "sha256": "a0547b96c06b4af60d60e05eef46a19debef52df7ca478f0a63f568a8292658e",
+   "size": 15791
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_stickers/metadata.yaml",
-   "sha256": "2d239f852007ed9ea646c0daae4e6fe78d793c9ebabc2cf79997369d9d40ffd8",
-   "size": 233
+   "sha256": "650405d05645b08fc53ef8b32ece360c609f9720188e4329173cde4d0aaa418c",
+   "size": 236
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_stickers/reply_plan.py",
@@ -2426,22 +2446,22 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_wake/_conf_schema.json",
-   "sha256": "49a3fd1fff3665c7d912a98e7b7ca872c80afdc520432e710e688352d4192628",
-   "size": 961
+   "sha256": "79f6c88a752c92c1bd16719fa8bbe977d2cb2ddf1a05bac1167b2253e4bec9a8",
+   "size": 1777
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_wake/conversation_gate.py",
-   "sha256": "483dd6b8c65c771e26861c594e230773fa1f8748152e22224829c4d56e311bd6",
-   "size": 7422
+   "sha256": "0254b875253b9db6d4e75b87e2d7fb3e252e3ef953e93b621ea3b5ca3caae6f0",
+   "size": 7611
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_wake/main.py",
-   "sha256": "6fb23ad95796494288c7ced12251f510fe06b43fd056f58ad16ee1c85f43d162",
-   "size": 7777
+   "sha256": "4fa0ecd05ae764ecbc7adae1b4f193c2d3c476c3ce188d7037ebe8e714f3e340",
+   "size": 10336
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_wake/metadata.yaml",
-   "sha256": "0035825fff56d6a3f19d1981718a4d45192641f9f999e35643f8d2ddfa4b4a8e",
+   "sha256": "ff76e69a63faf71e8f8be3afa22b581902013eedcf6080a94f3bcf2b5e355edc",
    "size": 157
   }
  ],
