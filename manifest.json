@@ -1,7 +1,7 @@
 {
- "version": 1793179350,
- "ref": "51631b4a4d97a269e16d70a59a3be2a7c683aa0a",
- "generated": "2026-10-28T17:22:30+0800",
+ "version": 1793430160,
+ "ref": "754ced99679d0f73fee949821f7fcd5426595feb",
+ "generated": "2026-10-31T15:02:40+0800",
  "note": "WhaleBot content update. Stickers CC BY-NC-SA 4.0, see stickers/CREDITS.md",
  "files": [
   {
@@ -2411,8 +2411,8 @@
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_stickers/main.py",
-   "sha256": "0311bcd0adb9c8bda97afbecb7bb8c8ae20911c2a53541f3c8eef5829b4adce8",
-   "size": 17001
+   "sha256": "80050895f792fe3332d009d6e22034b9b42733a003fecfb007d8ecede80d5b93",
+   "size": 18543
   },
   {
    "path": "plugins_src/astrbot_plugin_whale_stickers/metadata.yaml",
